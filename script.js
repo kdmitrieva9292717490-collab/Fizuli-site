@@ -49,18 +49,24 @@
 // Страница коллекции (?collection=huracan/patchi, переход из мегаменю) —
 // показывает только карточки с data-collection, остальные (включая видео)
 // скрывает. Клонов и 5-плиточной сетки тут не нужно — коллекция уже
-// представлена собственным набором разных товаров, а не одним демо-фото
+// представлена собственным набором разных товаров, а не одним демо-фото.
+// Её баг-репорт (2026-09-14): раздел «Вы недавно смотрели» пропадал целиком —
+// он неправильно попадал в ту же область видимости/скрытия, что и основная
+// сетка каталога, хотя у его карточек нет и не должно быть data-collection.
+// «Вы недавно смотрели» не должен зависеть от фильтра по коллекции вообще —
+// область действия сужена только до .catalog-section
 (function () {
   const requestedCollection = new URLSearchParams(location.search).get('collection');
   if (!requestedCollection) return;
   const collection = requestedCollection.trim();
 
-  const scope = document.querySelector('.catalog-section, .recently-viewed')?.closest('main') || document;
-  const collectionCards = scope.querySelectorAll('.catalog-section .product-card[data-collection], .recently-viewed .product-card[data-collection]');
+  const scope = document.querySelector('.catalog-section');
+  if (!scope) return;
+  const collectionCards = scope.querySelectorAll('.product-card[data-collection]');
   const matches = Array.from(collectionCards).filter((c) => c.dataset.collection === collection);
   if (!matches.length) return;
 
-  const otherCards = scope.querySelectorAll('.catalog-section .product-card:not([data-collection]), .recently-viewed .product-card:not([data-collection])');
+  const otherCards = scope.querySelectorAll('.product-card:not([data-collection])');
   otherCards.forEach((c) => { c.hidden = true; });
   collectionCards.forEach((c) => { if (!matches.includes(c)) c.hidden = true; });
 
