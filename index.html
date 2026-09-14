@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizuli — Главная</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=202609242">
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА: зафиксирована при скролле (position: fixed в CSS) -->
+  <header class="site-header">
+    <div class="site-header__left">
+      <a href="/" class="logo" aria-label="Fizuli — на главную">FIZULI</a>
+      <nav class="nav" id="mainNav">
+        <a href="#" class="nav__link" data-megamenu-trigger="man">мужчинам</a>
+        <a href="#" class="nav__link" data-megamenu-trigger="woman">женщинам</a>
+      </nav>
+    </div>
+
+    <!-- Мегаменю — взято из компонента Header/Megamenu (варианты OpenMan/OpenWoman
+         в Figma), а не из той упрощённой копии, что была раньше. У мужской и женской
+         версии разный набор ссылок, у каждой — два выпадающих аккордеона с категориями.
+         В макете есть ещё 2 картинки-превью справа (368×540 каждая) — пока серые
+         плашки, вставлю их в следующий проход по фото -->
+    <div class="megamenu is-hidden" id="megamenu-man" data-megamenu="man">
+      <div class="megamenu__col">
+        <div class="megamenu__group">
+          <p class="megamenu__label">Коллекции</p>
+          <a href="men.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="men.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="megamenu__group">
+          <p class="megamenu__label">Каталог</p>
+          <a href="#" class="megamenu__link">новинки</a>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-men.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-men.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-men.html?category=жилеты" class="megamenu__link">жилеты</a>
+              <a href="casual-men.html?category=кардиганы" class="megamenu__link">кардиганы</a>
+              <a href="casual-men.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-men.html?category=куртки" class="megamenu__link">куртки</a>
+              <a href="casual-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="casual-men.html?category=рубашки" class="megamenu__link">рубашки</a>
+              <a href="casual-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-men.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="sport-men.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-men.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="sport-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="sport-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+      </div>
+      <div class="megamenu__col">
+        <p class="megamenu__label">Покупателям</p>
+        <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+        <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+        <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+    </div>
+
+    <div class="megamenu is-hidden" id="megamenu-woman" data-megamenu="woman">
+      <div class="megamenu__col">
+        <div class="megamenu__group">
+          <p class="megamenu__label">Коллекции</p>
+          <a href="women.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="women.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="megamenu__group">
+          <p class="megamenu__label">Каталог</p>
+          <a href="#" class="megamenu__link">новинки</a>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-women.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-women.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-women.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-women.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-women.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-women.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-women.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-women.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+      </div>
+      <div class="megamenu__col">
+        <p class="megamenu__label">Покупателям</p>
+        <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+        <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+        <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+    </div>
+
+    <div class="site-header__right">
+      <button class="icon-btn" aria-label="Поиск" type="button" id="searchTrigger">
+        <span class="icon icon--search" aria-hidden="true"></span>
+      </button>
+      <a href="account.html" class="icon-btn" aria-label="Личный кабинет" data-auth-trigger>
+        <span class="icon icon--user" aria-hidden="true"></span>
+      </a>
+      <a href="wishlist.html" class="icon-btn icon-btn--badged" aria-label="Избранное">
+        <span class="icon icon--favorite" aria-hidden="true"></span>
+        <span class="count-badge">1</span>
+      </a>
+      <button class="icon-btn icon-btn--badged" aria-label="Корзина" type="button" id="cartTrigger">
+        <span class="icon icon--cart" aria-hidden="true"></span>
+        <span class="count-badge" id="cartCount">3</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- МОБИЛЬНАЯ ОБОЛОЧКА (хедер + полноэкранное меню) — параллельная разметка,
+       десктопные .site-header/.megamenu скрыты на мобильном через CSS
+       (брейкпоинт 767px). Источник в Figma: Mob/Header/Megamenu
+       (состояния Close/OpenMan/OpenWoman) — не дропдаун, а страница целиком.
+       Категории внутри — те же самые ссылки, что и в десктопном мегаменю выше,
+       просто в другой обёртке (аккордеон .megamenu-accordion переиспользован как есть) -->
+  <header class="mob-header">
+    <div class="mob-header__left">
+      <button class="icon-btn icon-btn--mob" type="button" id="mobMenuOpen" aria-label="Меню">
+        <span class="icon icon--hamburger" aria-hidden="true"></span>
+      </button>
+      <a href="/" class="logo logo--mob" aria-label="Fizuli — на главную">FIZULI</a>
+    </div>
+    <div class="mob-header__actions">
+      <button class="icon-btn icon-btn--mob" type="button" aria-label="Поиск" id="mobSearchTrigger">
+        <span class="icon icon--search" aria-hidden="true"></span>
+      </button>
+      <a href="wishlist.html" class="icon-btn icon-btn--mob icon-btn--badged" aria-label="Избранное">
+        <span class="icon icon--favorite" aria-hidden="true"></span>
+        <span class="count-badge">1</span>
+      </a>
+      <button class="icon-btn icon-btn--mob icon-btn--badged" type="button" aria-label="Корзина" id="mobCartTrigger">
+        <span class="icon icon--cart" aria-hidden="true"></span>
+        <span class="count-badge" id="mobCartCount">3</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mob-menu" id="mobMenu">
+    <div class="mob-menu__header">
+      <div class="mob-header__left">
+        <button class="icon-btn icon-btn--mob" type="button" id="mobMenuClose" aria-label="Закрыть меню">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+        <a href="/" class="logo logo--mob" aria-label="Fizuli — на главную">FIZULI</a>
+      </div>
+      <div class="mob-header__actions">
+        <button class="icon-btn icon-btn--mob" type="button" aria-label="Поиск">
+          <span class="icon icon--search" aria-hidden="true"></span>
+        </button>
+        <a href="wishlist.html" class="icon-btn icon-btn--mob icon-btn--badged" aria-label="Избранное">
+          <span class="icon icon--favorite" aria-hidden="true"></span>
+          <span class="count-badge">1</span>
+        </a>
+        <button class="icon-btn icon-btn--mob icon-btn--badged" type="button" aria-label="Корзина">
+          <span class="icon icon--cart" aria-hidden="true"></span>
+          <span class="count-badge">3</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mob-menu__body">
+      <div class="mob-gender-tabs">
+        <a href="#" class="nav__link nav__link--current" data-mob-gender-tab="man">мужчинам</a>
+        <span class="mob-gender-tabs__sep">/</span>
+        <a href="#" class="nav__link" data-mob-gender-tab="woman">женщинам</a>
+      </div>
+
+      <div data-mob-gender-panel="man">
+        <div class="mob-menu-section">
+          <p class="mob-menu-section__label">Коллекции</p>
+          <a href="men.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="men.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Каталог</p>
+          <a href="new-arrivals.html" class="megamenu__link">новинки</a>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-men.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-men.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-men.html?category=жилеты" class="megamenu__link">жилеты</a>
+              <a href="casual-men.html?category=кардиганы" class="megamenu__link">кардиганы</a>
+              <a href="casual-men.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-men.html?category=куртки" class="megamenu__link">куртки</a>
+              <a href="casual-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="casual-men.html?category=рубашки" class="megamenu__link">рубашки</a>
+              <a href="casual-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-men.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="sport-men.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-men.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="sport-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="sport-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Покупателям</p>
+          <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+          <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+          <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+        </div>
+      </div>
+
+      <div data-mob-gender-panel="woman" hidden>
+        <div class="mob-menu-section">
+          <p class="mob-menu-section__label">Коллекции</p>
+          <a href="women.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="women.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Каталог</p>
+          <a href="new-arrivals-women.html" class="megamenu__link">новинки</a>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-women.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-women.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-women.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-women.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-women.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-women.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-women.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-women.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Покупателям</p>
+          <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+          <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+          <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+        </div>
+      </div>
+
+      <div class="mob-menu__login">
+        <span class="icon-btn icon-btn--mob"><span class="icon icon--user" aria-hidden="true"></span></span>
+        <a href="account.html" class="nav__link" data-auth-trigger>войти</a>
+        <span class="mob-gender-tabs__sep">/</span>
+        <a href="account.html" class="nav__link" data-auth-trigger>зарегистрироваться</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Поиск — из компонента Header/Search (State=Default) в Figma.
+       Полноценную выдачу результатов не делаю — у нас нет настоящей базы товаров,
+       которую можно было бы искать. Честная логика: пусто в поле — показываем
+       "часто ищут"/"популярные", что-то введено — показываем состояние
+       "ничего не нашлось" (State=EmptyResults), тоже из макета. Подключить
+       реальный поиск можно будет, когда появится каталог с данными -->
+  <div class="search-overlay is-hidden" id="searchOverlay">
+    <div class="search-panel">
+      <div class="search-bar">
+        <div class="search-bar__field">
+          <span class="icon icon--search" aria-hidden="true"></span>
+          <input type="text" class="search-bar__input" id="searchInput" placeholder="Введите название товара" autocomplete="off">
+          <button class="icon-btn search-bar__clear is-hidden" type="button" aria-label="Очистить запрос" id="searchClear">
+            <span class="icon icon--close" aria-hidden="true"></span>
+          </button>
+        </div>
+        <button class="icon-btn search-bar__close" type="button" aria-label="Закрыть поиск" id="searchClose">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="search-content" id="searchContent">
+        <div class="search-frequent">
+          <h3 class="search-heading">часто ищут</h3>
+          <div class="search-frequent__list">
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>куртки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>рубашки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>брюки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>костюмы</button>
+          </div>
+        </div>
+
+        <div class="search-popular">
+          <h3 class="search-heading">популярные</h3>
+          <div class="search-popular__grid">
+            <article class="product-card">
+              <div class="product-card__gallery">
+                <div class="product-card__image product-card__image--cutout" style="background-image:url('assets/images/мужское/повседневное/Анорак1-Photoroom.png')" aria-hidden="true"></div>
+                <div class="product-card__image product-card__image--cutout product-card__image--fade" aria-hidden="true"></div>
+                <span class="badge badge--tag">новинка</span>
+                <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                  <span class="icon icon--favorite" aria-hidden="true"></span>
+                </button>
+                <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                  <span class="icon icon--cart" aria-hidden="true"></span>
+                </button>
+                <div class="product-card__hover-zones" aria-hidden="true">
+                  <span class="product-card__hover-zone"></span>
+                  <span class="product-card__hover-zone" data-hover-src="assets/images/мужское/повседневное/Анорак2-Photoroom.png"></span>
+                  <span class="product-card__hover-zone" data-hover-src="assets/images/мужское/повседневное/Анорак3-Photoroom.png"></span>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <ul class="color-list">
+                  <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                  <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                  <li class="color-swatch" style="--swatch-color:#595454"></li>
+                  <li class="color-list__more">+3</li>
+                </ul>
+                <div class="product-card__content">
+                  <p class="product-card__title">Анорак</p>
+                  <p class="product-card__price">12 500 ₽</p>
+                </div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-card__gallery">
+                <div class="product-card__image product-card__image--cutout product-card__image--cutout-top" style="background-image:url('assets/images/мужское/повседневное/Брюки1-Photoroom (1).png')" aria-hidden="true"></div>
+                <div class="product-card__image product-card__image--cutout product-card__image--cutout-top product-card__image--fade" aria-hidden="true"></div>
+                <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                  <span class="icon icon--favorite" aria-hidden="true"></span>
+                </button>
+                <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                  <span class="icon icon--cart" aria-hidden="true"></span>
+                </button>
+                <div class="product-card__hover-zones" aria-hidden="true">
+                  <span class="product-card__hover-zone"></span>
+                  <span class="product-card__hover-zone" data-hover-src="assets/images/мужское/повседневное/Брюки2-Photoroom (1).png"></span>
+                  <span class="product-card__hover-zone" data-hover-src="assets/images/мужское/повседневное/Брюки3-Photoroom.png"></span>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <ul class="color-list">
+                  <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                  <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                  <li class="color-swatch" style="--swatch-color:#595454"></li>
+                  <li class="color-list__more">+3</li>
+                </ul>
+                <div class="product-card__content">
+                  <p class="product-card__title">Брюки</p>
+                  <p class="product-card__price">12 500 ₽</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button type="button" class="link-btn search-popular__more">смотреть ещё</button>
+        </div>
+      </div>
+
+      <div class="search-empty is-hidden" id="searchEmpty">
+        <p class="search-empty__message">Ничего не нашлось по запросу «<span id="searchEmptyQuery"></span>». Проверьте, правильно ли введён запрос</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ГЛАВНЫЙ ЭКРАН (Hero-секция) -->
+    <section class="hero">
+      <div class="hero__media" id="heroMedia" style="background-image:url('assets/images/hero.png'); background-position:47% 46%; transform-origin:47% 46%" aria-hidden="true"></div>
+      <div class="hero__media hero__media--fade" id="heroMediaFade" aria-hidden="true"></div>
+
+      <div class="hero__caption">
+        <div class="hero__title-group">
+          <h1 class="hero__title">Patchi</h1>
+          <p class="hero__meta">
+            <span>коллекция</span>
+            <span class="hero__meta-divider" aria-hidden="true"></span>
+            <span>осень-зима 2026</span>
+          </p>
+        </div>
+        <a href="men.html?collection=patchi" class="btn btn--ghost-light">смотреть</a>
+      </div>
+
+      <div class="hero__arrows">
+        <button class="icon-btn icon-btn--arrow" aria-label="Предыдущий слайд" type="button" id="heroPrev">
+          <span class="icon icon--arrow-left" aria-hidden="true"></span>
+        </button>
+        <button class="icon-btn icon-btn--arrow" aria-label="Следующий слайд" type="button" id="heroNext">
+          <span class="icon icon--arrow-right" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="hero__pagination" id="heroPagination" aria-hidden="true">
+        <span class="hero__dot"><span class="hero__dot__fill"></span></span>
+        <span class="hero__dot"><span class="hero__dot__fill"></span></span>
+        <span class="hero__dot"><span class="hero__dot__fill"></span></span>
+      </div>
+
+      <div class="cookie-banner" role="region" aria-label="Уведомление об использовании cookie" id="cookieBanner">
+        <p class="cookie-banner__text">
+          Продолжая использовать сайт, вы соглашаетесь с&nbsp;порядком обработки персональных данных
+          и&nbsp;использованием файлов cookie в&nbsp;соответствии с&nbsp;<a href="policy.html" class="cookie-banner__link">Политикой конфиденциальности</a>
+        </p>
+        <div class="cookie-banner__actions">
+          <button class="btn btn--dark" type="button" id="cookieAccept">принять</button>
+          <a href="policy.html" class="btn btn--secondary">подробнее</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК «НОВИНКИ»: карусель карточек товара, ссылка на Каталог/Новинки.
+         В макете ровно 4 карточки помещаются без скролла: при 4 штуках список
+         занимает всю ширину контейнера (368*4 + gap*3 = 1520px), и на большинстве
+         экранов скроллить попросту нечего — обе стрелки гаснут, бегунок растягивается
+         почти на всю полосу. Поставила 6 карточек (заглушки, те же фото по кругу),
+         чтобы список реально не помещался и карусель — стрелки, ховер на них, бегунок —
+         были видны рабочими, а не «мёртвыми» -->
+
+    <section class="section novelties" id="novelties">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">новинки</h2>
+          <a href="new-arrivals.html" class="link-btn">перейти в раздел</a>
+        </div>
+
+        <div class="product-list">
+          <!-- Карточка товара — используется здесь и в блоке «Каталог».
+               Данные (фото/название/цена/цвета) в макете — заглушки, повторяются у всех карточек. -->
+
+          <article class="product-card">
+            <div class="product-card__gallery">
+              <div class="product-card__image" style="background-image:url('assets/images/novelty1.jpg')" aria-hidden="true"></div>
+              <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+              <span class="badge badge--tag">новинка</span>
+              <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                <span class="icon icon--favorite" aria-hidden="true"></span>
+              </button>
+              <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                <span class="icon icon--cart" aria-hidden="true"></span>
+              </button>
+              <!-- 3 невидимые зоны наведения на фото: при ховере на зону меняется фото товара —
+                   добавим на этапе поведения -->
+              <div class="product-card__hover-zones" aria-hidden="true">
+                <span class="product-card__hover-zone"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <ul class="color-list">
+                <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                <li class="color-swatch" style="--swatch-color:#595454"></li>
+                <li class="color-list__more">+3</li>
+              </ul>
+              <div class="product-card__content">
+                <p class="product-card__title">Костюм из жатой ткани</p>
+                <p class="product-card__price">8 500 ₽</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__gallery">
+              <div class="product-card__image" style="background-image:url('assets/images/novelty2.jpg')" aria-hidden="true"></div>
+              <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+              <span class="badge badge--tag">новинка</span>
+              <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                <span class="icon icon--favorite" aria-hidden="true"></span>
+              </button>
+              <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                <span class="icon icon--cart" aria-hidden="true"></span>
+              </button>
+              <div class="product-card__hover-zones" aria-hidden="true">
+                <span class="product-card__hover-zone"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <ul class="color-list">
+                <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                <li class="color-swatch" style="--swatch-color:#595454"></li>
+                <li class="color-list__more">+3</li>
+              </ul>
+              <div class="product-card__content">
+                <p class="product-card__title">Костюм из жатой ткани</p>
+                <p class="product-card__price">8 500 ₽</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__gallery">
+              <div class="product-card__image" style="background-image:url('assets/images/novelty3.jpg')" aria-hidden="true"></div>
+              <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+              <span class="badge badge--tag">новинка</span>
+              <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                <span class="icon icon--favorite" aria-hidden="true"></span>
+              </button>
+              <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                <span class="icon icon--cart" aria-hidden="true"></span>
+              </button>
+              <div class="product-card__hover-zones" aria-hidden="true">
+                <span class="product-card__hover-zone"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <ul class="color-list">
+                <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                <li class="color-swatch" style="--swatch-color:#595454"></li>
+                <li class="color-list__more">+3</li>
+              </ul>
+              <div class="product-card__content">
+                <p class="product-card__title">Костюм из жатой ткани</p>
+                <p class="product-card__price">8 500 ₽</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__gallery">
+              <div class="product-card__image" style="background-image:url('assets/images/novelty4.jpg')" aria-hidden="true"></div>
+              <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+              <span class="badge badge--tag">новинка</span>
+              <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                <span class="icon icon--favorite" aria-hidden="true"></span>
+              </button>
+              <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                <span class="icon icon--cart" aria-hidden="true"></span>
+              </button>
+              <div class="product-card__hover-zones" aria-hidden="true">
+                <span class="product-card__hover-zone"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <ul class="color-list">
+                <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                <li class="color-swatch" style="--swatch-color:#595454"></li>
+                <li class="color-list__more">+3</li>
+              </ul>
+              <div class="product-card__content">
+                <p class="product-card__title">Костюм из жатой ткани</p>
+                <p class="product-card__price">8 500 ₽</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__gallery">
+              <div class="product-card__image" style="background-image:url('assets/images/novelty1.jpg')" aria-hidden="true"></div>
+              <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+              <span class="badge badge--tag">новинка</span>
+              <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                <span class="icon icon--favorite" aria-hidden="true"></span>
+              </button>
+              <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                <span class="icon icon--cart" aria-hidden="true"></span>
+              </button>
+              <div class="product-card__hover-zones" aria-hidden="true">
+                <span class="product-card__hover-zone"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <ul class="color-list">
+                <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                <li class="color-swatch" style="--swatch-color:#595454"></li>
+                <li class="color-list__more">+3</li>
+              </ul>
+              <div class="product-card__content">
+                <p class="product-card__title">Костюм из жатой ткани</p>
+                <p class="product-card__price">8 500 ₽</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__gallery">
+              <div class="product-card__image" style="background-image:url('assets/images/novelty2.jpg')" aria-hidden="true"></div>
+              <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+              <span class="badge badge--tag">новинка</span>
+              <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                <span class="icon icon--favorite" aria-hidden="true"></span>
+              </button>
+              <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                <span class="icon icon--cart" aria-hidden="true"></span>
+              </button>
+              <div class="product-card__hover-zones" aria-hidden="true">
+                <span class="product-card__hover-zone"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <ul class="color-list">
+                <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                <li class="color-swatch" style="--swatch-color:#595454"></li>
+                <li class="color-list__more">+3</li>
+              </ul>
+              <div class="product-card__content">
+                <p class="product-card__title">Костюм из жатой ткани</p>
+                <p class="product-card__price">8 500 ₽</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-controls__arrows">
+            <button class="icon-btn icon-btn--arrow" aria-label="Предыдущие товары" type="button" disabled>
+              <span class="icon icon--arrow-left" aria-hidden="true"></span>
+            </button>
+            <button class="icon-btn icon-btn--arrow" aria-label="Следующие товары" type="button">
+              <span class="icon icon--arrow-right" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="scrollbar" aria-hidden="true">
+            <div class="scrollbar__thumb"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК «КАТАЛОГ»: сетка из 4 крупных плиток категорий.
+         Кнопка «перейти в каталог» в макете скрыта и появляется по ховеру на плитку —
+         это чистый CSS-ховер, без JS, поэтому сделала сразу -->
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">каталог</h2>
+          <a href="men.html" class="link-btn">смотреть весь каталог</a>
+        </div>
+
+        <div class="catalog-grid">
+          <a href="men.html?category=куртки" class="category-card">
+            <div class="category-card__image" style="background-image:url('assets/images/cat-jackets.jpg')" aria-hidden="true"></div>
+            <div class="category-card__dim" aria-hidden="true"></div>
+            <div class="category-card__overlay">
+              <span class="category-card__title">куртки</span>
+              <span class="category-card__btn">перейти в каталог</span>
+            </div>
+          </a>
+          <a href="men.html?category=брюки" class="category-card">
+            <div class="category-card__image" style="background-image:url('assets/images/cat-pants.jpg')" aria-hidden="true"></div>
+            <div class="category-card__dim" aria-hidden="true"></div>
+            <div class="category-card__overlay">
+              <span class="category-card__title">брюки</span>
+              <span class="category-card__btn">перейти в каталог</span>
+            </div>
+          </a>
+          <a href="men.html?category=футболки" class="category-card">
+            <div class="category-card__image" style="background-image:url('assets/images/cat-tshirts.jpg')" aria-hidden="true"></div>
+            <div class="category-card__dim" aria-hidden="true"></div>
+            <div class="category-card__overlay">
+              <span class="category-card__title">футболки</span>
+              <span class="category-card__btn">перейти в каталог</span>
+            </div>
+          </a>
+          <a href="men.html?category=костюмы" class="category-card">
+            <div class="category-card__image" style="background-image:url('assets/images/cat-sport.jpg')" aria-hidden="true"></div>
+            <div class="category-card__dim" aria-hidden="true"></div>
+            <div class="category-card__overlay">
+              <span class="category-card__title">спортивные<br class="category-card__title-break">костюмы</span>
+              <span class="category-card__btn">перейти в каталог</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК «ГОТОВЫЕ ОБРАЗЫ»: фото + 2 Hotspot, каждый открывает свою карточку товара.
+         Открытие по клику на Hotspot — добавим в script.js на этапе поведения,
+         сейчас карточки лежат в разметке скрытыми (.is-hidden) -->
+    <section class="section" id="lookbook">
+      <div class="lookbook-header container">
+        <h2 class="section-header__title">готовые образы</h2>
+        <nav class="lookbook-nav">
+          <a href="#" class="nav__link">для него</a>
+          <span class="lookbook-nav__divider" aria-hidden="true"></span>
+          <a href="#" class="nav__link nav__link--active">для неё</a>
+        </nav>
+      </div>
+
+      <div class="container">
+        <div class="lookbook-content">
+          <div class="lookbook-main">
+            <div class="lookbook-photo">
+              <div class="lookbook-photo__image" style="background-image:url('assets/images/lookbook-main.jpg')" aria-hidden="true"></div>
+
+              <button class="hotspot" style="left:194px; top:742px; --mob-left:275px; --mob-top:299px" type="button" aria-label="Показать вещь на фото" data-hotspot="1"></button>
+              <button class="hotspot" style="left:783px; top:547px; --mob-left:25px; --mob-top:426px" type="button" aria-label="Показать вещь на фото" data-hotspot="2"></button>
+
+              <!-- Позиция взята из макета -->
+              <div class="hotspot-card hotspot-card--2 is-hidden" data-hotspot-card="2">
+                <button class="hotspot-card__close" type="button" aria-label="Закрыть">
+                  <span class="icon icon--close" aria-hidden="true"></span>
+                </button>
+                <article class="product-card product-card--s">
+                  <div class="product-card__gallery product-card__gallery--s">
+                    <div class="product-card__image" style="background-image:url('assets/images/hotspot-anorak.jpg')" aria-hidden="true"></div>
+                    <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+                    <span class="badge badge--tag">новинка</span>
+                    <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                      <span class="icon icon--favorite" aria-hidden="true"></span>
+                    </button>
+                    <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                      <span class="icon icon--cart" aria-hidden="true"></span>
+                    </button>
+                    <div class="product-card__hover-zones" aria-hidden="true">
+                      <span class="product-card__hover-zone"></span>
+                      <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                      <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <ul class="color-list">
+                      <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                      <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                      <li class="color-swatch" style="--swatch-color:#595454"></li>
+                      <li class="color-list__more">+3</li>
+                    </ul>
+                    <div class="product-card__content">
+                      <p class="product-card__title">Анорак</p>
+                      <p class="product-card__price">8 500 ₽</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Позицию подобрала сама (в макете карточки для этой точки не было) -->
+              <div class="hotspot-card hotspot-card--1 is-hidden" data-hotspot-card="1">
+                <button class="hotspot-card__close" type="button" aria-label="Закрыть">
+                  <span class="icon icon--close" aria-hidden="true"></span>
+                </button>
+                <article class="product-card product-card--s">
+                  <div class="product-card__gallery product-card__gallery--s">
+                    <div class="product-card__image" style="background-image:url('assets/images/hotspot-pants.jpg')" aria-hidden="true"></div>
+                    <div class="product-card__image product-card__image--fade" aria-hidden="true"></div>
+                    <span class="badge badge--tag">новинка</span>
+                    <button class="icon-btn product-card__favorite" aria-label="В избранное" type="button">
+                      <span class="icon icon--favorite" aria-hidden="true"></span>
+                    </button>
+                    <button class="icon-btn product-card__quick-add" aria-label="Быстро добавить в корзину" type="button">
+                      <span class="icon icon--cart" aria-hidden="true"></span>
+                    </button>
+                    <div class="product-card__hover-zones" aria-hidden="true">
+                      <span class="product-card__hover-zone"></span>
+                      <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-2.jpg"></span>
+                      <span class="product-card__hover-zone" data-hover-src="assets/images/product-hover-3.jpg"></span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <ul class="color-list">
+                      <li class="color-swatch" style="--swatch-color:#ffffff"></li>
+                      <li class="color-swatch" style="--swatch-color:#8d795b"></li>
+                      <li class="color-swatch" style="--swatch-color:#595454"></li>
+                      <li class="color-list__more">+3</li>
+                    </ul>
+                    <div class="product-card__content">
+                      <p class="product-card__title">Брюки</p>
+                      <p class="product-card__price">8 500 ₽</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <button class="btn btn--dark lookbook-buy-btn" type="button">купить образ</button>
+            <!-- Открывает модалку «Готовый образ» (покупка нескольких вещей за раз) —
+                 в Figma нашла только текстовое описание этого окна, самого макета модалки
+                 пока нет. Кнопку поставила, саму модалку сделаем, когда появится макет -->
+          </div>
+
+          <div class="lookbook-thumbs">
+            <div class="lookbook-thumbs__item lookbook-thumbs__item--wide" style="background-image:url('assets/images/lookbook-thumb1.jpg')" aria-hidden="true"></div>
+            <div class="lookbook-thumbs__item" style="background-image:url('assets/images/lookbook-thumb2.jpg')" aria-hidden="true"></div>
+            <div class="lookbook-thumbs__item" style="background-image:url('assets/images/lookbook-thumb3.jpg')" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ САЙТА -->
+  <footer class="site-footer">
+    <div class="container footer-columns">
+      <div class="footer-company">
+        <a href="/" class="logo logo--footer" aria-label="Fizuli — на главную">FIZULI</a>
+        <div class="footer-addresses">
+          <p class="footer-col__title">Адреса магазинов</p>
+          <div class="footer-address-list">
+            <p class="footer-address">г. Москва, ТЦ «Мозаика», 7-я Кожуховская, 9,<br>2 этаж</p>
+            <p class="footer-address">г. Москва, ТЦ «Авиапарк» Ходынский бульвар, 4, 3 этаж (Trend Island)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-nav-columns">
+        <nav class="footer-col">
+          <p class="footer-col__title">Каталог</p>
+          <a href="new-arrivals.html" class="nav__link footer-link">новинки</a>
+          <a href="casual-men.html" class="nav__link footer-link">повседневная линия</a>
+          <a href="sport-men.html" class="nav__link footer-link">спортивная база</a>
+          <a href="kids.html" class="nav__link footer-link">детям</a>
+          <a href="accessories.html" class="nav__link footer-link">аксессуары</a>
+          <div class="footer-dropdown" data-footer-dropdown>
+            <button type="button" class="nav__link footer-link footer-dropdown__trigger" data-footer-dropdown-trigger>
+              все товары
+              <span class="icon icon--chevron-down" aria-hidden="true"></span>
+            </button>
+            <div class="footer-dropdown__menu is-hidden" data-footer-dropdown-menu>
+              <a href="men.html" class="footer-dropdown__item">мужское</a>
+              <a href="women.html" class="footer-dropdown__item">женское</a>
+            </div>
+          </div>
+        </nav>
+
+        <nav class="footer-col">
+          <p class="footer-col__title">Информация</p>
+          <a href="about.html" class="nav__link footer-link">о бренде</a>
+          <a href="buyers.html" class="nav__link footer-link">покупателям</a>
+          <a href="partners.html" class="nav__link footer-link">партнёрам</a>
+          <a href="#" class="nav__link footer-link">сертификаты</a>
+          <a href="journal.html" class="nav__link footer-link">журнал</a>
+          <a href="stores.html" class="nav__link footer-link">магазины</a>
+        </nav>
+
+        <div class="footer-col-stack">
+          <nav class="footer-col footer-col--short">
+            <p class="footer-col__title">Контакты</p>
+            <a href="tel:+79936264234" class="nav__link footer-link">+7 (993) 626-42-34</a>
+            <a href="mailto:fizuliwear@mail.ru" class="nav__link footer-link">fizuliwear@mail.ru</a>
+          </nav>
+          <div class="footer-col footer-col--short">
+            <p class="footer-col__title">Мы в соцсетях</p>
+            <!-- Ссылок пока нет — только названия, как в макете -->
+            <span class="footer-link footer-link--text">вконтакте</span>
+            <span class="footer-link footer-link--text">Телеграм</span>
+            <span class="footer-link footer-link--text">Ватсап</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-legal">
+      <p class="footer-copyright">© Fizuli, 2026. Все права защищены</p>
+      <div class="footer-legal__links">
+        <a href="oferta.html" class="nav__link footer-link">договор-оферта</a>
+        <a href="policy.html" class="nav__link footer-link">политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОБИЛЬНЫЙ ФУТЕР — та же информация, что и в десктопном .site-footer выше
+       (он скрыт на мобильном через CSS), но в 2 колонки вместо 3 и с адресами
+       друг под другом, а не в отдельном широком блоке слева -->
+  <footer class="mob-footer">
+    <a href="/" class="mob-footer__logo" aria-label="Fizuli — на главную"></a>
+
+    <div class="mob-footer__addresses">
+      <p class="footer-col__title">Адреса магазинов</p>
+      <div class="footer-address-list">
+        <p class="footer-address">г. Москва, ТЦ «Мозаика», 7-я Кожуховская, 9,<br>2 этаж</p>
+        <p class="footer-address">г. Москва, ТЦ «Авиапарк», Ходынский бульвар, 4,<br>3 этаж (Trend Island)</p>
+      </div>
+    </div>
+
+    <div class="mob-footer__row">
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Каталог</p>
+        <a href="new-arrivals.html" class="nav__link footer-link">новинки</a>
+        <a href="casual-men.html" class="nav__link footer-link">повседневная линия</a>
+        <a href="sport-men.html" class="nav__link footer-link">спортивная база</a>
+        <a href="kids.html" class="nav__link footer-link">детям</a>
+        <a href="accessories.html" class="nav__link footer-link">аксессуары</a>
+        <div class="mob-footer-dropdown" data-footer-dropdown>
+          <button type="button" class="mob-footer-dropdown__trigger" data-footer-dropdown-trigger>
+            все товары
+            <span class="icon icon--chevron-down" aria-hidden="true"></span>
+          </button>
+          <div class="mob-footer-dropdown__menu is-hidden" data-footer-dropdown-menu>
+            <a href="men.html" class="mob-footer-dropdown__item">мужчинам</a>
+            <a href="women.html" class="mob-footer-dropdown__item">женщинам</a>
+          </div>
+        </div>
+      </div>
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Информация</p>
+        <a href="about.html" class="nav__link footer-link">о бренде</a>
+        <a href="buyers.html" class="nav__link footer-link">покупателям</a>
+        <a href="partners.html" class="nav__link footer-link">партнёрам</a>
+        <a href="#" class="nav__link footer-link">сертификаты</a>
+        <a href="journal.html" class="nav__link footer-link">журнал</a>
+        <a href="stores.html" class="nav__link footer-link">магазины</a>
+      </div>
+    </div>
+
+    <div class="mob-footer__row">
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Мы в соцсетях</p>
+        <span class="footer-link footer-link--text">вконтакте</span>
+        <span class="footer-link footer-link--text">Телеграм</span>
+        <span class="footer-link footer-link--text">Ватсап</span>
+      </div>
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Контакты</p>
+        <a href="tel:+79936264234" class="nav__link footer-link">+7 (993) 626-42-34</a>
+        <a href="mailto:fizuliwear@mail.ru" class="nav__link footer-link">fizuliwear@mail.ru</a>
+      </div>
+    </div>
+
+    <div class="mob-footer__bottom">
+      <div class="mob-footer__legal">
+        <a href="oferta.html" class="nav__link footer-link">договор-оферта</a>
+        <a href="policy.html" class="nav__link footer-link">политика конфиденциальности</a>
+      </div>
+      <p class="footer-copyright">© Fizuli, 2026. Все права защищены</p>
+    </div>
+  </footer>
+
+  <!-- Модалка «Готовый образ» (кнопка «купить образ» в блоке «Готовые образы»).
+       Каркас (заголовок, крестик, кнопка внизу) — из макета (фрейм "List Viewport").
+       Список позиций внутри в макете пустой (нет ни одного примера строки) — разметка
+       ниже моя, по аналогии с карточкой товара + чекбокс + выбор размера.
+       Открытие по клику — добавим в script.js на этапе поведения -->
+  <!-- Модалка «Готовый образ» — точная копия компонента List Viewport из Figma:
+       ряд карточек-фото (368x601) с крестиком-удалением и полосой размеров FILL
+       снизу (как у карточки товара), под фото — чекбокс включения вещи в покупку
+       и подсказка об ошибке (реальный стиль Text/Error), если размер не выбран.
+       Четыре вещи образа — ровно как в макете (анорак, брюки, футболка, шоппер;
+       шоппер — единственный размер, поэтому у него просто плашка "one size" -->
+  <div class="modal-overlay is-hidden" id="lookModal">
+    <div class="modal-look">
+      <button class="modal-look__close" type="button" aria-label="Закрыть">
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <h3 class="modal-look__title">выберите размеры</h3>
+
+      <div class="modal-look__items">
+        <div class="look-item" data-look-item>
+          <div class="look-item__image" style="background-image:url('assets/images/look-anorak.jpg')">
+            <span class="badge badge--tag look-item__badge">новинка</span>
+            <button class="icon-btn look-item__favorite" type="button" aria-label="В избранное">
+              <span class="icon icon--favorite" aria-hidden="true"></span>
+            </button>
+            <div class="look-item__sizes" data-sizes>
+              <button type="button" class="look-item__size-btn">XS</button>
+              <button type="button" class="look-item__size-btn">S</button>
+              <button type="button" class="look-item__size-btn">M</button>
+              <button type="button" class="look-item__size-btn">L</button>
+              <button type="button" class="look-item__size-btn">XL</button>
+              <button type="button" class="look-item__size-btn">2XL</button>
+              <button type="button" class="look-item__size-btn">3XL</button>
+            </div>
+          </div>
+          <label class="look-item__checkbox">
+            <input type="checkbox" checked>
+            <span class="look-item__checkbox-box"><span class="icon icon--check" aria-hidden="true"></span></span>
+            <span class="look-item__name">анорак</span>
+          </label>
+          <p class="look-item__error" data-look-error hidden>Выберите размер</p>
+        </div>
+
+        <div class="look-item" data-look-item>
+          <div class="look-item__image" style="background-image:url('assets/images/look-pants.jpg')">
+            <span class="badge badge--tag look-item__badge">новинка</span>
+            <button class="icon-btn look-item__favorite" type="button" aria-label="В избранное">
+              <span class="icon icon--favorite" aria-hidden="true"></span>
+            </button>
+            <div class="look-item__sizes" data-sizes>
+              <button type="button" class="look-item__size-btn">XS</button>
+              <button type="button" class="look-item__size-btn">S</button>
+              <button type="button" class="look-item__size-btn">M</button>
+              <button type="button" class="look-item__size-btn">L</button>
+              <button type="button" class="look-item__size-btn">XL</button>
+              <button type="button" class="look-item__size-btn">2XL</button>
+              <button type="button" class="look-item__size-btn">3XL</button>
+            </div>
+          </div>
+          <label class="look-item__checkbox">
+            <input type="checkbox">
+            <span class="look-item__checkbox-box"><span class="icon icon--check" aria-hidden="true"></span></span>
+            <span class="look-item__name">брюки</span>
+          </label>
+          <p class="look-item__error" data-look-error hidden>Выберите размер</p>
+        </div>
+
+        <div class="look-item" data-look-item>
+          <div class="look-item__image" style="background-image:url('assets/images/look-tshirt.jpg')">
+            <span class="badge badge--tag look-item__badge">новинка</span>
+            <button class="icon-btn look-item__favorite" type="button" aria-label="В избранное">
+              <span class="icon icon--favorite" aria-hidden="true"></span>
+            </button>
+            <div class="look-item__sizes" data-sizes>
+              <button type="button" class="look-item__size-btn">XS</button>
+              <button type="button" class="look-item__size-btn">S</button>
+              <button type="button" class="look-item__size-btn">M</button>
+              <button type="button" class="look-item__size-btn">L</button>
+              <button type="button" class="look-item__size-btn">XL</button>
+              <button type="button" class="look-item__size-btn">2XL</button>
+              <button type="button" class="look-item__size-btn">3XL</button>
+            </div>
+          </div>
+          <label class="look-item__checkbox">
+            <input type="checkbox">
+            <span class="look-item__checkbox-box"><span class="icon icon--check" aria-hidden="true"></span></span>
+            <span class="look-item__name">футболка</span>
+          </label>
+          <p class="look-item__error" data-look-error hidden>Выберите размер</p>
+        </div>
+
+        <div class="look-item" data-look-item data-one-size>
+          <div class="look-item__image" style="background-image:url('assets/images/look-shopper.jpg')">
+            <span class="badge badge--tag look-item__badge">новинка</span>
+            <button class="icon-btn look-item__favorite" type="button" aria-label="В избранное">
+              <span class="icon icon--favorite" aria-hidden="true"></span>
+            </button>
+            <div class="look-item__one-size-bar">
+              <p class="look-item__one-size">OS</p>
+            </div>
+          </div>
+          <label class="look-item__checkbox">
+            <input type="checkbox">
+            <span class="look-item__checkbox-box"><span class="icon icon--check" aria-hidden="true"></span></span>
+            <span class="look-item__name">шоппер</span>
+          </label>
+        </div>
+      </div>
+
+      <button class="btn btn--dark modal-look__submit" type="button">добавить в корзину</button>
+    </div>
+  </div>
+
+  <!-- Превью корзины (компонент Cart Drawer из Figma) — выезжает справа по клику
+       на иконку корзины в хедере. Строки товаров — компонент CartItem/Mini,
+       левая кнопка счётчика всегда иконка Delete (как и в макете) -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer__header">
+        <h3 class="cart-drawer__title">корзина</h3>
+        <button class="cart-drawer__close" type="button" aria-label="Закрыть" id="cartDrawerClose">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="cart-drawer__items" id="cartDrawerItems">
+        <div class="cart-item" data-cart-item data-price="8500">
+          <div class="cart-item__image" style="background-image:url('assets/images/cart-item-suit.jpg')" aria-hidden="true"></div>
+          <div class="cart-item__details">
+            <div class="cart-item__row">
+              <p class="cart-item__name">Костюм из жатой ткани</p>
+              <p class="cart-item__price">8 500 ₽</p>
+            </div>
+            <div class="cart-item__specs">
+              <p class="cart-item__spec">RUGA-SET02F-S</p>
+              <p class="cart-item__spec">хаки · XL</p>
+            </div>
+            <div class="cart-item__counter">
+              <button class="cart-item__counter-btn" type="button" data-action="decrement" aria-label="Удалить товар">
+                <span class="icon icon--delete" aria-hidden="true"></span>
+              </button>
+              <span class="cart-item__count" data-count>1</span>
+              <button class="cart-item__counter-btn" type="button" data-action="increment" aria-label="Увеличить количество">
+                <span class="icon icon--plus" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item" data-cart-item data-price="960">
+          <div class="cart-item__image" style="background-image:url('assets/images/cart-item-socks.jpg')" aria-hidden="true"></div>
+          <div class="cart-item__details">
+            <div class="cart-item__row">
+              <p class="cart-item__name">Носки</p>
+              <p class="cart-item__price">960 ₽</p>
+            </div>
+            <div class="cart-item__specs">
+              <p class="cart-item__spec">SOCKS-FIZ010</p>
+              <p class="cart-item__spec">хаки · XL</p>
+            </div>
+            <div class="cart-item__counter">
+              <button class="cart-item__counter-btn" type="button" data-action="decrement" aria-label="Удалить товар">
+                <span class="icon icon--minus" aria-hidden="true"></span>
+              </button>
+              <span class="cart-item__count" data-count>2</span>
+              <button class="cart-item__counter-btn" type="button" data-action="increment" aria-label="Увеличить количество">
+                <span class="icon icon--plus" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-drawer__total">
+        <p class="cart-drawer__total-label">итого</p>
+        <p class="cart-drawer__total-amount" id="cartDrawerTotal">10 420 ₽</p>
+      </div>
+      <button class="btn btn--dark cart-drawer__submit" type="button">оформить заказ</button>
+    </aside>
+  </div>
+  <!-- Попап «Вход или регистрация» (компонент Mob/Modal/Auth из Figma) —
+       открывается иконкой/ссылками входа в шапке и мобильном меню
+       (data-auth-trigger), и кнопкой «перейти к оформлению» на странице
+       корзины, если пользователь ещё не «вошёл». 2 экрана: телефон → код -->
+  <div class="auth-modal-overlay" id="authModalOverlay">
+    <div class="auth-modal" id="authModalPhone">
+      <button class="auth-modal__close" type="button" aria-label="Закрыть" data-auth-close>
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <div class="auth-modal__header">
+        <h3 class="auth-modal__title">вход или регистрация</h3>
+        <p class="auth-modal__text">Введите номер телефона, мы отправим на него СМС с кодом подтверждения</p>
+      </div>
+      <label class="auth-modal__phone-field">
+        <span class="icon icon--phone" aria-hidden="true"></span>
+        <input type="tel" class="auth-modal__phone-input" id="authPhoneInput" placeholder="+7 (000) 000-00-00" autocomplete="tel">
+      </label>
+      <div class="auth-modal__footer">
+        <button class="btn btn--dark auth-modal__submit" type="button" id="authSendCode" disabled>отправить код</button>
+        <p class="auth-modal__disclaimer">Нажимая кнопку, вы принимаете <a href="oferta.html" class="legal-link">Условия оферты</a>, а также подтверждаете, что ознакомлены с <a href="policy.html" class="legal-link">Политикой конфиденциальности</a></p>
+      </div>
+    </div>
+
+    <div class="auth-modal is-hidden" id="authModalCode">
+      <button class="auth-modal__close" type="button" aria-label="Закрыть" data-auth-close>
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <div class="auth-modal__header">
+        <h3 class="auth-modal__title">вход или регистрация</h3>
+        <p class="auth-modal__text">Введите код подтверждения из СМС</p>
+      </div>
+      <div class="auth-modal__code-row">
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+      </div>
+      <p class="auth-modal__resend" id="authResendText">Отправить код повторно через 26 сек</p>
+    </div>
+  </div>
+
+
+
+  <script src="script.js?v=202609236"></script>
+</body>
+</html>

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizuli — Оформление заказа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=202609242">
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА: та же разметка, что и на остальных страницах -->
+  <header class="site-header site-header--solid">
+    <div class="site-header__left">
+      <a href="/" class="logo" aria-label="Fizuli — на главную">FIZULI</a>
+      <nav class="nav" id="mainNav">
+        <a href="#" class="nav__link" data-megamenu-trigger="man">мужчинам</a>
+        <a href="#" class="nav__link" data-megamenu-trigger="woman">женщинам</a>
+      </nav>
+    </div>
+
+    <div class="megamenu is-hidden" id="megamenu-man" data-megamenu="man">
+      <div class="megamenu__col">
+        <div class="megamenu__group">
+          <p class="megamenu__label">Коллекции</p>
+          <a href="men.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="men.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="megamenu__group">
+          <p class="megamenu__label">Каталог</p>
+          <a href="new-arrivals.html" class="megamenu__link">новинки</a>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-men.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-men.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-men.html?category=жилеты" class="megamenu__link">жилеты</a>
+              <a href="casual-men.html?category=кардиганы" class="megamenu__link">кардиганы</a>
+              <a href="casual-men.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-men.html?category=куртки" class="megamenu__link">куртки</a>
+              <a href="casual-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="casual-men.html?category=рубашки" class="megamenu__link">рубашки</a>
+              <a href="casual-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-men.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="sport-men.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-men.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="sport-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="sport-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+      </div>
+      <div class="megamenu__col">
+        <p class="megamenu__label">Покупателям</p>
+        <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+        <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+        <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+    </div>
+
+    <div class="megamenu is-hidden" id="megamenu-woman" data-megamenu="woman">
+      <div class="megamenu__col">
+        <div class="megamenu__group">
+          <p class="megamenu__label">Коллекции</p>
+          <a href="women.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="women.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="megamenu__group">
+          <p class="megamenu__label">Каталог</p>
+          <a href="new-arrivals-women.html" class="megamenu__link">новинки</a>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-women.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-women.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-women.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-women.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-women.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-women.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-women.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-women.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+      </div>
+      <div class="megamenu__col">
+        <p class="megamenu__label">Покупателям</p>
+        <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+        <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+        <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+    </div>
+
+    <div class="site-header__right">
+      <button class="icon-btn" aria-label="Поиск" type="button" id="searchTrigger">
+        <span class="icon icon--search" aria-hidden="true"></span>
+      </button>
+      <a href="account.html" class="icon-btn" aria-label="Личный кабинет" data-auth-trigger>
+        <span class="icon icon--user" aria-hidden="true"></span>
+      </a>
+      <a href="wishlist.html" class="icon-btn icon-btn--badged" aria-label="Избранное">
+        <span class="icon icon--favorite" aria-hidden="true"></span>
+        <span class="count-badge">1</span>
+      </a>
+      <button class="icon-btn icon-btn--badged" aria-label="Корзина" type="button" id="cartTrigger">
+        <span class="icon icon--cart" aria-hidden="true"></span>
+        <span class="count-badge" id="cartCount">3</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- МОБИЛЬНАЯ ОБОЛОЧКА (хедер + полноэкранное меню) — параллельная разметка,
+       десктопные .site-header/.megamenu скрыты на мобильном через CSS
+       (брейкпоинт 767px). Источник в Figma: Mob/Header/Megamenu
+       (состояния Close/OpenMan/OpenWoman) — не дропдаун, а страница целиком.
+       Категории внутри — те же самые ссылки, что и в десктопном мегаменю выше,
+       просто в другой обёртке (аккордеон .megamenu-accordion переиспользован как есть) -->
+  <header class="mob-header mob-header--solid">
+    <div class="mob-header__left">
+      <button class="icon-btn icon-btn--mob" type="button" id="mobMenuOpen" aria-label="Меню">
+        <span class="icon icon--hamburger" aria-hidden="true"></span>
+      </button>
+      <a href="/" class="logo logo--mob" aria-label="Fizuli — на главную">FIZULI</a>
+    </div>
+    <div class="mob-header__actions">
+      <button class="icon-btn icon-btn--mob" type="button" aria-label="Поиск" id="mobSearchTrigger">
+        <span class="icon icon--search" aria-hidden="true"></span>
+      </button>
+      <a href="wishlist.html" class="icon-btn icon-btn--mob icon-btn--badged" aria-label="Избранное">
+        <span class="icon icon--favorite" aria-hidden="true"></span>
+        <span class="count-badge">1</span>
+      </a>
+      <button class="icon-btn icon-btn--mob icon-btn--badged" type="button" aria-label="Корзина" id="mobCartTrigger">
+        <span class="icon icon--cart" aria-hidden="true"></span>
+        <span class="count-badge" id="mobCartCount">3</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mob-menu" id="mobMenu">
+    <div class="mob-menu__header">
+      <div class="mob-header__left">
+        <button class="icon-btn icon-btn--mob" type="button" id="mobMenuClose" aria-label="Закрыть меню">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+        <a href="/" class="logo logo--mob" aria-label="Fizuli — на главную">FIZULI</a>
+      </div>
+      <div class="mob-header__actions">
+        <button class="icon-btn icon-btn--mob" type="button" aria-label="Поиск">
+          <span class="icon icon--search" aria-hidden="true"></span>
+        </button>
+        <a href="wishlist.html" class="icon-btn icon-btn--mob icon-btn--badged" aria-label="Избранное">
+          <span class="icon icon--favorite" aria-hidden="true"></span>
+          <span class="count-badge">1</span>
+        </a>
+        <button class="icon-btn icon-btn--mob icon-btn--badged" type="button" aria-label="Корзина">
+          <span class="icon icon--cart" aria-hidden="true"></span>
+          <span class="count-badge">3</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mob-menu__body">
+      <div class="mob-gender-tabs">
+        <a href="#" class="nav__link nav__link--current" data-mob-gender-tab="man">мужчинам</a>
+        <span class="mob-gender-tabs__sep">/</span>
+        <a href="#" class="nav__link" data-mob-gender-tab="woman">женщинам</a>
+      </div>
+
+      <div data-mob-gender-panel="man">
+        <div class="mob-menu-section">
+          <p class="mob-menu-section__label">Коллекции</p>
+          <a href="men.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="men.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Каталог</p>
+          <a href="new-arrivals.html" class="megamenu__link">новинки</a>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-men.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-men.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-men.html?category=жилеты" class="megamenu__link">жилеты</a>
+              <a href="casual-men.html?category=кардиганы" class="megamenu__link">кардиганы</a>
+              <a href="casual-men.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-men.html?category=куртки" class="megamenu__link">куртки</a>
+              <a href="casual-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="casual-men.html?category=рубашки" class="megamenu__link">рубашки</a>
+              <a href="casual-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-men.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="sport-men.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-men.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="sport-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="sport-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Покупателям</p>
+          <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+          <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+          <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+        </div>
+      </div>
+
+      <div data-mob-gender-panel="woman" hidden>
+        <div class="mob-menu-section">
+          <p class="mob-menu-section__label">Коллекции</p>
+          <a href="women.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="women.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Каталог</p>
+          <a href="new-arrivals-women.html" class="megamenu__link">новинки</a>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-women.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-women.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-women.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-women.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-women.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-women.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-women.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-women.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Покупателям</p>
+          <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+          <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+          <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+        </div>
+      </div>
+
+      <div class="mob-menu__login">
+        <span class="icon-btn icon-btn--mob"><span class="icon icon--user" aria-hidden="true"></span></span>
+        <a href="account.html" class="nav__link" data-auth-trigger>войти</a>
+        <span class="mob-gender-tabs__sep">/</span>
+        <a href="account.html" class="nav__link" data-auth-trigger>зарегистрироваться</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-overlay is-hidden" id="searchOverlay">
+    <div class="search-panel">
+      <div class="search-bar">
+        <div class="search-bar__field">
+          <span class="icon icon--search" aria-hidden="true"></span>
+          <input type="text" class="search-bar__input" id="searchInput" placeholder="Введите название товара" autocomplete="off">
+          <button class="icon-btn search-bar__clear is-hidden" type="button" aria-label="Очистить запрос" id="searchClear">
+            <span class="icon icon--close" aria-hidden="true"></span>
+          </button>
+        </div>
+        <button class="icon-btn search-bar__close" type="button" aria-label="Закрыть поиск" id="searchClose">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="search-content" id="searchContent">
+        <div class="search-frequent">
+          <h3 class="search-heading">часто ищут</h3>
+          <div class="search-frequent__list">
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>куртки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>рубашки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>брюки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>костюмы</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-empty is-hidden" id="searchEmpty">
+        <p class="search-empty__message">Ничего не нашлось по запросу «<span id="searchEmptyQuery"></span>». Проверьте, правильно ли введён запрос</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="checkout-page">
+    <!-- Заголовок (фрейм "Header Section" в Figma): назад в корзину + заголовок
+         24px (меньше обычного .page-title 32px — этот размер именно у компонента
+         PageTitle на странице оформления заказа) -->
+    <div class="page-heading container checkout-page-heading">
+      <a href="cart.html" class="cart-back-link">
+        <span class="icon icon--arrow-right-s" aria-hidden="true"></span>
+        корзина
+      </a>
+      <h1 class="page-title checkout-page-heading__title">оформление заказа</h1>
+    </div>
+
+    <!-- Секция оформления (фрейм "Checkout Grid"): форма слева + "ваш заказ"
+         справа, sticky — тот же приём, что на product.html/cart.html -->
+    <div class="container checkout-layout-outer">
+      <div class="checkout-layout" id="checkoutLayout" data-delivery-tab="russia">
+
+        <div class="checkout-form">
+
+          <!-- СПОСОБЫ ПОЛУЧЕНИЯ -->
+          <section class="checkout-section">
+            <h2 class="account-section-title">способы получения</h2>
+
+            <div class="checkout-tabs" id="checkoutTabs">
+              <button type="button" class="checkout-tab is-active" data-tab="russia">
+                <span class="checkout-tab__label">по россии</span>
+                <span class="checkout-tab__desc">Яндекс, СДЭК</span>
+              </button>
+              <button type="button" class="checkout-tab" data-tab="pickup">
+                <span class="checkout-tab__label">самовывоз</span>
+                <span class="checkout-tab__desc">Бесплатно (Москва)</span>
+              </button>
+              <button type="button" class="checkout-tab" data-tab="cis">
+                <span class="checkout-tab__label">СНГ</span>
+                <span class="checkout-tab__desc">Казахстан, Беларусь, Азербайджан, Узбекистан</span>
+              </button>
+            </div>
+
+            <!-- ПАНЕЛЬ: ПО РОССИИ -->
+            <div class="checkout-tab-panel" data-tab-panel="russia">
+              <div class="checkout-field">
+                <label class="checkout-subtitle" for="checkoutCity">Ваш город</label>
+                <div class="account-input">
+                  <input type="text" id="checkoutCity" placeholder="Введите название вашего города" readonly>
+                  <span class="icon icon--chevron-down" aria-hidden="true"></span>
+                </div>
+              </div>
+
+              <div class="checkout-field">
+                <h3 class="checkout-subtitle">Варианты доставки</h3>
+                <div class="checkout-radio-row">
+                  <label class="radio-option">
+                    <input type="radio" name="shippingMethod" value="yandex" class="radio-option__input" checked>
+                    <span class="radio-option__circle" aria-hidden="true"></span>
+                    <span class="radio-option__text">
+                      <span class="radio-option__title">Яндекс Доставка</span>
+                      <span class="radio-option__sub">от 9 дней, от 470,9 ₽</span>
+                    </span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="shippingMethod" value="sdek-pickup" class="radio-option__input">
+                    <span class="radio-option__circle" aria-hidden="true"></span>
+                    <span class="radio-option__text">
+                      <span class="radio-option__title">СДЭК в пункт выдачи</span>
+                      <span class="radio-option__sub">от 6 дней, от 700,93 ₽</span>
+                    </span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="shippingMethod" value="sdek-courier" class="radio-option__input">
+                    <span class="radio-option__circle" aria-hidden="true"></span>
+                    <span class="radio-option__text">
+                      <span class="radio-option__title">СДЭК курьером</span>
+                      <span class="radio-option__sub">от 6 дней, от 970,93 ₽</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="checkout-field">
+                <h3 class="checkout-subtitle">Адрес доставки</h3>
+                <div class="address-input-row" data-address-row="pickup-point">
+                  <div class="account-input address-input-row__field">
+                    <input type="text" placeholder="Выбрать пункт выдачи" readonly>
+                    <span class="icon icon--chevron-down" aria-hidden="true"></span>
+                  </div>
+                  <button type="button" class="btn btn--secondary address-input-row__submit">выбрать на карте</button>
+                </div>
+                <div class="account-input" data-address-row="street" hidden>
+                  <input type="text" placeholder="Укажите адрес доставки">
+                </div>
+              </div>
+            </div>
+
+            <!-- ПАНЕЛЬ: САМОВЫВОЗ -->
+            <div class="checkout-tab-panel" data-tab-panel="pickup" hidden>
+              <p class="checkout-pickup-title">Самовывоз — бесплатно.</p>
+              <div class="checkout-store">
+                <div class="checkout-store__info">
+                  <p class="checkout-store__label">Адрес магазина:</p>
+                  <div class="checkout-store__address-group">
+                    <p class="checkout-store__address">ТЦ Мозаика</p>
+                    <p class="checkout-store__address">м. Дубровка, г. Москва, 7-я Кожуховская, 9, 2 этаж</p>
+                  </div>
+                  <div class="checkout-store__hours">
+                    <p>Самовывоз доступен ежедневно с 10:00 до 22:00</p>
+                    <p class="checkout-store__note">*в праздничные дни режим работы может корректироваться</p>
+                  </div>
+                </div>
+                <div class="checkout-store__photo" style="background-image:url('assets/images/checkout-store-photo.jpg')" aria-hidden="true"></div>
+              </div>
+              <div class="checkout-pickup-notice-group">
+                <p class="checkout-pickup-notice">Менеджер свяжется с вами, как только заказ будет готов к выдаче.</p>
+                <p class="checkout-pickup-notice">Срок хранения неоплаченного заказа — 24 часа после подтверждения.</p>
+                <p class="checkout-pickup-notice">Оплаченного — 7 календарных дней</p>
+              </div>
+            </div>
+
+            <!-- ПАНЕЛЬ: СНГ -->
+            <div class="checkout-tab-panel" data-tab-panel="cis" hidden>
+              <div class="checkout-cis-notice-group">
+                <p class="checkout-cis-text">Доставка осуществляется службой EMS Почта России.</p>
+                <p class="checkout-cis-text">Стоимость доставки рассчитывается индивидуально.</p>
+              </div>
+
+              <div class="checkout-field">
+                <h3 class="checkout-subtitle">Страна доставки</h3>
+                <div class="checkout-country-grid">
+                  <label class="radio-option">
+                    <input type="radio" name="cisCountry" class="radio-option__input" checked>
+                    <span class="radio-option__circle" aria-hidden="true"></span>
+                    <span class="radio-option__text">
+                      <span class="radio-option__title">Азербайджан</span>
+                    </span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="cisCountry" class="radio-option__input">
+                    <span class="radio-option__circle" aria-hidden="true"></span>
+                    <span class="radio-option__text">
+                      <span class="radio-option__title">Беларусь</span>
+                    </span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="cisCountry" class="radio-option__input">
+                    <span class="radio-option__circle" aria-hidden="true"></span>
+                    <span class="radio-option__text">
+                      <span class="radio-option__title">Казахстан</span>
+                    </span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="cisCountry" class="radio-option__input">
+                    <span class="radio-option__circle" aria-hidden="true"></span>
+                    <span class="radio-option__text">
+                      <span class="radio-option__title">Узбекистан</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="checkout-field">
+                <h3 class="checkout-subtitle">Адрес доставки</h3>
+                <div class="address-input-row">
+                  <div class="account-input address-input-row__field">
+                    <input type="text" placeholder="Выбрать пункт выдачи" readonly>
+                    <span class="icon icon--chevron-down" aria-hidden="true"></span>
+                  </div>
+                  <button type="button" class="btn btn--secondary address-input-row__submit">выбрать на карте</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ДАННЫЕ ПОЛУЧАТЕЛЯ — скрывается на вкладке "Самовывоз" (в Figma
+               у Pickup нет секции Customer Section, у Russia/CIS есть) -->
+          <section class="checkout-section" data-customer-section>
+            <h2 class="account-section-title">данные получателя</h2>
+            <div class="checkout-form-fields">
+              <div class="account-input">
+                <input type="text" placeholder="ФИО">
+                <span class="icon icon--user" aria-hidden="true"></span>
+              </div>
+              <div class="account-input">
+                <input type="tel" placeholder="+7 (000) 000-00-00">
+                <span class="icon icon--phone" aria-hidden="true"></span>
+              </div>
+              <div class="account-input">
+                <input type="email" placeholder="Ivanov@ivanov.ru">
+                <span class="icon icon--mail" aria-hidden="true"></span>
+              </div>
+              <div class="account-input">
+                <input type="text" placeholder="Комментарий к заказу">
+              </div>
+            </div>
+          </section>
+
+          <!-- СПОСОБЫ ОПЛАТЫ -->
+          <section class="checkout-section">
+            <h2 class="account-section-title">способы оплаты</h2>
+            <div class="checkout-payment-methods">
+              <label class="radio-option radio-option--payment">
+                <input type="radio" name="paymentMethod" class="radio-option__input" checked>
+                <span class="radio-option__circle" aria-hidden="true"></span>
+                <span class="radio-option__text">
+                  <span class="radio-option__title">Яндекс Пэй + Сплит</span>
+                  <button type="button" class="icon-btn radio-option__info" data-tooltip="split" aria-label="Подробнее о Яндекс Пэй и Сплит">
+                    <span class="icon icon--info" aria-hidden="true"></span>
+                  </button>
+                  <div class="payment-info-tooltip" data-tooltip-panel="split" hidden>
+                    <div class="payment-info-tooltip__row">
+                      <p class="payment-info-tooltip__label">Яндекс Пэй — оплата с кешбэком ›</p>
+                      <p class="payment-info-tooltip__value">3000 баллов Плюса</p>
+                    </div>
+                    <div class="payment-info-tooltip__divider"></div>
+                    <div class="payment-info-tooltip__row">
+                      <p class="payment-info-tooltip__label">Яндекс Сплит — оплата частями ›</p>
+                      <p class="payment-info-tooltip__value">3 970 ₽ × 4 без переплат</p>
+                    </div>
+                    <div class="payment-info-tooltip__tabs">
+                      <span class="is-active">2 мес</span><span>4</span><span>6</span><span>12</span><span>24</span>
+                    </div>
+                    <div class="payment-info-tooltip__bar"><span style="width:22%"></span></div>
+                    <div class="payment-info-tooltip__schedule">
+                      <div><span>сегодня</span><strong>10 433 ₽</strong></div>
+                      <div><span>19 июл</span><strong>10 433 ₽</strong></div>
+                      <div><span>2 авг</span><strong>10 433 ₽</strong></div>
+                      <div><span>16 авг</span><strong>10 433 ₽</strong></div>
+                    </div>
+                  </div>
+                </span>
+              </label>
+
+              <label class="radio-option radio-option--payment">
+                <input type="radio" name="paymentMethod" class="radio-option__input">
+                <span class="radio-option__circle" aria-hidden="true"></span>
+                <span class="radio-option__text">
+                  <span class="radio-option__title">Т-банк + Долями</span>
+                  <button type="button" class="icon-btn radio-option__info" data-tooltip="dolyame" aria-label="Подробнее о Долями">
+                    <span class="icon icon--info" aria-hidden="true"></span>
+                  </button>
+                  <div class="payment-info-tooltip" data-tooltip-panel="dolyame" hidden>
+                    <div class="payment-info-tooltip__tabs">
+                      <span class="is-active">6 недель</span><span>3 мес</span><span>6 мес</span><span>10 мес</span>
+                    </div>
+                    <p class="payment-info-tooltip__value payment-info-tooltip__value--lg">2 250 ₽ сейчас</p>
+                    <p class="payment-info-tooltip__label">Затем по 2 250 ₽ раз в 2 недели</p>
+                    <div class="payment-info-tooltip__bar payment-info-tooltip__bar--blue"><span style="width:25%"></span></div>
+                  </div>
+                </span>
+              </label>
+
+              <label class="radio-option radio-option--payment" data-payment-option="cash" hidden>
+                <input type="radio" name="paymentMethod" class="radio-option__input">
+                <span class="radio-option__circle" aria-hidden="true"></span>
+                <span class="radio-option__text">
+                  <span class="radio-option__title">При получении (наличными или картой)</span>
+                </span>
+              </label>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="order-summary order-summary--checkout">
+          <h2 class="order-summary__title">ваш заказ</h2>
+
+          <div class="order-summary__images">
+            <div class="order-summary__image" style="background-image:url('assets/images/product-suit-1.jpg')" aria-hidden="true"></div>
+            <div class="order-summary__image" style="background-image:url('assets/images/cart-item-socks-real.jpg')" aria-hidden="true"></div>
+            <div class="order-summary__image" style="background-image:url('assets/images/cart-item-socks-real.jpg')" aria-hidden="true"></div>
+          </div>
+
+          <div class="order-summary__details">
+            <div class="order-summary__row">
+              <p class="order-summary__row-label">3 товара</p>
+              <p class="order-summary__row-amount">9 460 ₽</p>
+            </div>
+            <div class="order-summary__row" data-summary-row="delivery-free">
+              <div class="order-summary__delivery-label-group">
+                <p class="order-summary__row-label">Доставка</p>
+                <button type="button" class="icon-btn radio-option__info" data-tooltip="delivery-threshold" aria-label="Условия бесплатной доставки">
+                  <span class="icon icon--info" aria-hidden="true"></span>
+                </button>
+                <div class="payment-info-tooltip payment-info-tooltip--small" data-tooltip-panel="delivery-threshold" hidden>
+                  <p class="payment-info-tooltip__label" style="color:var(--text-black)">Бесплатная доставка от 20 000 ₽. Иначе — 500 ₽</p>
+                </div>
+              </div>
+              <div class="order-summary__delivery-value">
+                <span>Бесплатно или <strong class="order-summary__delivery-price">500 ₽</strong></span>
+              </div>
+            </div>
+            <div class="order-summary__row" data-summary-row="delivery-cis" hidden>
+              <p class="order-summary__row-label">Доставка</p>
+              <p class="order-summary__delivery-value">Рассчитывается индивидуально</p>
+            </div>
+          </div>
+
+          <div class="order-summary__total">
+            <p class="order-summary__row-label">Итого</p>
+            <p class="order-summary__row-amount" id="orderSummaryTotal">9 960 ₽</p>
+          </div>
+
+          <p class="order-summary__dynamic-text" data-summary-dynamic hidden>После оформления мы свяжемся с вами для уточнения деталей заказа, и после этого пришлем данные для оплаты</p>
+
+          <button type="button" class="btn btn--dark order-summary__checkout">оформить заказ</button>
+          <p class="order-summary__legal">Нажимая кнопку, вы принимаете условия <a href="oferta.html" class="legal-link">Публичной оферты</a>, подтверждаете ознакомление с <a href="policy.html" class="legal-link">Политикой конфиденциальности</a> и даёте согласие на обработку персональных данных</p>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-columns">
+      <div class="footer-company">
+        <a href="/" class="logo logo--footer" aria-label="Fizuli — на главную">FIZULI</a>
+        <div class="footer-addresses">
+          <p class="footer-col__title">Адреса магазинов</p>
+          <div class="footer-address-list">
+            <p class="footer-address">г. Москва, ТЦ «Мозаика», 7-я Кожуховская, 9,<br>2 этаж</p>
+            <p class="footer-address">г. Москва, ТЦ «Авиапарк» Ходынский бульвар, 4, 3 этаж (Trend Island)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-nav-columns">
+        <nav class="footer-col">
+          <p class="footer-col__title">Каталог</p>
+          <a href="new-arrivals.html" class="nav__link footer-link">новинки</a>
+          <a href="casual-men.html" class="nav__link footer-link">повседневная линия</a>
+          <a href="sport-men.html" class="nav__link footer-link">спортивная база</a>
+          <a href="kids.html" class="nav__link footer-link">детям</a>
+          <a href="accessories.html" class="nav__link footer-link">аксессуары</a>
+          <div class="footer-dropdown" data-footer-dropdown>
+            <button type="button" class="nav__link footer-link footer-dropdown__trigger" data-footer-dropdown-trigger>
+              все товары
+              <span class="icon icon--chevron-down" aria-hidden="true"></span>
+            </button>
+            <div class="footer-dropdown__menu is-hidden" data-footer-dropdown-menu>
+              <a href="men.html" class="footer-dropdown__item">мужское</a>
+              <a href="women.html" class="footer-dropdown__item">женское</a>
+            </div>
+          </div>
+        </nav>
+
+        <nav class="footer-col">
+          <p class="footer-col__title">Информация</p>
+          <a href="about.html" class="nav__link footer-link">о бренде</a>
+          <a href="buyers.html" class="nav__link footer-link">покупателям</a>
+          <a href="partners.html" class="nav__link footer-link">партнёрам</a>
+          <a href="#" class="nav__link footer-link">сертификаты</a>
+          <a href="journal.html" class="nav__link footer-link">журнал</a>
+          <a href="stores.html" class="nav__link footer-link">магазины</a>
+        </nav>
+
+        <div class="footer-col-stack">
+          <nav class="footer-col footer-col--short">
+            <p class="footer-col__title">Контакты</p>
+            <a href="tel:+79936264234" class="nav__link footer-link">+7 (993) 626-42-34</a>
+            <a href="mailto:fizuliwear@mail.ru" class="nav__link footer-link">fizuliwear@mail.ru</a>
+          </nav>
+          <div class="footer-col footer-col--short">
+            <p class="footer-col__title">Мы в соцсетях</p>
+            <span class="footer-link footer-link--text">вконтакте</span>
+            <span class="footer-link footer-link--text">Телеграм</span>
+            <span class="footer-link footer-link--text">Ватсап</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-legal">
+      <p class="footer-copyright">© Fizuli, 2026. Все права защищены</p>
+      <div class="footer-legal__links">
+        <a href="oferta.html" class="nav__link footer-link">договор-оферта</a>
+        <a href="policy.html" class="nav__link footer-link">политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОБИЛЬНЫЙ ФУТЕР — та же информация, что и в десктопном .site-footer выше
+       (он скрыт на мобильном через CSS), но в 2 колонки вместо 3 и с адресами
+       друг под другом, а не в отдельном широком блоке слева -->
+  <footer class="mob-footer">
+    <a href="/" class="mob-footer__logo" aria-label="Fizuli — на главную"></a>
+
+    <div class="mob-footer__addresses">
+      <p class="footer-col__title">Адреса магазинов</p>
+      <div class="footer-address-list">
+        <p class="footer-address">г. Москва, ТЦ «Мозаика», 7-я Кожуховская, 9, 2 этаж</p>
+        <p class="footer-address">г. Москва, ТЦ «Авиапарк» Ходынский бульвар, 4,<br>3 этаж (Trend Island)</p>
+      </div>
+    </div>
+
+    <div class="mob-footer__row">
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Каталог</p>
+        <a href="new-arrivals.html" class="nav__link footer-link">новинки</a>
+        <a href="casual-men.html" class="nav__link footer-link">повседневная линия</a>
+        <a href="sport-men.html" class="nav__link footer-link">спортивная база</a>
+        <a href="kids.html" class="nav__link footer-link">детям</a>
+        <a href="accessories.html" class="nav__link footer-link">аксессуары</a>
+        <div class="mob-footer-dropdown" data-footer-dropdown>
+          <button type="button" class="mob-footer-dropdown__trigger" data-footer-dropdown-trigger>
+            все товары
+            <span class="icon icon--chevron-down" aria-hidden="true"></span>
+          </button>
+          <div class="mob-footer-dropdown__menu is-hidden" data-footer-dropdown-menu>
+            <a href="men.html" class="mob-footer-dropdown__item">мужчинам</a>
+            <a href="women.html" class="mob-footer-dropdown__item">женщинам</a>
+          </div>
+        </div>
+      </div>
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Информация</p>
+        <a href="about.html" class="nav__link footer-link">о бренде</a>
+        <a href="buyers.html" class="nav__link footer-link">покупателям</a>
+        <a href="partners.html" class="nav__link footer-link">партнёрам</a>
+        <a href="#" class="nav__link footer-link">сертификаты</a>
+        <a href="journal.html" class="nav__link footer-link">журнал</a>
+        <a href="stores.html" class="nav__link footer-link">магазины</a>
+      </div>
+    </div>
+
+    <div class="mob-footer__row">
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Мы в соцсетях</p>
+        <span class="footer-link footer-link--text">вконтакте</span>
+        <span class="footer-link footer-link--text">Телеграм</span>
+        <span class="footer-link footer-link--text">Ватсап</span>
+      </div>
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Контакты</p>
+        <a href="tel:+79936264234" class="nav__link footer-link">+7 (993) 626-42-34</a>
+        <a href="mailto:fizuliwear@mail.ru" class="nav__link footer-link">fizuliwear@mail.ru</a>
+      </div>
+    </div>
+
+    <div class="mob-footer__bottom">
+      <div class="mob-footer__legal">
+        <a href="oferta.html" class="nav__link footer-link">договор-оферта</a>
+        <a href="policy.html" class="nav__link footer-link">политика конфиденциальности</a>
+      </div>
+      <p class="footer-copyright">© Fizuli, 2026. Все права защищены</p>
+    </div>
+  </footer>
+
+  <!-- Превью корзины (компонент Cart Drawer из Figma) — та же разметка, что и
+       на остальных страницах -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer__header">
+        <h3 class="cart-drawer__title">корзина</h3>
+        <button class="cart-drawer__close" type="button" aria-label="Закрыть" id="cartDrawerClose">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="cart-drawer__items" id="cartDrawerItems">
+        <div class="cart-item" data-cart-item data-price="8500">
+          <div class="cart-item__image" style="background-image:url('assets/images/cart-item-suit.jpg')" aria-hidden="true"></div>
+          <div class="cart-item__details">
+            <div class="cart-item__row">
+              <p class="cart-item__name">Костюм из жатой ткани</p>
+              <p class="cart-item__price">8 500 ₽</p>
+            </div>
+            <div class="cart-item__specs">
+              <p class="cart-item__spec">RUGA-SET02F-S</p>
+              <p class="cart-item__spec">хаки · XL</p>
+            </div>
+            <div class="cart-item__counter">
+              <button class="cart-item__counter-btn" type="button" data-action="decrement" aria-label="Удалить товар">
+                <span class="icon icon--delete" aria-hidden="true"></span>
+              </button>
+              <span class="cart-item__count" data-count>1</span>
+              <button class="cart-item__counter-btn" type="button" data-action="increment" aria-label="Увеличить количество">
+                <span class="icon icon--plus" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item" data-cart-item data-price="960">
+          <div class="cart-item__image" style="background-image:url('assets/images/cart-item-socks.jpg')" aria-hidden="true"></div>
+          <div class="cart-item__details">
+            <div class="cart-item__row">
+              <p class="cart-item__name">Носки</p>
+              <p class="cart-item__price">960 ₽</p>
+            </div>
+            <div class="cart-item__specs">
+              <p class="cart-item__spec">SOCKS-FIZ010</p>
+              <p class="cart-item__spec">хаки · XL</p>
+            </div>
+            <div class="cart-item__counter">
+              <button class="cart-item__counter-btn" type="button" data-action="decrement" aria-label="Удалить товар">
+                <span class="icon icon--minus" aria-hidden="true"></span>
+              </button>
+              <span class="cart-item__count" data-count>2</span>
+              <button class="cart-item__counter-btn" type="button" data-action="increment" aria-label="Увеличить количество">
+                <span class="icon icon--plus" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-drawer__total">
+        <p class="cart-drawer__total-label">итого</p>
+        <p class="cart-drawer__total-amount" id="cartDrawerTotal">10 420 ₽</p>
+      </div>
+      <button class="btn btn--dark cart-drawer__submit" type="button">оформить заказ</button>
+    </aside>
+  </div>
+  <!-- Попап «Вход или регистрация» (компонент Mob/Modal/Auth из Figma) —
+       открывается иконкой/ссылками входа в шапке и мобильном меню
+       (data-auth-trigger), и кнопкой «перейти к оформлению» на странице
+       корзины, если пользователь ещё не «вошёл». 2 экрана: телефон → код -->
+  <div class="auth-modal-overlay" id="authModalOverlay">
+    <div class="auth-modal" id="authModalPhone">
+      <button class="auth-modal__close" type="button" aria-label="Закрыть" data-auth-close>
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <div class="auth-modal__header">
+        <h3 class="auth-modal__title">вход или регистрация</h3>
+        <p class="auth-modal__text">Введите номер телефона, мы отправим на него СМС с кодом подтверждения</p>
+      </div>
+      <label class="auth-modal__phone-field">
+        <span class="icon icon--phone" aria-hidden="true"></span>
+        <input type="tel" class="auth-modal__phone-input" id="authPhoneInput" placeholder="+7 (000) 000-00-00" autocomplete="tel">
+      </label>
+      <div class="auth-modal__footer">
+        <button class="btn btn--dark auth-modal__submit" type="button" id="authSendCode" disabled>отправить код</button>
+        <p class="auth-modal__disclaimer">Нажимая кнопку, вы принимаете <a href="oferta.html" class="legal-link">Условия оферты</a>, а также подтверждаете, что ознакомлены с <a href="policy.html" class="legal-link">Политикой конфиденциальности</a></p>
+      </div>
+    </div>
+
+    <div class="auth-modal is-hidden" id="authModalCode">
+      <button class="auth-modal__close" type="button" aria-label="Закрыть" data-auth-close>
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <div class="auth-modal__header">
+        <h3 class="auth-modal__title">вход или регистрация</h3>
+        <p class="auth-modal__text">Введите код подтверждения из СМС</p>
+      </div>
+      <div class="auth-modal__code-row">
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+      </div>
+      <p class="auth-modal__resend" id="authResendText">Отправить код повторно через 26 сек</p>
+    </div>
+  </div>
+
+
+
+  <script src="script.js?v=202609236"></script>
+</body>
+</html>

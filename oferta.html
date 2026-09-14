@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizuli — Договор-оферта</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=202609242">
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА: та же разметка, что и на остальных страницах -->
+  <header class="site-header site-header--solid">
+    <div class="site-header__left">
+      <a href="/" class="logo" aria-label="Fizuli — на главную">FIZULI</a>
+      <nav class="nav" id="mainNav">
+        <a href="#" class="nav__link" data-megamenu-trigger="man">мужчинам</a>
+        <a href="#" class="nav__link" data-megamenu-trigger="woman">женщинам</a>
+      </nav>
+    </div>
+
+    <div class="megamenu is-hidden" id="megamenu-man" data-megamenu="man">
+      <div class="megamenu__col">
+        <div class="megamenu__group">
+          <p class="megamenu__label">Коллекции</p>
+          <a href="men.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="men.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="megamenu__group">
+          <p class="megamenu__label">Каталог</p>
+          <a href="new-arrivals.html" class="megamenu__link">новинки</a>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-men.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-men.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-men.html?category=жилеты" class="megamenu__link">жилеты</a>
+              <a href="casual-men.html?category=кардиганы" class="megamenu__link">кардиганы</a>
+              <a href="casual-men.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-men.html?category=куртки" class="megamenu__link">куртки</a>
+              <a href="casual-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="casual-men.html?category=рубашки" class="megamenu__link">рубашки</a>
+              <a href="casual-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-men.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="sport-men.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-men.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="sport-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="sport-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+      </div>
+      <div class="megamenu__col">
+        <p class="megamenu__label">Покупателям</p>
+        <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+        <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+        <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+    </div>
+
+    <div class="megamenu is-hidden" id="megamenu-woman" data-megamenu="woman">
+      <div class="megamenu__col">
+        <div class="megamenu__group">
+          <p class="megamenu__label">Коллекции</p>
+          <a href="women.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="women.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="megamenu__group">
+          <p class="megamenu__label">Каталог</p>
+          <a href="new-arrivals-women.html" class="megamenu__link">новинки</a>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-women.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-women.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-women.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-women.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-women.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-women.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-women.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-women.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+      </div>
+      <div class="megamenu__col">
+        <p class="megamenu__label">Покупателям</p>
+        <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+        <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+        <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true"></div>
+    </div>
+
+    <div class="site-header__right">
+      <button class="icon-btn" aria-label="Поиск" type="button" id="searchTrigger">
+        <span class="icon icon--search" aria-hidden="true"></span>
+      </button>
+      <a href="account.html" class="icon-btn" aria-label="Личный кабинет" data-auth-trigger>
+        <span class="icon icon--user" aria-hidden="true"></span>
+      </a>
+      <a href="wishlist.html" class="icon-btn icon-btn--badged" aria-label="Избранное">
+        <span class="icon icon--favorite" aria-hidden="true"></span>
+        <span class="count-badge">1</span>
+      </a>
+      <button class="icon-btn icon-btn--badged" aria-label="Корзина" type="button" id="cartTrigger">
+        <span class="icon icon--cart" aria-hidden="true"></span>
+        <span class="count-badge" id="cartCount">3</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- МОБИЛЬНАЯ ОБОЛОЧКА (хедер + полноэкранное меню) — параллельная разметка,
+       десктопные .site-header/.megamenu скрыты на мобильном через CSS
+       (брейкпоинт 767px). Источник в Figma: Mob/Header/Megamenu
+       (состояния Close/OpenMan/OpenWoman) — не дропдаун, а страница целиком.
+       Категории внутри — те же самые ссылки, что и в десктопном мегаменю выше,
+       просто в другой обёртке (аккордеон .megamenu-accordion переиспользован как есть) -->
+  <header class="mob-header mob-header--solid">
+    <div class="mob-header__left">
+      <button class="icon-btn icon-btn--mob" type="button" id="mobMenuOpen" aria-label="Меню">
+        <span class="icon icon--hamburger" aria-hidden="true"></span>
+      </button>
+      <a href="/" class="logo logo--mob" aria-label="Fizuli — на главную">FIZULI</a>
+    </div>
+    <div class="mob-header__actions">
+      <button class="icon-btn icon-btn--mob" type="button" aria-label="Поиск" id="mobSearchTrigger">
+        <span class="icon icon--search" aria-hidden="true"></span>
+      </button>
+      <a href="wishlist.html" class="icon-btn icon-btn--mob icon-btn--badged" aria-label="Избранное">
+        <span class="icon icon--favorite" aria-hidden="true"></span>
+        <span class="count-badge">1</span>
+      </a>
+      <button class="icon-btn icon-btn--mob icon-btn--badged" type="button" aria-label="Корзина" id="mobCartTrigger">
+        <span class="icon icon--cart" aria-hidden="true"></span>
+        <span class="count-badge" id="mobCartCount">3</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mob-menu" id="mobMenu">
+    <div class="mob-menu__header">
+      <div class="mob-header__left">
+        <button class="icon-btn icon-btn--mob" type="button" id="mobMenuClose" aria-label="Закрыть меню">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+        <a href="/" class="logo logo--mob" aria-label="Fizuli — на главную">FIZULI</a>
+      </div>
+      <div class="mob-header__actions">
+        <button class="icon-btn icon-btn--mob" type="button" aria-label="Поиск">
+          <span class="icon icon--search" aria-hidden="true"></span>
+        </button>
+        <a href="wishlist.html" class="icon-btn icon-btn--mob icon-btn--badged" aria-label="Избранное">
+          <span class="icon icon--favorite" aria-hidden="true"></span>
+          <span class="count-badge">1</span>
+        </a>
+        <button class="icon-btn icon-btn--mob icon-btn--badged" type="button" aria-label="Корзина">
+          <span class="icon icon--cart" aria-hidden="true"></span>
+          <span class="count-badge">3</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mob-menu__body">
+      <div class="mob-gender-tabs">
+        <a href="#" class="nav__link nav__link--current" data-mob-gender-tab="man">мужчинам</a>
+        <span class="mob-gender-tabs__sep">/</span>
+        <a href="#" class="nav__link" data-mob-gender-tab="woman">женщинам</a>
+      </div>
+
+      <div data-mob-gender-panel="man">
+        <div class="mob-menu-section">
+          <p class="mob-menu-section__label">Коллекции</p>
+          <a href="men.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="men.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Каталог</p>
+          <a href="new-arrivals.html" class="megamenu__link">новинки</a>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-men.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-men.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-men.html?category=жилеты" class="megamenu__link">жилеты</a>
+              <a href="casual-men.html?category=кардиганы" class="megamenu__link">кардиганы</a>
+              <a href="casual-men.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-men.html?category=куртки" class="megamenu__link">куртки</a>
+              <a href="casual-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="casual-men.html?category=рубашки" class="megamenu__link">рубашки</a>
+              <a href="casual-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-men.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-men.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-men.html?category=майки" class="megamenu__link">майки</a>
+              <a href="sport-men.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-men.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-men.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="sport-men.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="sport-men.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Покупателям</p>
+          <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+          <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+          <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+        </div>
+      </div>
+
+      <div data-mob-gender-panel="woman" hidden>
+        <div class="mob-menu-section">
+          <p class="mob-menu-section__label">Коллекции</p>
+          <a href="women.html?collection=huracan" class="megamenu__link">huracan</a>
+          <a href="women.html?collection=patchi" class="megamenu__link">patchi</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Каталог</p>
+          <a href="new-arrivals-women.html" class="megamenu__link">новинки</a>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              повседневная линия
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="casual-women.html?category=анораки" class="megamenu__link">анораки</a>
+              <a href="casual-women.html?category=брюки" class="megamenu__link">брюки</a>
+              <a href="casual-women.html?category=костюмы" class="megamenu__link">костюмы</a>
+              <a href="casual-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="casual-women.html?category=футболки" class="megamenu__link">футболки</a>
+              <a href="casual-women.html?category=худи" class="megamenu__link">худи</a>
+              <a href="casual-women.html?category=шорты" class="megamenu__link">шорты</a>
+              <a href="casual-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <div class="megamenu-accordion">
+            <button type="button" class="megamenu-accordion__trigger" aria-expanded="false">
+              спортивная база
+              <span class="megamenu-accordion__chevron" aria-hidden="true"></span>
+            </button>
+            <div class="megamenu-accordion__list is-hidden">
+              <a href="sport-women.html?category=лонгсливы" class="megamenu__link">лонгсливы</a>
+              <a href="sport-women.html?category=рашгарды" class="megamenu__link">рашгарды</a>
+              <a href="sport-women.html?category=тайтсы" class="megamenu__link">тайтсы</a>
+              <a href="sport-women.html" class="megamenu__link megamenu__link--all"><span class="icon icon--grid" aria-hidden="true"></span>все товары</a>
+            </div>
+          </div>
+          <a href="kids.html" class="megamenu__link">детям</a>
+          <a href="accessories.html" class="megamenu__link">аксессуары</a>
+        </div>
+        <div class="mob-menu-section" style="margin-top:24px">
+          <p class="mob-menu-section__label">Покупателям</p>
+          <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
+          <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
+          <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+        </div>
+      </div>
+
+      <div class="mob-menu__login">
+        <span class="icon-btn icon-btn--mob"><span class="icon icon--user" aria-hidden="true"></span></span>
+        <a href="account.html" class="nav__link" data-auth-trigger>войти</a>
+        <span class="mob-gender-tabs__sep">/</span>
+        <a href="account.html" class="nav__link" data-auth-trigger>зарегистрироваться</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-overlay is-hidden" id="searchOverlay">
+    <div class="search-panel">
+      <div class="search-bar">
+        <div class="search-bar__field">
+          <span class="icon icon--search" aria-hidden="true"></span>
+          <input type="text" class="search-bar__input" id="searchInput" placeholder="Введите название товара" autocomplete="off">
+          <button class="icon-btn search-bar__clear is-hidden" type="button" aria-label="Очистить запрос" id="searchClear">
+            <span class="icon icon--close" aria-hidden="true"></span>
+          </button>
+        </div>
+        <button class="icon-btn search-bar__close" type="button" aria-label="Закрыть поиск" id="searchClose">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="search-content" id="searchContent">
+        <div class="search-frequent">
+          <h3 class="search-heading">часто ищут</h3>
+          <div class="search-frequent__list">
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>куртки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>рубашки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>брюки</button>
+            <button type="button" class="search-suggestion"><span class="icon icon--search-s" aria-hidden="true"></span>костюмы</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-empty is-hidden" id="searchEmpty">
+        <p class="search-empty__message">Ничего не нашлось по запросу «<span id="searchEmptyQuery"></span>». Проверьте, правильно ли введён запрос</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="page-heading container">
+      <nav class="breadcrumbs">
+        <a href="index.html" class="breadcrumbs__link">главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">договор-оферта</span>
+      </nav>
+      <h1 class="page-title">договор-оферта</h1>
+    </div>
+
+    <!-- Полный текст договора — реальный, взят из фрейма Info/Oferta в Figma
+         (id 3938:12729 десктоп, 3938:12992 моб.), не выдуман. В макете текст
+         вёрстан в 2 колонки на десктопе одним растянутым блоком — вместо
+         ручного разбиения «где именно рвать» использую CSS-колонки: браузер
+         сам балансирует высоту, а break-inside:avoid на каждом .info-section
+         не даёт разорвать пункт посередине -->
+    <div class="container" style="padding-bottom:120px">
+      <div class="legal-content">
+        <div class="info-section">
+          <h2 class="info-section__title">основные понятия</h2>
+          <div class="info-section__body">
+            <p>Посетитель сайта — лицо, пришедшее на&nbsp;сайт fizuli.ru без&nbsp;цели размещения Заказа.</p>
+            <p>Пользователь — физическое лицо, посетитель сайта, принимающий условия настоящего Соглашения и&nbsp;желающий разместить Заказы в&nbsp;Интернет-магазине FIZULI.</p>
+            <p>Покупатель — лицо, акцептировавшее публичную оферту на&nbsp;условиях настоящей оферты, размещающее заказы и&nbsp;приобретающее товары у&nbsp;ИП Васильичева Павла Олеговича, представленные на&nbsp;сайте fizuli.ru, для&nbsp;личных, бытовых и&nbsp;других нужд, не&nbsp;связанных с&nbsp;осуществлением предпринимательской деятельности.</p>
+            <p>Продавец — Индивидуальный предприниматель Васильичев Павел Олегович, ИНН 370228045114, ОГРНИП 321370200033167, адрес регистрации: 153040, Ивановская область, г. Иваново, ул. Шубиных, д. 27Б, кв. 26.</p>
+            <p>Интернет-магазин — официальный интернет-магазин Продавца, расположенный по&nbsp;адресу fizuli.ru, где представлены Товары, условия оплаты и&nbsp;доставки.</p>
+            <p>Сайт — fizuli.ru.</p>
+            <p>Товар — одежда, обувь, аксессуары и&nbsp;иные товары, представленные к&nbsp;продаже на&nbsp;Сайте.</p>
+            <p>Заказ — должным образом оформленный и&nbsp;размещённый запрос Пользователя, Покупателя на&nbsp;приобретение и&nbsp;доставку выбранных на&nbsp;Сайте Товаров.</p>
+            <p>Акцепт — оформление Покупателем заказа на&nbsp;Товар в&nbsp;соответствии с&nbsp;условиями Публичной оферты.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">1. общие положения</h2>
+          <div class="info-section__body">
+            <p>1.1. Продавец осуществляет продажу Товаров через&nbsp;Интернет-магазин по&nbsp;адресу fizuli.ru.</p>
+            <p>1.2. Заказывая Товары через&nbsp;Интернет-магазин, Пользователь соглашается с&nbsp;условиями продажи Товаров, изложенными ниже. В&nbsp;случае несогласия с&nbsp;настоящей Публичной офертой Пользователь обязан немедленно прекратить использование сервиса и&nbsp;покинуть сайт fizuli.ru.</p>
+            <p>1.3. Настоящие Условия продажи товаров, а&nbsp;также информация о&nbsp;Товаре, представленная на&nbsp;Сайте, являются публичной офертой в&nbsp;соответствии со&nbsp;ст. 435 и&nbsp;п. 2 ст. 437 Гражданского кодекса Российской Федерации. Отношения в&nbsp;области защиты прав потребителей регулируются Гражданским кодексом РФ, Законом РФ от&nbsp;07.02.1992 № 2300-1 «О&nbsp;защите прав потребителей», Правилами продажи товаров по&nbsp;договору розничной купли-продажи, утверждёнными постановлением Правительства РФ от&nbsp;30.05.2026 № 657 (далее — Правила продажи), и&nbsp;иными принимаемыми в&nbsp;соответствии с&nbsp;ними федеральными законами и&nbsp;правовыми актами РФ.</p>
+            <p>1.4. Публичная оферта может быть изменена Продавцом в&nbsp;одностороннем порядке без&nbsp;уведомления Пользователя/Покупателя. Новая редакция Публичной оферты вступает в&nbsp;силу после её публикации на&nbsp;Сайте и&nbsp;применяется к&nbsp;любому Заказу, сделанному после публикации, если иное не&nbsp;предусмотрено условиями настоящей Публичной оферты.</p>
+            <p>1.5.1. Публичная оферта признаётся акцептованной Посетителем сайта/Покупателем с&nbsp;момента оформления Покупателем Заказа без&nbsp;авторизации на&nbsp;Сайте, а&nbsp;также с&nbsp;момента принятия от&nbsp;Покупателя Заказа через&nbsp;страницу Сайта «Форма заказа».</p>
+            <p>1.5.2. Договор, заключаемый на&nbsp;основании акцептирования Покупателем настоящей оферты, является договором присоединения, к&nbsp;которому Покупатель присоединяется без&nbsp;каких-либо&nbsp;исключений и/или&nbsp;оговорок.</p>
+            <p>1.5.3. Факт оформления заказа Покупателем является безоговорочным фактом принятия Покупателем условий данного Договора.</p>
+            <p>1.6. Договор розничной купли-продажи считается заключённым с&nbsp;момента выдачи Продавцом Покупателю кассового или&nbsp;товарного чека либо&nbsp;иного документа, подтверждающего оплату товара. После получения от&nbsp;Покупателя сообщения о&nbsp;намерении заключить договор Продавец предоставляет Покупателю подтверждение заключения договора розничной купли-продажи на&nbsp;условиях настоящей оферты, содержащее существенные условия договора, в&nbsp;соответствии с&nbsp;п. 17 Правил продажи.</p>
+            <p>1.7. Сообщая Продавцу свой e-mail и&nbsp;номер телефона, Посетитель сайта/Покупатель даёт согласие на&nbsp;использование указанных средств связи Продавцом, а&nbsp;также третьими лицами, привлекаемыми им для&nbsp;целей выполнения обязательств перед Посетителями сайта/Покупателями, в&nbsp;целях рассылок рекламного и&nbsp;информационного характера, передачи заказа в&nbsp;доставку, а&nbsp;также иной информации, непосредственно связанной с&nbsp;исполнением настоящей Публичной оферты.</p>
+            <p>1.8. Осуществляя Заказ, Покупатель соглашается с&nbsp;тем, что Продавец может поручить исполнение Договора третьему лицу, оставаясь ответственным за&nbsp;его исполнение.</p>
+            <p>1.9. Покупатель может оформить заказ в&nbsp;Интернет-магазине 24 часа в&nbsp;сутки, 7 дней в&nbsp;неделю, кроме периодов проведения регламентных работ или&nbsp;технических сбоев.</p>
+            <p>1.10. Условия осуществления доставки, а&nbsp;также возврата доступны на&nbsp;сайте fizuli.ru в&nbsp;разделе «Клиентам». Полный текст правил торговли предоставляется Покупателю по&nbsp;его требованию в&nbsp;порядке, предусмотренном п. 14 Правил продажи.</p>
+            <p>1.11. Вся текстовая информация и&nbsp;графические изображения товаров, размещаемых на&nbsp;Сайте, являются собственностью Продавца или&nbsp;его контрагентов. Просмотр информации или&nbsp;распечатка страниц Сайта разрешается только для&nbsp;личного использования.</p>
+            <p>1.12. Продавец предоставляет на&nbsp;Сайте следующие сведения о&nbsp;себе: полное наименование Продавца (Индивидуальный предприниматель Васильичев Павел Олегович), ОГРНИП, адрес и&nbsp;место нахождения, адрес электронной почты и/или&nbsp;номер телефона для&nbsp;связи — в&nbsp;соответствии с&nbsp;п. 22 Правил продажи.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">2. предмет</h2>
+          <div class="info-section__body">
+            <p>2.1. Предметом настоящей Публичной оферты является предоставление Пользователю возможности приобретать для&nbsp;личных, семейных, домашних и&nbsp;иных нужд, не&nbsp;связанных с&nbsp;осуществлением предпринимательской деятельности, Товары, представленные в&nbsp;каталоге Интернет-магазина по&nbsp;адресу fizuli.ru.</p>
+            <p>2.2. Данная Публичная оферта распространяется на&nbsp;все виды Товаров и&nbsp;услуг, представленных на&nbsp;Сайте, пока такие предложения с&nbsp;описанием присутствуют в&nbsp;каталоге Интернет-магазина.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">3. товар и&nbsp;порядок совершения покупки</h2>
+          <div class="info-section__body">
+            <p>3.1. Регистрация на&nbsp;Сайте не&nbsp;является обязательной для&nbsp;оформления Заказа.</p>
+            <p>3.2. Продавец не&nbsp;несёт ответственности за&nbsp;точность и&nbsp;правильность информации, предоставляемой Пользователем при&nbsp;заказе товара.</p>
+            <p>3.3. Общение Пользователя/Покупателя с&nbsp;менеджерами и&nbsp;иными представителями Продавца должно строиться на&nbsp;принципах общепринятой морали и&nbsp;коммуникационного этикета. Строго запрещено использование нецензурных слов, брани, оскорбительных выражений, а&nbsp;также угроз и&nbsp;шантажа, независимо от&nbsp;того, в&nbsp;каком виде и&nbsp;кому они были адресованы.</p>
+            <p>3.4. В&nbsp;случае отсутствия заказанных Покупателем Товаров на&nbsp;складе Продавца последний вправе исключить указанный Товар из&nbsp;Заказа/аннулировать Заказ, уведомив об&nbsp;этом Покупателя электронным сообщением по&nbsp;адресу, указанному Покупателем. Сопровождающие Товар фотографии являются иллюстрациями и&nbsp;могут отличаться от&nbsp;фактического внешнего вида Товара. Для&nbsp;уточнения информации по&nbsp;Товару Покупатель обращается к&nbsp;Продавцу через&nbsp;раздел «Контакты».</p>
+            <p>3.5. В&nbsp;случае аннуляции полностью предоплаченного Заказа стоимость аннулированного Товара возвращается Продавцом Покупателю способом, которым Товар был оплачен.</p>
+            <p>3.6. Заказ Покупателя оформляется в&nbsp;соответствии с&nbsp;процедурами, указанными на&nbsp;Сайте в&nbsp;разделе «Корзина».</p>
+            <p>3.7. Покупатель несёт полную ответственность за&nbsp;предоставление неверных сведений, повлекшее невозможность надлежащего исполнения Продавцом своих обязательств.</p>
+            <p>3.8. После оформления Заказа Покупателю предоставляется информация о&nbsp;предполагаемых сроках доставки путём направления электронного сообщения по&nbsp;адресу, указанному Покупателем.</p>
+            <p>3.9. Дата передачи Товара может быть изменена Продавцом в&nbsp;одностороннем порядке при&nbsp;наличии объективных, по&nbsp;мнению Продавца, причин.</p>
+            <p>3.10. Продавец обязан бесплатно упаковать одежду, обувь и&nbsp;текстильные изделия при&nbsp;каждой продаже Товара; отдельная плата за&nbsp;такую базовую потребительскую упаковку не&nbsp;взимается. Дополнительная или&nbsp;подарочная упаковка может быть предложена Покупателю за&nbsp;отдельную плату при&nbsp;сохранении возможности получить Товар в&nbsp;стандартной бесплатной упаковке — в&nbsp;соответствии с&nbsp;п. 65 Правил продажи.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">4. доставка заказа</h2>
+          <div class="info-section__body">
+            <p>4.1. Способы, а&nbsp;также примерные сроки доставки Товаров указаны на&nbsp;Сайте в&nbsp;разделе «Клиентам». Конкретные сроки доставки могут быть согласованы Покупателем при&nbsp;подтверждении заказа.</p>
+            <p>4.2. Доставка осуществляется по&nbsp;всем городам России и/или&nbsp;по&nbsp;миру транспортной компанией и/или&nbsp;почтовой службой. Территория доставки не&nbsp;ограничена и/или&nbsp;в&nbsp;исключительных случаях определяется в&nbsp;зависимости от&nbsp;вида Товаров.</p>
+            <p>4.2.1. Доставка товара в&nbsp;отдельные страны может быть ограничена законодательством страны доставки. В&nbsp;случае ограничения доставки товар возвращается Продавцу доступным способом, деньги, уплаченные за&nbsp;товар, возвращаются в&nbsp;течение 10 дней способом, которым они были уплачены.</p>
+            <p>4.2.2. Самовывоз Покупатель может осуществлять из&nbsp;всех точек продаж Продавца на&nbsp;территории Российской Федерации, включая точку по&nbsp;адресу: г. Москва, 7-я Кожуховская ул., д. 9, ТЦ «Мозаика», 2 этаж, бутик А254.</p>
+            <p>4.2.3. Одновременно с&nbsp;Товаром Продавец передаёт бланк возврата с&nbsp;информацией о&nbsp;сроке возврата и&nbsp;памятку по&nbsp;уходу за&nbsp;Товаром.</p>
+            <p>4.2.4. Для&nbsp;Клиентов из&nbsp;стран дальнего зарубежья Продавец отправляет заказ без&nbsp;учёта налогов и&nbsp;пошлин страны пребывания Покупателя. Цена за&nbsp;доставку не&nbsp;включает в&nbsp;себя налоги и&nbsp;пошлины.</p>
+            <p>4.3. Продавец старается максимально соблюдать согласованные сроки доставки и&nbsp;не&nbsp;несёт ответственности за&nbsp;возможные задержки, произошедшие не&nbsp;по&nbsp;его вине.</p>
+            <p>4.4. При&nbsp;доставке Заказ вручается Покупателю либо&nbsp;третьему лицу, указанному в&nbsp;Заказе в&nbsp;качестве получателя (Получатель). При&nbsp;невозможности получения Заказа указанными лицами Заказ может быть вручен лицу, способному предоставить сведения о&nbsp;Заказе (номер отправления и/или&nbsp;ФИО Получателя).</p>
+            <p>4.5. Риск случайной гибели или&nbsp;повреждения Товара переходит к&nbsp;Покупателю с&nbsp;момента передачи ему Заказа и&nbsp;проставления Получателем подписи в&nbsp;документах, подтверждающих доставку. В&nbsp;случае недоставки Заказа Продавец возмещает Покупателю стоимость оплаченного Заказа и&nbsp;доставки в&nbsp;полном объёме после получения подтверждения утраты Заказа.</p>
+            <p>4.6. Стоимость доставки каждого Заказа рассчитывается индивидуально и&nbsp;зависит от&nbsp;выбранного способа доставки.</p>
+            <p>4.7. Осуществление доставки — отдельная услуга, не&nbsp;являющаяся неотъемлемой частью приобретаемого Товара. Приобретение Товара с&nbsp;доставкой не&nbsp;даёт Покупателю право требования доставки Товара в&nbsp;целях гарантийного обслуживания или&nbsp;замены и&nbsp;не&nbsp;подразумевает возврат стоимости доставки в&nbsp;случаях, когда Покупатель имеет право на&nbsp;возврат денег за&nbsp;Товар в&nbsp;соответствии с&nbsp;Законом РФ «О&nbsp;защите прав потребителей».</p>
+            <p>4.8. Обязанность Продавца передать товар Покупателю считается исполненной в&nbsp;момент вручения Товара Получателю или&nbsp;получения Товара Получателем в&nbsp;отделении почтовой связи либо&nbsp;в&nbsp;заранее оговорённом месте выдачи Заказа, в&nbsp;том числе в&nbsp;пункте самовывоза.</p>
+            <p>4.9. При&nbsp;получении Заказа у&nbsp;транспортной компании или&nbsp;почтовой службы Получатель после оплаты доставленного Товара обязан осмотреть его и&nbsp;произвести вскрытие в&nbsp;присутствии работников транспортной компании или&nbsp;почтовой службы для&nbsp;проверки соответствия количеству, ассортименту и&nbsp;комплектности, а&nbsp;также целостности упаковки. При&nbsp;наличии претензий Получатель составляет Акт о&nbsp;выявленных несоответствиях. Если претензии не&nbsp;заявлены в&nbsp;указанном порядке, Продавец считается полностью и&nbsp;надлежащим образом исполнившим обязанность по&nbsp;передаче Товара.</p>
+            <p>4.10. В&nbsp;случае возврата Товара, доставленного транспортной компанией или&nbsp;почтовой службой, в&nbsp;связи с&nbsp;наличием претензий Получатель обязан приложить к&nbsp;отправлению: заявление на&nbsp;возврат денежных средств; копию акта о&nbsp;выявленных несоответствиях; копию квитанции об&nbsp;оплате; копию описи отправления; бланк возврата; фотографию, фиксирующую брак; заключение экспертизы (при&nbsp;её проведении).</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">5. оплата товара</h2>
+          <div class="info-section__body">
+            <p>5.1. Цена товара указывается в&nbsp;рублях Российской Федерации. Оплата производится на&nbsp;счета, указанные Продавцом.</p>
+            <p>5.2. Цены на&nbsp;Товар определяются Продавцом в&nbsp;одностороннем порядке. В&nbsp;случае неверного указания цены Продавец информирует Покупателя для&nbsp;подтверждения Заказа по&nbsp;исправленной цене либо&nbsp;аннулирования Заказа. При&nbsp;невозможности связаться с&nbsp;Покупателем Заказ считается аннулированным, за&nbsp;исключением случаев, когда цена была снижена по&nbsp;сравнению с&nbsp;указанной на&nbsp;Сайте. Если Заказ был оплачен, Продавец возвращает Покупателю уплаченную сумму тем же&nbsp;способом, которым она была внесена.</p>
+            <p>5.3. Цена Товара на&nbsp;Сайте может быть изменена Продавцом в&nbsp;одностороннем порядке; при&nbsp;этом цена на&nbsp;уже&nbsp;заказанный Товар изменению не&nbsp;подлежит.</p>
+            <p>5.3.1. Покупатель может произвести оплату следующими способами:</p>
+            <p>— онлайн-оплата на&nbsp;сайте, в&nbsp;том числе с&nbsp;использованием универсального платёжного QR-кода, позволяющего выбрать подключённый способ расчёта (включая систему быстрых платежей, банковский платёжный сервис, рассрочку или&nbsp;цифровые рубли — при&nbsp;наличии технической возможности и&nbsp;в&nbsp;порядке, установленном законодательством РФ).</p>
+            <p>5.3.2. Способ оплаты зависит от&nbsp;наличия возможностей доставки в&nbsp;конкретном населённом пункте. Подробная информация о&nbsp;способах оплаты содержится в&nbsp;разделе сайта «Клиентам».</p>
+            <p>5.4. Особенности оплаты Товара с&nbsp;помощью банковских карт осуществляются в&nbsp;соответствии с&nbsp;требованиями Банка России к&nbsp;операциям, совершаемым с&nbsp;использованием платёжных карт. Операции по&nbsp;банковским картам совершаются держателем карты либо&nbsp;уполномоченным им лицом.</p>
+            <p>5.5. Авторизация операций по&nbsp;банковским картам осуществляется банком. Если у&nbsp;банка есть основания полагать, что операция носит мошеннический характер, банк вправе отказать в&nbsp;её проведении.</p>
+            <p>5.6. Во&nbsp;избежание неправомерного использования банковских карт при&nbsp;оплате все Заказы, предоплаченные банковской картой, проверяются Продавцом.</p>
+            <p>5.7. Продавец вправе предоставлять скидки на&nbsp;Товары и&nbsp;устанавливать программу бонусов. Виды скидок, бонусов, порядок и&nbsp;условия начисления определяются Продавцом самостоятельно и&nbsp;указаны на&nbsp;Сайте.</p>
+            <p>5.8. В&nbsp;случае если при&nbsp;применении скидки/бонуса пересчитанная стоимость Товара включает копейки, такая стоимость округляется в&nbsp;сторону уменьшения до&nbsp;значения, кратного 1 (одному) рублю.</p>
+            <p>5.9. При&nbsp;проведении маркетинговых мероприятий, предполагающих вложение каких-либо&nbsp;объектов в&nbsp;отправления с&nbsp;Заказом, доставка указанных вложений осуществляется за&nbsp;счёт Покупателя. Для&nbsp;отказа от&nbsp;вложения Покупателю необходимо обратиться к&nbsp;Продавцу через&nbsp;раздел «Контакты».</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">6. возврат и&nbsp;обмен товара и&nbsp;денежных средств</h2>
+          <div class="info-section__body">
+            <p>6.1.1. Возврат Товара, реализуемого Продавцом, осуществляется в&nbsp;соответствии со&nbsp;следующими условиями.</p>
+            <p>6.1.2. Возврат или&nbsp;обмен товара возможны, когда сохранены его товарный вид (упаковка, пломбы, ярлыки), потребительские свойства, комплектность, а&nbsp;также документ, подтверждающий факт и&nbsp;условия покупки (товарный или&nbsp;кассовый чек); при&nbsp;отсутствии чека допускается подтверждение покупки иными доказательствами.</p>
+            <p>6.2. Возврат Товара надлежащего качества</p>
+            <p>6.2.1. Покупатель вправе отказаться от&nbsp;заказанного Товара в&nbsp;любое время до&nbsp;его получения, а&nbsp;после получения Товара — в&nbsp;течение 7 (семи) дней, если Товар приобретён в&nbsp;Интернет-магазине, и&nbsp;14 (четырнадцати) дней, если Товар приобретён в&nbsp;розничном магазине, не&nbsp;считая дня покупки, за&nbsp;исключением Товаров, изготовленных на&nbsp;заказ по&nbsp;индивидуальному заданию, утверждённому Пользователем/Покупателем. Если Продавец письменно не&nbsp;сообщил Покупателю порядок и&nbsp;сроки возврата Товара, приобретённого дистанционно, Покупатель вправе обратиться с&nbsp;требованием о&nbsp;возврате в&nbsp;течение трёх месяцев с&nbsp;момента передачи Товара, в&nbsp;соответствии с&nbsp;п. 4 ст. 26.1 Закона РФ «О&nbsp;защите прав потребителей».</p>
+            <p>6.2.2. При&nbsp;отказе Покупателя от&nbsp;Товара Продавец возвращает ему стоимость возвращённого Товара, за&nbsp;исключением расходов Продавца, связанных с&nbsp;доставкой возвращённого Товара, в&nbsp;течение 10 (десяти) дней с&nbsp;даты поступления возвращённого Товара на&nbsp;склад Продавца вместе с&nbsp;заполненным заявлением на&nbsp;возврат денежных средств.</p>
+            <p>6.2.3. Если на&nbsp;момент обращения Покупателя аналогичный товар отсутствует в&nbsp;продаже у&nbsp;Продавца, Покупатель вправе отказаться от&nbsp;исполнения настоящей Публичной оферты и&nbsp;потребовать возврата уплаченной суммы. Продавец обязан вернуть уплаченную сумму в&nbsp;течение 10 (десяти) дней со&nbsp;дня возврата Товара.</p>
+            <p>6.2.4. Для&nbsp;оформления возврата Товара надлежащего качества (в&nbsp;том числе по&nbsp;причине его обмена) Покупатель обязуется аккуратно упаковать Товар (со&nbsp;всеми комплектующими и&nbsp;полным комплектом аксессуаров) и&nbsp;приложить: заявление о&nbsp;возврате товара по&nbsp;форме бланка возврата с&nbsp;указанием ФИО, адреса места жительства, контактного телефона; копию чека об&nbsp;оплате.</p>
+            <p>6.2.5. Качественный технически сложный товар бытового назначения, приобретённый дистанционно, может быть возвращён при&nbsp;условии сохранения его потребительской упаковки, комплектности, а&nbsp;также технических и&nbsp;эксплуатационных документов — в&nbsp;соответствии с&nbsp;п. 44 Правил продажи.</p>
+            <p>6.3. Возврат Товара ненадлежащего качества</p>
+            <p>6.3.1. Под&nbsp;товаром ненадлежащего качества понимается товар, который неисправен и&nbsp;не&nbsp;может обеспечить исполнение своих функциональных качеств либо&nbsp;не&nbsp;отвечает требованиям, указанным в&nbsp;индивидуальном задании (при&nbsp;изготовлении товара на&nbsp;заказ). Полученный Товар должен соответствовать описанию на&nbsp;Сайте; отличие элементов дизайна или&nbsp;оформления от&nbsp;заявленного описания не&nbsp;является признаком ненадлежащего качества.</p>
+            <p>6.3.2. Внешний вид, комплектность Товара и&nbsp;комплектность всего Заказа должны быть проверены Получателем в&nbsp;момент доставки Товара.</p>
+            <p>6.3.3. При&nbsp;доставке Товара Покупатель ставит подпись в&nbsp;документе о&nbsp;доставке, подтверждающую отсутствие претензий к&nbsp;комплектности, количеству и&nbsp;качеству Товара. После получения Заказа претензии к&nbsp;внешним дефектам, количеству, комплектности и&nbsp;товарному виду не&nbsp;принимаются, за&nbsp;исключением случаев, когда недостатки не&nbsp;могли быть обнаружены при&nbsp;обычном способе приёмки.</p>
+            <p>6.3.4. Если Покупателю передан Товар ненадлежащего качества, Покупатель вправе воспользоваться положениями ст. 18 Закона РФ «О&nbsp;защите прав потребителей».</p>
+            <p>6.3.5. Требования о&nbsp;возврате уплаченной за&nbsp;товар денежной суммы подлежат удовлетворению в&nbsp;течение 10 (десяти) календарных дней со&nbsp;дня предъявления соответствующего требования; о&nbsp;замене товара с&nbsp;недостатком — в&nbsp;течение 7 дней, при&nbsp;дополнительной проверке качества — 20 дней, при&nbsp;отсутствии нужного товара — 1 месяца; об&nbsp;устранении недостатков — незамедлительно либо&nbsp;в&nbsp;согласованный срок, не&nbsp;превышающий 45 дней (ст. 20—22 Закона РФ «О&nbsp;защите прав потребителей», п. 5 Правил продажи).</p>
+            <p>6.3.6. Возврат денежных средств осуществляется посредством перечисления стоимости оплаченного Товара на&nbsp;банковский счёт (либо&nbsp;иное электронное средство платежа), указанное Покупателем в&nbsp;заявлении на&nbsp;возврат.</p>
+            <p>6.4. Порядок направления и&nbsp;рассмотрения претензий</p>
+            <p>6.4.1. Претензии принимаются Продавцом в&nbsp;письменной форме: на&nbsp;бумажном носителе по&nbsp;адресу для&nbsp;возврата товара либо&nbsp;в&nbsp;электронном виде на&nbsp;адрес электронной почты support@fizuli.ru.</p>
+            <p>6.4.2. В&nbsp;претензии, содержащей требование о&nbsp;возврате денежных средств, Покупатель указывает номер заказа (либо&nbsp;иной идентификатор заказа) и/или&nbsp;номер телефона либо&nbsp;адрес электронной почты, указанные им при&nbsp;оформлении Заказа, а&nbsp;также реквизиты банковского счёта или&nbsp;сведения об&nbsp;ином электронном средстве платежа для&nbsp;возврата денежных средств.</p>
+            <p>6.4.3. Продавец отвечает на&nbsp;претензию письменно — на&nbsp;бумаге или&nbsp;в&nbsp;электронном виде — по&nbsp;адресу электронной почты или&nbsp;почтовому адресу, указанному Покупателем в&nbsp;обращении, в&nbsp;сроки, предусмотренные п. 6.3.5 настоящей оферты и&nbsp;Законом РФ «О&nbsp;защите прав потребителей».</p>
+            <p>6.5. Способы возврата</p>
+            <p>6.5.1. Транспортной компанией или&nbsp;почтовой службой по&nbsp;желанию Покупателя. Покупатель отправляет возвращаемый товар посылкой без&nbsp;наложенного платежа; посылки, отправленные наложенным платежом, к&nbsp;возврату не&nbsp;принимаются. В&nbsp;посылку необходимо вложить заполненное заявление на&nbsp;возврат (бланк возврата товара).</p>
+            <p>6.5.2. Адрес для&nbsp;возврата Товара: 109202, г. Москва, 7-я Кожуховская ул., д. 9, ТЦ «Мозаика», 2 этаж, бутик А254, FIZULI.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">7. ответственность</h2>
+          <div class="info-section__body">
+            <p>7.1. Продавец не&nbsp;несёт ответственности за&nbsp;ущерб, причинённый Покупателю вследствие ненадлежащего использования Товаров, приобретённых в&nbsp;Интернет-магазине.</p>
+            <p>7.2. Продавец не&nbsp;несёт ответственности за&nbsp;точность и&nbsp;правильность информации, предоставляемой Пользователем при&nbsp;регистрации или&nbsp;оформлении Заказа.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">8. защита персональных данных</h2>
+          <div class="info-section__body">
+            <p>8.1. Персональные данные Пользователя/Покупателя обрабатываются в&nbsp;соответствии с&nbsp;Федеральным законом «О&nbsp;персональных данных» № 152-ФЗ, с&nbsp;учётом изменений, вступивших в&nbsp;силу с&nbsp;30 мая 2025 года и&nbsp;с&nbsp;1 сентября 2025 года, и&nbsp;Политикой в&nbsp;отношении обработки персональных данных, размещённой на&nbsp;сайте fizuli.ru/policy.</p>
+            <p>8.2. При&nbsp;регистрации на&nbsp;Сайте Пользователь предоставляет следующую информацию: фамилия, имя, отчество, контактный номер телефона, адрес электронной почты, адрес доставки товара с&nbsp;почтовым индексом города.</p>
+            <p>8.3. Предоставляя свои персональные данные Продавцу, Посетитель сайта/Пользователь/Покупатель соглашается на&nbsp;их обработку Продавцом в&nbsp;целях выполнения обязательств перед Посетителем сайта/Пользователем/Покупателем в&nbsp;рамках настоящей Публичной оферты, продвижения товаров и&nbsp;услуг, проведения электронных и&nbsp;sms-опросов, контроля результатов маркетинговых акций, клиентской поддержки, организации доставки товара, контроля удовлетворённости и&nbsp;качества оказываемых услуг.</p>
+            <p>8.4. Под&nbsp;обработкой персональных данных понимается любое действие (операция) или&nbsp;совокупность действий (операций), совершаемых с&nbsp;использованием средств автоматизации или&nbsp;без&nbsp;использования таких средств с&nbsp;персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение, извлечение, использование, передачу (в&nbsp;том числе трансграничную передачу — в&nbsp;порядке и&nbsp;случаях, предусмотренных Законом о&nbsp;персональных данных), обезличивание, блокирование, удаление, уничтожение персональных данных.</p>
+            <p>8.5. Продавец имеет право отправлять информационные, в&nbsp;том числе рекламные, сообщения на&nbsp;электронную почту и&nbsp;мобильный телефон Пользователя/Покупателя с&nbsp;его согласия. Пользователь/Покупатель вправе отказаться от&nbsp;получения рекламной и&nbsp;другой информации без&nbsp;объяснения причин, уведомив об&nbsp;этом Продавца по&nbsp;телефону либо&nbsp;направив соответствующее заявление на&nbsp;электронный адрес Продавца.</p>
+            <p>8.6. Продавец вправе использовать технологию «cookies». Cookies не&nbsp;содержат конфиденциальную информацию. Посетитель сайта/Пользователь/Покупатель даёт согласие на&nbsp;сбор, анализ и&nbsp;использование cookies, в&nbsp;том числе третьими лицами, для&nbsp;целей формирования статистики и&nbsp;оптимизации рекламных сообщений.</p>
+            <p>8.7. Продавец получает информацию об&nbsp;IP-адресе Посетителя сайта. Данная информация не&nbsp;используется для&nbsp;установления личности Посетителя сайта.</p>
+            <p>8.8. Продавец не&nbsp;несёт ответственности за&nbsp;сведения, предоставленные Пользователем/Покупателем на&nbsp;Сайте в&nbsp;общедоступной форме.</p>
+            <p>8.9. Продавец вправе осуществлять записи телефонных разговоров с&nbsp;Пользователем/Покупателем, обязуясь предотвращать попытки несанкционированного доступа к&nbsp;полученной информации и/или&nbsp;её передачу третьим лицам, не&nbsp;имеющим отношения к&nbsp;исполнению Заказов.</p>
+            <p>8.10. Покупатель выражает согласие и&nbsp;разрешает Оператору и&nbsp;контрагентам Оператора обрабатывать персональные данные Покупателя с&nbsp;помощью автоматизированных систем управления базами данных, а&nbsp;также иных программных средств, разработанных по&nbsp;поручению Оператора.</p>
+            <p>8.11. Покупатель вправе запросить у&nbsp;Оператора полную информацию о&nbsp;своих персональных данных, их обработке и&nbsp;использовании, а&nbsp;также потребовать исключения или&nbsp;исправления/дополнения неверных или&nbsp;неполных персональных данных.</p>
+            <p>8.12. Клиент может отказаться от&nbsp;получения рассылок и&nbsp;иной информации, нажав кнопку «Отписаться» в&nbsp;электронном письме либо&nbsp;обратившись в&nbsp;Службу по&nbsp;работе с&nbsp;клиентами Продавца по&nbsp;контактам, указанным на&nbsp;сайте fizuli.ru в&nbsp;разделе «Контакты».</p>
+            <p>8.13. Продавец обязуется не&nbsp;разглашать полученную от&nbsp;Клиента информацию третьим лицам, за&nbsp;исключением случаев предоставления информации агентам и&nbsp;лицам, действующим на&nbsp;основании договора с&nbsp;Продавцом, для&nbsp;исполнения обязательств перед клиентом.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">9. проверка сведений через&nbsp;государственные сервисы</h2>
+          <div class="info-section__body">
+            <p>9.1. В&nbsp;случаях, предусмотренных законодательством РФ (в&nbsp;том числе при&nbsp;продаже отдельных категорий товаров, требующих подтверждения возраста или&nbsp;права на&nbsp;льготу), Продавец вправе предложить Покупателю подтвердить соответствующие сведения через&nbsp;многофункциональный сервис обмена информацией. Использование такого сервиса не&nbsp;является обязательным для&nbsp;Покупателя, который вправе подтвердить необходимые сведения иным предусмотренным законом способом.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">10. срок действия публичной оферты</h2>
+          <div class="info-section__body">
+            <p>10.1. Настоящая Публичная оферта вступает в&nbsp;силу с&nbsp;момента её акцепта Посетителем/Покупателем и&nbsp;действует до&nbsp;момента отзыва акцепта Публичной оферты.</p>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="info-section__title">11. дополнительные условия</h2>
+          <div class="info-section__body">
+            <p>11.1. Продавец вправе переуступать либо&nbsp;иным способом передавать свои права и&nbsp;обязанности, вытекающие из&nbsp;его отношений с&nbsp;Покупателем, третьим лицам.</p>
+            <p>11.2. Интернет-магазин и&nbsp;предоставляемые сервисы могут быть временно, частично или&nbsp;полностью недоступны по&nbsp;причине проведения профилактических или&nbsp;иных работ либо&nbsp;по&nbsp;иным причинам технического характера.</p>
+            <p>11.3. К&nbsp;отношениям между Пользователем/Покупателем и&nbsp;Продавцом применяются положения российского законодательства.</p>
+            <p>11.4. В&nbsp;случае возникновения вопросов и&nbsp;претензий со&nbsp;стороны Пользователя/Покупателя он может обратиться к&nbsp;Продавцу по&nbsp;телефону или&nbsp;иным доступным способом. Все возникающие споры стороны будут стараться решить путём переговоров; при&nbsp;недостижении соглашения спор передаётся на&nbsp;рассмотрение в&nbsp;судебный орган в&nbsp;соответствии с&nbsp;действующим законодательством РФ.</p>
+            <p>11.5. Признание судом недействительности какого-либо&nbsp;положения настоящей Публичной оферты не&nbsp;влечёт за&nbsp;собой недействительность остальных положений.</p>
+            <p>11.6. Настоящая редакция оферты приведена в&nbsp;соответствие с&nbsp;Правилами продажи товаров по&nbsp;договору розничной купли-продажи, утверждёнными постановлением Правительства РФ от&nbsp;30.05.2026 № 657, действующими по&nbsp;состоянию на&nbsp;сентябрь 2026 года.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-columns">
+      <div class="footer-company">
+        <a href="/" class="logo logo--footer" aria-label="Fizuli — на главную">FIZULI</a>
+        <div class="footer-addresses">
+          <p class="footer-col__title">Адреса магазинов</p>
+          <div class="footer-address-list">
+            <p class="footer-address">г. Москва, ТЦ «Мозаика», 7-я Кожуховская, 9,<br>2 этаж</p>
+            <p class="footer-address">г. Москва, ТЦ «Авиапарк» Ходынский бульвар, 4, 3 этаж (Trend Island)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-nav-columns">
+        <nav class="footer-col">
+          <p class="footer-col__title">Каталог</p>
+          <a href="new-arrivals.html" class="nav__link footer-link">новинки</a>
+          <a href="casual-men.html" class="nav__link footer-link">повседневная линия</a>
+          <a href="sport-men.html" class="nav__link footer-link">спортивная база</a>
+          <a href="kids.html" class="nav__link footer-link">детям</a>
+          <a href="accessories.html" class="nav__link footer-link">аксессуары</a>
+          <div class="footer-dropdown" data-footer-dropdown>
+            <button type="button" class="nav__link footer-link footer-dropdown__trigger" data-footer-dropdown-trigger>
+              все товары
+              <span class="icon icon--chevron-down" aria-hidden="true"></span>
+            </button>
+            <div class="footer-dropdown__menu is-hidden" data-footer-dropdown-menu>
+              <a href="men.html" class="footer-dropdown__item">мужское</a>
+              <a href="women.html" class="footer-dropdown__item">женское</a>
+            </div>
+          </div>
+        </nav>
+
+        <nav class="footer-col">
+          <p class="footer-col__title">Информация</p>
+          <a href="about.html" class="nav__link footer-link">о бренде</a>
+          <a href="buyers.html" class="nav__link footer-link">покупателям</a>
+          <a href="partners.html" class="nav__link footer-link">партнёрам</a>
+          <a href="#" class="nav__link footer-link">сертификаты</a>
+          <a href="journal.html" class="nav__link footer-link">журнал</a>
+          <a href="stores.html" class="nav__link footer-link">магазины</a>
+        </nav>
+
+        <div class="footer-col-stack">
+          <nav class="footer-col footer-col--short">
+            <p class="footer-col__title">Контакты</p>
+            <a href="tel:+79936264234" class="nav__link footer-link">+7 (993) 626-42-34</a>
+            <a href="mailto:fizuliwear@mail.ru" class="nav__link footer-link">fizuliwear@mail.ru</a>
+          </nav>
+          <div class="footer-col footer-col--short">
+            <p class="footer-col__title">Мы в соцсетях</p>
+            <span class="footer-link footer-link--text">вконтакте</span>
+            <span class="footer-link footer-link--text">Телеграм</span>
+            <span class="footer-link footer-link--text">Ватсап</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-legal">
+      <p class="footer-copyright">© Fizuli, 2026. Все права защищены</p>
+      <div class="footer-legal__links">
+        <a href="oferta.html" class="nav__link footer-link">договор-оферта</a>
+        <a href="policy.html" class="nav__link footer-link">политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОБИЛЬНЫЙ ФУТЕР — та же информация, что и в десктопном .site-footer выше
+       (он скрыт на мобильном через CSS), но в 2 колонки вместо 3 и с адресами
+       друг под другом, а не в отдельном широком блоке слева -->
+  <footer class="mob-footer">
+    <a href="/" class="mob-footer__logo" aria-label="Fizuli — на главную"></a>
+
+    <div class="mob-footer__addresses">
+      <p class="footer-col__title">Адреса магазинов</p>
+      <div class="footer-address-list">
+        <p class="footer-address">г. Москва, ТЦ «Мозаика», 7-я Кожуховская, 9, 2 этаж</p>
+        <p class="footer-address">г. Москва, ТЦ «Авиапарк» Ходынский бульвар, 4,<br>3 этаж (Trend Island)</p>
+      </div>
+    </div>
+
+    <div class="mob-footer__row">
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Каталог</p>
+        <a href="new-arrivals.html" class="nav__link footer-link">новинки</a>
+        <a href="casual-men.html" class="nav__link footer-link">повседневная линия</a>
+        <a href="sport-men.html" class="nav__link footer-link">спортивная база</a>
+        <a href="kids.html" class="nav__link footer-link">детям</a>
+        <a href="accessories.html" class="nav__link footer-link">аксессуары</a>
+        <div class="mob-footer-dropdown" data-footer-dropdown>
+          <button type="button" class="mob-footer-dropdown__trigger" data-footer-dropdown-trigger>
+            все товары
+            <span class="icon icon--chevron-down" aria-hidden="true"></span>
+          </button>
+          <div class="mob-footer-dropdown__menu is-hidden" data-footer-dropdown-menu>
+            <a href="men.html" class="mob-footer-dropdown__item">мужчинам</a>
+            <a href="women.html" class="mob-footer-dropdown__item">женщинам</a>
+          </div>
+        </div>
+      </div>
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Информация</p>
+        <a href="about.html" class="nav__link footer-link">о бренде</a>
+        <a href="buyers.html" class="nav__link footer-link">покупателям</a>
+        <a href="partners.html" class="nav__link footer-link">партнёрам</a>
+        <a href="#" class="nav__link footer-link">сертификаты</a>
+        <a href="journal.html" class="nav__link footer-link">журнал</a>
+        <a href="stores.html" class="nav__link footer-link">магазины</a>
+      </div>
+    </div>
+
+    <div class="mob-footer__row">
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Мы в соцсетях</p>
+        <span class="footer-link footer-link--text">вконтакте</span>
+        <span class="footer-link footer-link--text">Телеграм</span>
+        <span class="footer-link footer-link--text">Ватсап</span>
+      </div>
+      <div class="mob-footer__col">
+        <p class="footer-col__title">Контакты</p>
+        <a href="tel:+79936264234" class="nav__link footer-link">+7 (993) 626-42-34</a>
+        <a href="mailto:fizuliwear@mail.ru" class="nav__link footer-link">fizuliwear@mail.ru</a>
+      </div>
+    </div>
+
+    <div class="mob-footer__bottom">
+      <div class="mob-footer__legal">
+        <a href="oferta.html" class="nav__link footer-link">договор-оферта</a>
+        <a href="policy.html" class="nav__link footer-link">политика конфиденциальности</a>
+      </div>
+      <p class="footer-copyright">© Fizuli, 2026. Все права защищены</p>
+    </div>
+  </footer>
+
+  <!-- Превью корзины (компонент Cart Drawer из Figma) — та же разметка, что и
+       на остальных страницах -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer__header">
+        <h3 class="cart-drawer__title">корзина</h3>
+        <button class="cart-drawer__close" type="button" aria-label="Закрыть" id="cartDrawerClose">
+          <span class="icon icon--close" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="cart-drawer__items" id="cartDrawerItems">
+        <div class="cart-item" data-cart-item data-price="8500">
+          <div class="cart-item__image" style="background-image:url('assets/images/cart-item-suit.jpg')" aria-hidden="true"></div>
+          <div class="cart-item__details">
+            <div class="cart-item__row">
+              <p class="cart-item__name">Костюм из жатой ткани</p>
+              <p class="cart-item__price">8 500 ₽</p>
+            </div>
+            <div class="cart-item__specs">
+              <p class="cart-item__spec">RUGA-SET02F-S</p>
+              <p class="cart-item__spec">хаки · XL</p>
+            </div>
+            <div class="cart-item__counter">
+              <button class="cart-item__counter-btn" type="button" data-action="decrement" aria-label="Удалить товар">
+                <span class="icon icon--delete" aria-hidden="true"></span>
+              </button>
+              <span class="cart-item__count" data-count>1</span>
+              <button class="cart-item__counter-btn" type="button" data-action="increment" aria-label="Увеличить количество">
+                <span class="icon icon--plus" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item" data-cart-item data-price="960">
+          <div class="cart-item__image" style="background-image:url('assets/images/cart-item-socks.jpg')" aria-hidden="true"></div>
+          <div class="cart-item__details">
+            <div class="cart-item__row">
+              <p class="cart-item__name">Носки</p>
+              <p class="cart-item__price">960 ₽</p>
+            </div>
+            <div class="cart-item__specs">
+              <p class="cart-item__spec">SOCKS-FIZ010</p>
+              <p class="cart-item__spec">хаки · XL</p>
+            </div>
+            <div class="cart-item__counter">
+              <button class="cart-item__counter-btn" type="button" data-action="decrement" aria-label="Удалить товар">
+                <span class="icon icon--minus" aria-hidden="true"></span>
+              </button>
+              <span class="cart-item__count" data-count>2</span>
+              <button class="cart-item__counter-btn" type="button" data-action="increment" aria-label="Увеличить количество">
+                <span class="icon icon--plus" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-drawer__total">
+        <p class="cart-drawer__total-label">итого</p>
+        <p class="cart-drawer__total-amount" id="cartDrawerTotal">10 420 ₽</p>
+      </div>
+      <button class="btn btn--dark cart-drawer__submit" type="button">оформить заказ</button>
+    </aside>
+  </div>
+  <!-- Попап «Вход или регистрация» (компонент Mob/Modal/Auth из Figma) —
+       открывается иконкой/ссылками входа в шапке и мобильном меню
+       (data-auth-trigger), и кнопкой «перейти к оформлению» на странице
+       корзины, если пользователь ещё не «вошёл». 2 экрана: телефон → код -->
+  <div class="auth-modal-overlay" id="authModalOverlay">
+    <div class="auth-modal" id="authModalPhone">
+      <button class="auth-modal__close" type="button" aria-label="Закрыть" data-auth-close>
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <div class="auth-modal__header">
+        <h3 class="auth-modal__title">вход или регистрация</h3>
+        <p class="auth-modal__text">Введите номер телефона, мы отправим на него СМС с кодом подтверждения</p>
+      </div>
+      <label class="auth-modal__phone-field">
+        <span class="icon icon--phone" aria-hidden="true"></span>
+        <input type="tel" class="auth-modal__phone-input" id="authPhoneInput" placeholder="+7 (000) 000-00-00" autocomplete="tel">
+      </label>
+      <div class="auth-modal__footer">
+        <button class="btn btn--dark auth-modal__submit" type="button" id="authSendCode" disabled>отправить код</button>
+        <p class="auth-modal__disclaimer">Нажимая кнопку, вы принимаете <a href="oferta.html" class="legal-link">Условия оферты</a>, а также подтверждаете, что ознакомлены с <a href="policy.html" class="legal-link">Политикой конфиденциальности</a></p>
+      </div>
+    </div>
+
+    <div class="auth-modal is-hidden" id="authModalCode">
+      <button class="auth-modal__close" type="button" aria-label="Закрыть" data-auth-close>
+        <span class="icon icon--close" aria-hidden="true"></span>
+      </button>
+      <div class="auth-modal__header">
+        <h3 class="auth-modal__title">вход или регистрация</h3>
+        <p class="auth-modal__text">Введите код подтверждения из СМС</p>
+      </div>
+      <div class="auth-modal__code-row">
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+        <input type="text" inputmode="numeric" maxlength="1" class="auth-modal__code-cell" data-code-cell>
+      </div>
+      <p class="auth-modal__resend" id="authResendText">Отправить код повторно через 26 сек</p>
+    </div>
+  </div>
+
+
+
+  <script src="script.js?v=202609236"></script>
+</body>
+</html>
