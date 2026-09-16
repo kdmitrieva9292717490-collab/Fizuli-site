@@ -115,7 +115,12 @@
   let searchOpen = false;
 
   function applyHeaderState() {
-    const solid = scrolledPastHero || megamenuOpen || searchOpen;
+    // На страницах без hero (!hero) шапка обязана оставаться solid ВСЕГДА —
+    // раньше при закрытии мегаменю/поиска это условие пересчитывалось без
+    // учёта отсутствия hero и получало false, снимая .site-header--solid,
+    // заданный изначально в разметке. Шапка становилась прозрачной (белые
+    // иконки исчезали на светлом фоне страницы, сквозь неё был виден контент).
+    const solid = !hero || scrolledPastHero || megamenuOpen || searchOpen;
     header.classList.toggle('site-header--solid', solid);
     if (mobHeader) mobHeader.classList.toggle('mob-header--solid', solid);
   }
@@ -1024,7 +1029,7 @@ document.querySelectorAll('.video-card__media').forEach((v) => {
   function confirmLogin() {
     localStorage.setItem('fizuliLoggedIn', '1');
     closeModal();
-    if (afterLoginRedirect) window.location.href = afterLoginRedirect;
+    window.location.href = afterLoginRedirect || 'account.html';
   }
 
   document.querySelectorAll('[data-auth-trigger]').forEach((el) => {

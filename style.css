@@ -2086,6 +2086,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   padding-bottom: 16px;
   border-bottom: 1px solid var(--stroke-black-10);
 }
+.order-card:last-child { border-bottom: none; }
 .order-card__info {
   flex: 1;
   min-width: 0;
@@ -2240,6 +2241,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   gap: 16px;
   padding: 24px;
   border-bottom: 1px solid var(--stroke-black-10);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-white);
 }
 .order-drawer__close {
   align-self: flex-end;
@@ -3721,13 +3726,13 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .checkout-section { display: flex; flex-direction: column; gap: 24px; }
 .checkout-section[hidden] { display: none; }
 /* Весь контент формы — той же ширины, что и сложенные вместе табы
-   (3×254px минус 2×1px наложения границ = 760), а не во всю ширину формы
+   (3×266px минус 2×1px наложения границ = 796), а не во всю ширину формы
    (921px). Сначала сузила только .checkout-tab-panel — поля в секциях
    "данные получателя"/"способы оплаты" (это отдельные секции, не внутри
    панели табов) остались широкими, отсюда и её замечание. Сужаю саму
    секцию — тогда все дети (заголовок, табы, панель, поля) подтягиваются
    разом. max-width:100% защищает мобильный, где секции full-width */
-.checkout-form > .checkout-section { width: 760px; max-width: 100%; }
+.checkout-form > .checkout-section { width: 796px; max-width: 100%; }
 /* .account-section-title (общий с account.html) даёт свой margin-bottom:24,
    который на этой странице складывался с gap:24 родителя .checkout-section
    (48 вместо 24) — для мобильного это уже было обнулено ниже по файлу,
@@ -3739,8 +3744,8 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    у активной обводка темнее, у остальных — совсем светлая (10% чёрного) */
 .checkout-tabs { display: flex; }
 .checkout-tab {
-  flex: 0 0 254px;
-  width: 254px;
+  flex: 0 0 266px;
+  width: 266px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -3815,12 +3820,48 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 .checkout-radio-row .radio-option__title { font-size: 14px; }
 
+/* Десктоп: колонки «Варианты доставки» встают точно под 3 вкладки
+   способов получения (266px каждая, тот же border-collapse трюк
+   margin-left:-1px). Рамка сделана прозрачной (не убрана вовсе),
+   чтобы геометрия столбца совпадала с .checkout-tab пиксель-в-пиксель. */
+@media (min-width: 1024px) {
+  .checkout-radio-row { gap: 0; }
+  .checkout-radio-row .radio-option {
+    flex: 0 0 266px;
+    width: 266px;
+    padding: 0;
+    border-color: transparent;
+    margin-left: -1px;
+  }
+  .checkout-radio-row .radio-option:first-child { margin-left: 0; }
+}
+
 .checkout-country-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 24px; }
 .checkout-country-grid .radio-option__title { font-size: 14px; }
 
 .checkout-payment-methods { display: flex; gap: 24px; }
 .checkout-payment-methods .radio-option__title { font-size: 16px; }
 .radio-option--payment .radio-option__text { position: relative; flex-direction: row; align-items: center; gap: 12px; }
+
+/* Десктоп: те же 266px-колонки, что у вкладок способов получения и
+   у "Варианты доставки" (border-collapse трюк margin-left:-1px, рамка
+   прозрачная только ради геометрии) — весь низ формы встаёт в одну сетку.
+   При "Самовывозе" появляется 3-й пункт ("При получении") — 3×266=796,
+   ровно как у вкладок; при 2 пунктах они просто занимают первые 2 колонки. */
+@media (min-width: 1024px) {
+  .checkout-payment-methods { gap: 0; }
+  .checkout-payment-methods .radio-option--payment {
+    flex: 0 0 266px;
+    width: 266px;
+    align-items: flex-start;
+    padding: 0;
+    border: 1px solid transparent;
+    margin-left: -1px;
+  }
+  .checkout-payment-methods .radio-option--payment:first-child { margin-left: 0; }
+  /* Иконка (i) — отступ от текста заголовка 4px, не 12 (было слишком широко) */
+  .radio-option--payment .radio-option__text { gap: 4px; }
+}
 .radio-option__info { width: 16px; height: 16px; color: var(--text-black); }
 .radio-option__info:hover { opacity: 0.6; }
 
@@ -3849,6 +3890,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
 .checkout-cis-notice-group { display: flex; flex-direction: column; }
 .checkout-cis-text { margin: 0; font-family: var(--font-body); font-size: 16px; color: var(--text-black); }
+@media (min-width: 1024px) {
+  .checkout-cis-notice-group { gap: 8px; }
+}
 
 .checkout-form-fields { display: flex; flex-direction: column; gap: 16px; }
 
@@ -3870,6 +3914,31 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 .payment-info-tooltip[hidden] { display: none; }
 .payment-info-tooltip--small { width: 260px; font-family: var(--font-body); font-size: 12px; color: var(--text-black); }
+
+/* Десктоп: плашка открывается вверх от иконки (i), не вниз.
+   У третьей плашки ("Доставка" в order-summary) родитель до сих пор не был
+   position:relative — absolute-плашка искала ближайшего позиционированного
+   предка и улетала к <aside class="order-summary">, а не к иконке рядом с ней. */
+@media (min-width: 1024px) {
+  /* На десктопе этот блок был обычным block-контейнером (flex только в
+     мобильном медиа-запросе) — "Доставка" и кнопка (i) шли каждая на своей
+     строке, а не в одну, как в Figma. Те же значения, что уже подтверждены
+     на мобильном: выравнивание по верху текста, зазор 4px. */
+  .order-summary__delivery-label-group { position: relative; display: flex; align-items: flex-start; gap: 4px; }
+  .payment-info-tooltip { top: auto; bottom: calc(100% + 12px); }
+
+  /* left:0 раньше выравнивал плашку по левому краю ОБЩЕГО flex-родителя
+     (.radio-option__text), а не по иконке — из-за текста заголовка перед
+     кнопкой (i) плашка "Сплит" уезжала на 168px левее иконки. Кнопка сама
+     ровно 16×16 (.radio-option__info), без невидимой площадки под клик,
+     поэтому left считаю как offsetLeft кнопки в её родителе минус 4px —
+     готовые цифры (зависят от длины текста заголовка перед кнопкой,
+     пересчитать при правке текста «Яндекс Пэй + Сплит»/«Т-банк + Долями»/
+     «Доставка»). */
+  [data-tooltip-panel="split"] { left: 156px; }
+  [data-tooltip-panel="dolyame"] { left: 131px; }
+  [data-tooltip-panel="delivery-threshold"] { left: 75px; }
+}
 .payment-info-tooltip__row { display: flex; flex-direction: column; gap: 2px; }
 .payment-info-tooltip__label { margin: 0; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
 .payment-info-tooltip__value { margin: 0; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-black); }
@@ -3896,8 +3965,22 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    шире (504px против 472px) и с рядом фото товаров сверху + строкой "доставка" */
 .order-summary--checkout { width: 504px; flex: 0 0 504px; }
 .order-summary__images { display: flex; gap: 8px; }
-.order-summary__image { flex: 1; height: 157px; background-size: cover; background-position: center; background-color: var(--bg-gray1); }
-.order-summary__details { display: flex; flex-direction: column; gap: 16px; padding: 24px 0; border-top: 1px solid var(--stroke-black-10); border-bottom: 1px solid var(--stroke-black-10); }
+.order-summary__image { flex: 0 0 112px; width: 112px; height: 157px; background-size: cover; background-position: center; background-color: var(--bg-gray1); }
+/* Заголовок→фото 24px, кнопка→юридический текст 16px — оба ýже общего
+   gap:32px секции .order-summary (флекс-колонка), гасим разницу отрицательным
+   margin у следующего элемента пары, сам gap:32 не трогаем (верен для
+   остальных пар: фото→детали, детали→итого, итого→кнопка). Только десктоп —
+   на мобильном этот gap:0 и свои margin-bottom по каждой паре, см. ниже
+   в мобильном медиа-запросе, не пересекается с этим правилом. */
+@media (min-width: 1024px) {
+  .order-summary--checkout .order-summary__images { margin-top: -8px; }
+  .order-summary--checkout .order-summary__legal { margin-top: -16px; }
+  /* "500 ₽" в строке доставки — акцентный (дисплейный) шрифт, не унаследованный
+     от родителя (.order-summary__delivery-value 12px Regular body). На десктопе
+     базового правила не было вообще (только мобильное, 16px) — добавляю своё. */
+  .order-summary__delivery-price { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+}
+.order-summary__details { display: flex; flex-direction: column; gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--stroke-black-10); }
 .order-summary__delivery-value { display: flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 12px; color: var(--text-black); }
 /* Эти элементы переключаются через [hidden], но у самих классов уже есть
    свой display:flex — атрибут [hidden] в стилях браузера по умолчанию слабее
@@ -5828,4 +5911,37 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     aspect-ratio: 351 / 517;
     margin-top: 16px;
   }
+}
+
+/* =========================================================
+   ПЛЕЙСХОЛДЕР ВО ВСЕХ ПОЛЯХ ВВОДА САЙТА — ДЕСКТОП.
+   По её решению снижаем контраст до Gray3 (#C8C8C8, Variables/Gray3
+   в Figma) вместо более тёмного GrayLight (#757575), который стоял
+   почти везде неявно (браузерный дефолт) или явно (3 именованных
+   исключения ниже). Блок специально в самом конце файла — у именованных
+   правил та же специфичность (один класс + ::placeholder), и без этого
+   их более раннее в файле объявление побеждало бы по порядку источника.
+   Только десктоп — на мобильном пока старый цвет, следующим шагом отдельно.
+   ========================================================= */
+@media (min-width: 1024px) {
+  input::placeholder,
+  textarea::placeholder { color: var(--text-gray3); }
+  .search-bar__input::placeholder,
+  .auth-modal__phone-input::placeholder,
+  .promo-code__input::placeholder { color: var(--text-gray3); }
+}
+
+/* =========================================================
+   НИЖНЯЯ ЛИНИЯ ПОЛЕЙ ВВОДА — ОФОРМЛЕНИЕ ЗАКАЗА / ПОИСК / ЛИЧНЫЙ КАБИНЕТ.
+   Black 10% → Black 30% (var(--stroke-black-30)), десктоп. .account-input
+   переиспользуется и на checkout.html, и в личном кабинете — один селектор
+   закрывает обе страницы; .search-bar__field — строка поиска. */
+@media (min-width: 1024px) {
+  .account-input,
+  .search-bar__field { border-bottom-color: var(--stroke-black-30); }
+}
+/* Тот же Black 30% — теперь и мобильная версия, по отдельной просьбе */
+@media (max-width: 767px) {
+  .account-input,
+  .search-bar__field { border-bottom-color: var(--stroke-black-30); }
 }
