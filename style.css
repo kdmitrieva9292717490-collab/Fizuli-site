@@ -3740,6 +3740,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .checkout-tab__desc { font-family: var(--font-body); font-size: 12px; line-height: 1.4; color: var(--text-gray-light); }
 
 .checkout-field { display: flex; flex-direction: column; gap: 16px; }
+/* Была только в мобильном блоке — на десктопе .checkout-tab-panel не был
+   flex вообще (обычный block), соседние .checkout-field шли впритык без
+   отступа (0px вместо нужных 24) */
+.checkout-tab-panel { display: flex; flex-direction: column; gap: 24px; }
 
 /* Радио-кнопка — тот же приём, что и .filter-checkbox: настоящий input
    спрятан, кастомный кружок и точка внутри рисуются через :checked ~ */
