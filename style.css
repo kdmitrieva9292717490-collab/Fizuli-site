@@ -939,6 +939,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   z-index: 2;
   color: var(--icon-black);
 }
+/* Тот же ховер, что у иконок в шапке (.site-header .icon-btn:hover .icon —
+   opacity:0.6) — здесь своего ховера не было вообще, .icon-btn:hover задан
+   только внутри .site-header, карточка товара под это условие не попадает */
+.product-card__favorite:hover .icon,
+.product-card__quick-add:hover .icon { opacity: 0.6; }
 /* Активное избранное (нажато) — компонент IconButton/Favorite, State=Fill:
    меняется сама иконка (сердце/закладка становится заполненной), а не просто цвет */
 .product-card__favorite.is-active .icon--favorite {
@@ -5316,6 +5321,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+  /* Без рамки и без бокового паддинга — радиокнопка встаёт вплотную к левому
+     краю, на одной вертикальной линии с заголовком "Варианты доставки" */
+  .checkout-radio-row .radio-option {
+    border: none;
+    padding: 0;
   }
   .checkout-store { flex-direction: column; }
   /* Кнопка "выбрать на карте" — под инпутом "выбрать пункт выдачи",
