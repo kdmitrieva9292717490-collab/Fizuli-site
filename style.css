@@ -4819,7 +4819,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
      в экран */
   .hotspot-card { width: 188px; padding: 40px 12px 12px; }
   .hotspot-card--1 { left: 49px; top: 426px; }
-  .hotspot-card--2 { left: 79px; top: 299px; }
+  .hotspot-card--2 { left: 83px; top: 299px; }
   .hotspot-card__close { right: 0; top: 0; }
   .product-card--s { width: 164px; }
   .product-card__gallery--s { width: 164px; height: 240px; }
