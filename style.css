@@ -1303,7 +1303,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 /* Обе карточки — строго справа от своей точки, зазор 16px (её прямая
    просьба, проверила и поправила обе, а не только левую) */
 .hotspot-card--2 { left: 824px; top: 286px; }
-.hotspot-card--1 { left: 235px; top: 187px; }
+.hotspot-card--1 { left: 235px; top: 286px; }
 .hotspot-card__close {
   position: absolute;
   right: 4px;
