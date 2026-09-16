@@ -688,6 +688,14 @@ document.querySelectorAll('.product-card__gallery').forEach((gallery) => {
     });
 
   });
+
+  // Избранное на карточках внутри модалки — тот же паттерн переключения
+  // обводка/заливка, что и у .product-card__favorite/.cart-page-item__favorite,
+  // просто раньше для этой модалки не был добавлен вообще (кнопка была без
+  // обработчика)
+  modal.querySelectorAll('.look-item__favorite').forEach((btn) => {
+    btn.addEventListener('click', () => btn.classList.toggle('is-active'));
+  });
 })();
 
 // Превью корзины (компонент Cart Drawer) — выезжает справа по клику на иконку
@@ -1504,5 +1512,17 @@ document.querySelectorAll('.product-accordion__trigger').forEach((trigger) => {
   // "под капотом" и заблокировало бы скролл новой страницы
   menu.querySelectorAll('.megamenu__link, .mob-menu__login a').forEach((link) => {
     link.addEventListener('click', closeMenu);
+  });
+})();
+
+// Журнал (journal.html), вкладка «События» — длинный текст новости обрезан
+// в 3 строки многоточием (.event-card__text), клик по нему раскрывает текст
+// полностью. На мобильном раскрытие уже есть через :hover (тот же общий
+// класс), здесь — отдельно клик, т.к. на десктопе ховер для этого неудобен
+(function () {
+  document.querySelectorAll('.event-card__text').forEach((text) => {
+    text.addEventListener('click', () => {
+      text.classList.toggle('is-expanded');
+    });
   });
 })();

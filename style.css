@@ -1173,6 +1173,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 .category-card__title-break { display: none; } /* перенос "спортивные / костюмы" только в мобильном компоненте */
 .info-banner__break { display: none; } /* перенос "от 20 000 ₽" на вторую строку — только на мобильном, по её просьбе */
+.desktop-line-break { display: none; }
+@media (min-width: 1024px) {
+  /* перенос адреса магазина на вторую строку в "самовывоз" — только на
+     десктопе, по её прямой просьбе (2026-09-14) */
+  .desktop-line-break { display: inline; }
+}
 .mob-line-break { display: none; } /* точечные переносы строк в тексте buyers.html, видны только на мобильном */
 /* Кнопка — Tertiary/Dark (просто текст с подчёркиванием, без чёрной заливки),
    появляется по ховеру на карточку, как в компоненте */
@@ -1220,11 +1226,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   margin-bottom: 40px;
 }
 
-.lookbook-main { flex-shrink: 0; }
+.lookbook-main { flex: 1; min-width: 0; }
 
 .lookbook-photo {
   position: relative;
-  width: 1303px;
+  width: 100%;
   height: 928px;
   background: var(--bg-gray1);
 }
@@ -1370,13 +1376,13 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
 .lookbook-buy-btn {
   display: block;
-  width: 451px;
-  margin: 16px auto 0;
+  width: 100%;
+  margin: 16px 0 0;
   text-align: center;
 }
 
 .lookbook-thumbs {
-  width: 185px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1385,7 +1391,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .lookbook-thumbs__item {
   width: 149px;
   height: 200px;
-  margin-inline: auto;
+  margin-inline: 0;
   background-color: var(--bg-gray1);
   background-repeat: no-repeat;
   background-position: center;
@@ -1487,7 +1493,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   align-items: center;
   justify-content: space-between;
   padding-top: 24px;
-  border-top: 1px solid var(--stroke-white-30);
+  border-top: 1px solid var(--stroke-white-10);
 }
 .footer-copyright {
   margin: 0;
@@ -1518,25 +1524,23 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 .footer-dropdown__trigger .icon { width: 16px; height: 16px; transition: transform 0.15s; }
 .footer-dropdown.is-open .footer-dropdown__trigger .icon { transform: rotate(0deg); }
+/* Раскрытие «все товары» — её прямая правка (2026-09-14): список должен
+   отодвигать контент под собой (нормальный поток), а не накладываться
+   поверх плавающей карточкой — раньше был position:absolute */
 .footer-dropdown__menu {
-  position: absolute;
-  left: 0;
-  top: calc(100% + 4px);
-  z-index: 60;
-  min-width: 176px;
-  padding: 8px 0;
-  background: var(--bg-white);
-  box-shadow: 0 2px 4px -2px rgba(14, 13, 19, 0.06), 0 4px 8px -2px rgba(14, 13, 19, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
 }
 .footer-dropdown__item {
   display: block;
-  padding: 8px;
+  padding: 4px 8px;
   font-family: var(--font-body);
   font-size: 14px;
   text-transform: uppercase;
-  color: var(--text-black);
+  color: var(--text-gray-light);
 }
-.footer-dropdown__item:hover { background: var(--bg-gray1); }
+.footer-dropdown__item:hover { opacity: 0.6; } /* тот же ховер, что у остальных ссылок футера (.footer-link:hover) */
 
 /* Мобильный вариант того же списка — по канвасу пользователя (компонент
    Mob/Footer → Mob/DropdownMenu): это НЕ всплывающая карточка, а аккордеон,
@@ -1939,14 +1943,14 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .page-heading {
   /* Хедер зафиксирован (position:fixed) и не занимает место в потоке —
      без этого отступа хлебные крошки прятались бы под ним */
-  padding-top: calc(var(--header-height) + 48px);
+  padding-top: calc(var(--header-height) + 40px);
 }
 /* На странице «Новинки» .page-heading лежит внутри .catalog-top-sticky —
    она сама уже прилипает вплотную под хедер (top: var(--header-height)),
    поэтому здесь достаточно только внутреннего зазора 48px, без повторного
    учёта высоты хедера — иначе получится двойной отступ */
 .catalog-top-sticky .page-heading {
-  padding-top: 48px;
+  padding-top: 40px;
 }
 
 /* Тот же приём для простых информационных страниц (о бренде/партнёрам/
@@ -1963,7 +1967,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   background: var(--bg-white);
 }
 .info-top-sticky .page-heading {
-  padding-top: 48px;
+  padding-top: 40px;
 }
 .breadcrumbs {
   display: flex;
@@ -1984,7 +1988,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .breadcrumbs__current { color: var(--text-black); }
 
 .page-title {
-  margin: 0 0 40px;
+  margin: 0 0 32px;
   font-family: var(--font-display);
   font-size: 32px;
   font-weight: 600;
@@ -2459,7 +2463,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   top: var(--header-height);
   z-index: 90;
   background: var(--bg-white);
-  padding-bottom: 24px;
+  padding-bottom: 20px;
 }
 .catalog-section { padding-bottom: 120px; }
 
@@ -2558,6 +2562,27 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   align-items: stretch;
   gap: 16px;
 }
+/* Карточка в сетке каталога — её баг-репорт (2026-09-14): базовая .product-card
+   зашита фиксированной шириной 368px, которая ровно на 4 штуки с gap 16px
+   влезает только при очень широком окне (контейнер должен дотянуться до
+   max-width 1600px, то есть окно ~1680px+). На обычных ноутбучных экранах
+   (1440px и уже) 4×368+3×16=1520px не помещаются в реальную ширину
+   контейнера — карточки вылезают вправо горизонтальным скроллом, из-за чего
+   сетка выглядит как карусель. Ширина — фиксированная доля ряда (1/4 минус
+   доля от 3 gap), НЕ flex:1 1 0 — тот тянул карточки на всю ширину в
+   неполном последнем ряду (её второй баг-репорт того же дня: 2 карточки
+   растянуты на весь экран вместо прижатых слева, одинакового размера со
+   всеми остальными) */
+.catalog-grid-row .product-card,
+.catalog-grid-row .video-card {
+  flex: 0 0 calc((100% - 3 * 16px) / 4);
+  width: auto;
+}
+.catalog-grid-row .product-card__gallery {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 368 / 516;
+}
 
 .btn-see-more {
   display: block;
@@ -2579,6 +2604,23 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .recently-viewed__row {
   display: flex;
   gap: 16px;
+}
+/* Та же правка переполнения, что у .catalog-grid-row выше — здесь на
+   десктопе не было своего переопределения ширины карточки вообще (только
+   на планшете/мобильном), поэтому карточка наследовала фиксированные 368px
+   и вылезала за контейнер. Только от 1024px (десктоп) — на мобильном этот
+   ряд специально остаётся горизонтальным скроллом (overflow-x:auto ниже),
+   там ширина карточки должна остаться фиксированной, не резиновой */
+@media (min-width: 1024px) {
+  .recently-viewed__row .product-card {
+    flex: 0 0 calc((100% - 3 * 16px) / 4);
+    width: auto;
+  }
+  .recently-viewed__row .product-card__gallery {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 368 / 516;
+  }
 }
 
 /* =========================================================
@@ -2975,14 +3017,19 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   opacity: 1;
   pointer-events: auto;
 }
+/* Её баг-репорт (2026-09-14): здесь стояли мобильные размеры (375px/44px)
+   вместо десктопных — перепутали при переносе из макета. Сверено с
+   выделенным в Figma десктопным "Modal / Auth - Phone Input" (id 1552:16352):
+   ширина 423px, паддинг 48px сверху/снизу и 32px по бокам, отступ между
+   секциями 32px (48px — на экране ввода кода, см. ниже) */
 .auth-modal {
   position: absolute;
   left: 50%; top: 50%;
   transform: translate(-50%, -50%) scale(0.97);
   opacity: 0;
-  width: 375px;
+  width: 423px;
   max-width: calc(100vw - 32px);
-  padding: 44px;
+  padding: 48px 32px;
   background: var(--bg-white);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -2990,6 +3037,27 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .auth-modal-overlay.is-open .auth-modal:not(.is-hidden) {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
+}
+/* Её прямая правка (2026-09-14): на десктопе окно — не маленькая карточка
+   по центру экрана, а панель на всю высоту экрана (в макете белая заливка
+   идёт на весь фрейм 423×1000, не только под контентом), прижатая к
+   правому краю (как Cart Drawer). Контент внутри остаётся по центру панели
+   по вертикали. Мобильную версию не трогаю — там маленькое центрированное
+   окно остаётся как было */
+@media (min-width: 1024px) {
+  .auth-modal {
+    left: auto;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: scale(0.97);
+  }
+  .auth-modal-overlay.is-open .auth-modal:not(.is-hidden) {
+    transform: scale(1);
+  }
 }
 .auth-modal__close {
   position: absolute;
@@ -3001,7 +3069,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   color: var(--icon-black);
 }
 .auth-modal__close:hover { opacity: 0.6; }
-.auth-modal__header { margin: 0 0 24px; }
+.auth-modal__header { margin: 0 0 32px; }
+/* На экране ввода кода отступ под заголовком другой — 48px, не 32
+   (в макете Modal / Auth - Code Verify itemSpacing=48 у всех блоков) */
+#authModalCode .auth-modal__header { margin-bottom: 48px; }
 .auth-modal__title {
   margin: 0 0 16px;
   font-family: var(--font-display);
@@ -3013,7 +3084,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .auth-modal__text {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
   color: var(--text-black);
 }
@@ -3022,9 +3093,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   align-items: center;
   gap: 8px;
   height: 48px;
-  padding: 0 10px;
+  padding: 10px;
   border: 1px solid var(--stroke-black);
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 .auth-modal__phone-field .icon { width: 24px; height: 24px; color: var(--text-gray-light); flex-shrink: 0; }
 .auth-modal__phone-input {
@@ -3055,7 +3126,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   line-height: 1.4;
   color: var(--text-gray-light);
 }
-.auth-modal__code-row { display: flex; gap: 8px; margin-bottom: 24px; }
+.auth-modal__code-row { display: flex; gap: 8px; margin-bottom: 48px; }
 .auth-modal__code-cell {
   width: 50px;
   height: 48px;
@@ -3453,8 +3524,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   justify-content: space-between;
   gap: 16px;
 }
+/* Счётчик количества переиспользует общий .cart-item__counter (тот же
+   компонент, что и в Cart Drawer), а там margin-top:auto прижимает его к
+   низу колонки — на этой странице счётчик не в колонке, а в общем ряду с
+   ценой, и то же правило просто сдвигало его вниз без причины. Обнуляю
+   именно в этом контексте, чтобы не задеть Cart Drawer. Цена и счётчик
+   прижаты к верхнему краю карточки (на уровне фото) — align-items:flex-start
+   у .cart-page-item__row уже это даёт, дополнительный align-self не нужен */
+.cart-page-item__row .cart-item__counter { margin-top: 0; }
 .cart-page-item__details {
   display: flex;
+  flex: 1;
+  min-width: 0;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
@@ -3473,8 +3554,14 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   text-transform: uppercase;
   color: var(--text-gray-light);
 }
-.cart-page-item__favorite { color: var(--icon-black); }
-.cart-page-item__favorite.is-active .icon--favorite {
+/* .icon-btn — квадрат 32px с иконкой 24px по центру (стандартная зона
+   клика), из-за чего сама иконка визуально смещена от края кнопки на
+   (32-24)/2=4px. Внутри .cart-page-item__details это смещение уводит
+   иконку вправо от названия — сдвигаю кнопку на те же 4px влево, чтобы
+   иконка легла на одну линию с текстом, зону клика не уменьшая */
+.cart-page-item__favorite { color: var(--icon-black); margin-left: -4px; }
+.cart-page-item__favorite.is-active .icon--favorite,
+.look-item__favorite.is-active .icon--favorite {
   -webkit-mask-image: url('assets/icons/favorite-fill.svg');
   mask-image: url('assets/icons/favorite-fill.svg');
 }
@@ -3483,7 +3570,13 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    только в мобильном брейкпоинте ниже */
 .cart-page-item__favorite-label { display: none; }
 .cart-page-item__price {
-  margin: 0;
+  /* Расстояние счётчик→цена — отдельные 100px (не общий gap:16 строки,
+     он остаётся между названием и счётчиком): 16 уже даёт gap, добираю
+     margin-left до 100 */
+  margin: 0 0 0 84px;
+  width: 120px;
+  flex-shrink: 0;
+  text-align: right;
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 600;
@@ -3765,7 +3858,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    тот же приём, что и на checkout.html/account.html. Фото слева (650×750,
    реальное для каждой вкладки), текстовые секции справа.
    ========================================================= */
-.info-tabs { display: flex; gap: 24px; margin-bottom: 24px; }
+.info-tabs { display: flex; gap: 24px; margin-bottom: 20px; }
 .info-tab {
   padding: 4px 0;
   font-family: var(--font-body);
@@ -3789,11 +3882,6 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .info-layout__row { display: flex; justify-content: space-between; align-items: flex-start; }
 .info-photo { flex-shrink: 0; width: 650px; height: 750px; object-fit: cover; background: var(--bg-gray1); }
 .info-content { width: 751px; max-width: 100%; display: flex; flex-direction: column; gap: 32px; }
-/* Плашка над фото+текстом даёт 24px до фото (margin-bottom самой плашки),
-   но до заголовка колонки текста — 32px: только тут колонке нужны
-   дополнительные 8px сверху, к фото это не относится */
-[data-info-panel="delivery"] .info-content,
-[data-info-panel="payment"] .info-content { margin-top: 8px; }
 .info-content--tight { gap: 40px; }
 
 .info-banner {
@@ -3808,13 +3896,69 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   text-transform: uppercase;
   color: var(--text-black);
 }
-/* Плашка "бесплатная доставка"/"все заказы..." — растянута на всю ширину
-   страницы (не только колонку текста), в одну строку */
 .info-banner--full {
   display: flex;
   width: 100%;
   justify-content: center;
   margin-bottom: 24px;
+}
+/* Её баг-репорт (2026-09-14, страница «Покупателям», то же на «Журнале»):
+   плашка должна быть по ширине текста (не растянута на всю ширину) и стоять
+   на одном уровне с фото, прижатая к верхней границе — как в макете
+   (Content Row: фото и Content List начинаются с одного Y, плашка — первый
+   элемент Content List). Раньше плашку вынесли НАД строкой фото+текст на всю
+   ширину из-за переноса на 1440px (см. комментарий выше) — здесь решаю
+   иначе: через grid, без переноса .info-banner--full в HTML (чтобы не
+   задеть мобильную версию, где .info-layout__row уже "распущен" в
+   display:contents и порядок держится на flex order) */
+@media (min-width: 1024px) {
+  .info-layout {
+    display: grid;
+    grid-template-columns: 650px 751px;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .info-layout__row { display: contents; }
+  /* Её решение (2026-09-14): sticky только у фото, плашку убрала обратно —
+     вместе смотрелось не очень. top равен высоте уже прилипшего блока
+     сверху (шапка + хлебные крошки/заголовок/вкладки .info-top-sticky),
+     чтобы не наезжать на него.
+     2026-09-15: фото и текст должны начинаться на одной линии на всех
+     вкладках — раньше фото занимало ряд 1/3 (наравне с плашкой), из-за
+     чего на вкладках с плашкой (доставка/оплата) текст уезжал на 48px
+     ниже фото, а на вкладке без плашки (возврат) — наоборот, оказывался
+     на 20px выше. Плашка теперь отдельным рядом на всю ширину сверху,
+     фото — в том же ряду, что и текст */
+  .info-photo {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    position: sticky;
+    top: calc(var(--header-height) + 186px);
+    align-self: start;
+  }
+  .info-banner--full {
+    grid-column: 2;
+    grid-row: 1;
+    width: fit-content;
+    justify-content: flex-start;
+  }
+  .info-content { grid-column: 2; grid-row: 2; }
+  /* Тот же приём, что уже сделан на мобильном (см. комментарий в мобильном
+     блоке ниже про margin collapse): margin-bottom последнего ребёнка
+     .info-tabs внутри .info-top-sticky "схлопывался" наружу и не входил в
+     реальную высоту прилипшего блока — переношу отступ в padding-bottom
+     обёртки. Заодно убираю верхний паддинг у фото/текста — с рабочим
+     паддингом-обёрткой он там больше не нужен, задваивал отступ */
+  .info-tabs { margin-bottom: 0; }
+  .info-top-sticky .buyers-content { padding-bottom: 20px; }
+  /* Тот же баг схлопывания margin-bottom через sticky-обёртку есть и у
+     .journal-tabs-wrap (journal.html) — раньше был починен только на
+     мобильном (padding-bottom ниже по файлу), на десктопе не был замечен:
+     .info-tabs margin-bottom здесь уже обнулён общим правилом выше, поэтому
+     нужен свой padding-bottom на обёртке вкладок именно для этой страницы */
+  .journal-tabs-wrap { padding-bottom: 20px; }
+  .info-photo,
+  .info-content { padding-top: 0; }
 }
 
 .info-section { display: flex; flex-direction: column; gap: 16px; }
@@ -3830,13 +3974,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .info-subsection__title { margin: 0; font-family: var(--font-body); font-size: 16px; font-weight: 600; text-transform: uppercase; color: var(--text-black); }
 .info-subsection__body { display: flex; flex-direction: column; gap: 8px; }
 
-/* Только страница «Покупателям» (.buyers-content) — заголовки блоков и обычный
-   текст мельче, чем на юридических страницах (те тоже используют .info-section,
-   но остаются на 20/16 — не трогать) */
-.buyers-content .info-section__title { font-size: 16px; }
-/* :not(.info-table__cell) — иначе это правило перебивает .info-table__cell
-   {font-size:12px} по специфичности (у ячеек таблицы тоже тег <p>) */
-.buyers-content .info-section p:not(.info-table__cell) { font-size: 14px; }
+/* Её проверка по Figma (2026-09-14): на «Покупателям» заголовки блоков и
+   обычный текст на десктопе должны остаться 20/16, как на юридических
+   страницах — предыдущее уменьшение до 16/14 было ошибкой, убираю */
 
 /* Юридические страницы (договор-оферта, политика конфиденциальности) — в
    Figma текст вёрстан в 2 колонки одним растянутым блоком (Info/Oferta).
@@ -3879,7 +4019,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 /* .info-table .info-table__cell (не просто .info-table__cell) — ячейки это
    <p>, а .info-section p {font-size:16px} по специфичности (класс+тег)
    перебивает одиночный класс, как бы поздно он ни шёл по файлу */
-.info-table .info-table__cell { font-family: var(--font-body); font-size: 12px; color: var(--text-black); }
+.info-table .info-table__cell { font-family: var(--font-body); font-size: 16px; color: var(--text-black); }
 .info-table__cell--method { width: 250px; }
 .info-table__cell--term, .info-table__cell--price { width: 150px; }
 
@@ -3899,21 +4039,30 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    с Figma без разбора математики scaleMode:CROP.
    ========================================================= */
 .store-tabs { display: flex; gap: 16px; }
+/* Цвета и hover сверены с компонентом Figma "Stores Block" (component set
+   4434:37101, StoreCard State=Default/Active/Hover), не придуманы на глаз:
+   Default (неактивная) — без заливки и обводки вообще, просто чёрный текст
+   на фоне страницы. Active — заливка BG/Grey1, обводка Stroke/Black 30%.
+   Hover (у ЛЮБОЙ карточки, в т.ч. уже активной) — та же заливка BG/Grey1,
+   но обводка светлее, Stroke/Black 10%. Никакого приглушения (opacity)
+   текста в компоненте нет — прежнее .is-inactive{opacity:0.3} было
+   придумано, не из макета, убираю */
 .store-card {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 235px;
   padding: 24px;
   box-sizing: border-box;
   text-align: left;
   background: var(--bg-gray1);
   color: var(--text-black);
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
-.store-card.is-inactive { background: var(--bg-black); color: var(--text-white); }
-.store-card.is-inactive * { opacity: 0.3; }
-.store-card.is-inactive:hover * { opacity: 0.45; }
+.store-card.is-inactive { background: transparent; color: var(--text-black); }
+.store-card:not(.is-inactive) { border-color: var(--stroke-black-30); }
+.store-card:hover { background: var(--bg-gray1); border-color: var(--stroke-black-10); }
 .store-card__title { margin: 0; font-family: var(--font-body); font-size: 16px; font-weight: 600; text-transform: uppercase; }
 .store-card__line { margin: 0; font-family: var(--font-body); font-size: 16px; }
 .store-card__hours { display: flex; flex-direction: column; gap: 8px; }
@@ -3921,10 +4070,24 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .store-card__hours-row p { margin: 0; font-family: var(--font-body); font-size: 16px; white-space: pre-line; }
 .store-card__note { margin: 0; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
 
-.store-map { position: relative; width: 100%; height: 589px; overflow: hidden; }
+.store-map { position: relative; width: 100%; height: 589px; overflow: hidden; margin-top: 20px; }
 .store-map[hidden] { display: none; }
 .store-map__bg { display: block; width: 100%; height: 100%; object-fit: cover; }
-.store-map__pin { position: absolute; width: 60px; height: 80px; }
+/* Анимация булавки — из компонента Figma Mob/Map Pin (id 4432:37026,
+   State=Default/Hover): реакция ON_HOVER, smart animate ~0.75с — булавка
+   приподнимается, тень под ней растёт и темнеет. На вьюпортах без hover
+   (тач) воспроизводится как непрерывная мягкая пульсация — то же решение,
+   что уже было сделано для мобильной версии, теперь общее для обеих */
+.store-map__pin {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  animation: store-pin-lift 3.2s ease-in-out infinite;
+}
+@keyframes store-pin-lift {
+  0%, 100% { transform: translateY(0); filter: drop-shadow(0 2px 1px rgba(14,13,19,0.1)); }
+  50% { transform: translateY(-5px); filter: drop-shadow(0 4px 2px rgba(14,13,19,0.5)); }
+}
 
 /* =========================================================
    СТРАНИЦА «О БРЕНДЕ» (about.html). Источник в Figma: «Page/About» —
@@ -3932,12 +4095,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    (не на всю ширину контейнера), фото и видео — на всю ширину 1520px.
    ========================================================= */
 .about-content { display: flex; flex-direction: column; gap: 60px; }
-.about-section { width: 800px; max-width: 100%; display: flex; flex-direction: column; gap: 16px; }
+.about-section { width: 760px; max-width: 100%; margin-left: 50%; display: flex; flex-direction: column; gap: 16px; }
 .about-section--gap40 { gap: 40px; }
 .about-section__title { margin: 0; font-family: var(--font-display); font-size: 24px; font-weight: 600; text-transform: uppercase; color: var(--text-black); }
 .about-section p { margin: 0; font-family: var(--font-body); font-size: 16px; line-height: 1.4; color: var(--text-black); }
 
-.about-hero-row { display: flex; gap: 75px; }
+.about-hero-row { display: flex; gap: 0; }
 .about-hero-row img { flex: 1; width: 0; height: 846px; object-fit: cover; }
 
 .about-values { display: flex; flex-direction: column; gap: 24px; }
@@ -3973,7 +4136,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .journal-collection__title { margin: 0; font-family: var(--font-display); font-size: 32px; font-weight: 600; text-transform: uppercase; color: var(--text-black); }
 .journal-collection__desc { margin: 0; font-family: var(--font-body); font-size: 16px; line-height: 1.4; color: var(--text-black); }
 .journal-collection__card .btn { width: 100%; }
-.journal-collection__thumbs { display: flex; align-items: center; gap: 8px; }
+.journal-collection__thumbs { display: flex; align-items: center; gap: 8px; align-self: flex-start; }
 .journal-collection__thumbs img { display: block; }
 /* .journal-collection__photos — обёртка нужна только на мобильном (см. ниже);
    на десктопе "распущена", ведёт себя как раньше — виден только первый img */
@@ -3996,7 +4159,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .event-card__grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .event-card__content { display: flex; flex-direction: column; gap: 20px; }
 .event-card__meta { display: flex; flex-direction: column; gap: 8px; }
-.event-card__title { margin: 0; font-family: var(--font-body); font-size: 20px; font-weight: 600; color: var(--text-black); }
+.event-card__title { margin: 0; font-family: var(--font-body); font-size: 20px; font-weight: 600; text-transform: uppercase; color: var(--text-black); }
 .event-card__date { margin: 0; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
 /* Карточка в Figma фиксированной высоты (132px на текстовый блок) — текст
    длиннее, чем влезает, поэтому обрезаю в 3 строки многоточием, как и
@@ -4011,8 +4174,14 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  cursor: pointer;
 }
-.events-list .link-btn { margin-top: 16px; }
+.event-card__text.is-expanded {
+  -webkit-line-clamp: unset;
+  display: block;
+  overflow: visible;
+}
+.events-list .link-btn { margin-top: 16px; align-self: center; padding: 4px 0; }
 /* Ссылка "Каталоге" внутри текста новости — обычная навигационная ссылка
    (подчёркивание текстом, не border-bottom: слово стоит в середине абзаца) */
 .event-card__inline-link {
@@ -4178,7 +4347,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
      базовых 14px вместо 12px, как остальные ссылки футера */
   .mob-footer__legal .footer-link { font-size: 12px; }
 }
-.partners-photo { position: absolute; left: 152px; top: 235px; width: 152px; height: 216px; object-fit: cover; }
+.partners-photo { position: absolute; left: 40px; top: 235px; width: 152px; height: 216px; object-fit: cover; }
 
 /* =========================================================
    ПЛАНШЕТНАЯ ОБОЛОЧКА (хедер + полноэкранное меню) — та же самая параллельная
@@ -5078,7 +5247,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    ========================================================= */
 @media (max-width: 767px) {
   .about-content { gap: 24px; }
-  .about-section { width: 100%; }
+  .about-section { width: 100%; margin-left: 0; }
   .about-section--gap40 { gap: 16px; }
   .about-section__title { font-size: 18px; }
   .about-hero-row { gap: 0; }
@@ -5440,11 +5609,6 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .store-map__pin {
     width: 40px;
     height: 52px;
-    animation: store-pin-lift 3.2s ease-in-out infinite;
-  }
-  @keyframes store-pin-lift {
-    0%, 100% { transform: translateY(0); filter: drop-shadow(0 2px 1px rgba(14,13,19,0.1)); }
-    50% { transform: translateY(-5px); filter: drop-shadow(0 4px 2px rgba(14,13,19,0.5)); }
   }
 }
 
