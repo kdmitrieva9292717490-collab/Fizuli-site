@@ -2979,6 +2979,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   text-align: center;
   font-family: var(--font-body);
   font-size: 16px;
+  line-height: 1.4;
   color: var(--text-gray-light);
 }
 .notify-popover__form {
@@ -3069,7 +3070,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   color: var(--icon-black);
 }
 .auth-modal__close:hover { opacity: 0.6; }
-.auth-modal__header { margin: 0 0 32px; }
+.auth-modal__header { margin: 0 0 32px; text-align: center; }
 /* На экране ввода кода отступ под заголовком другой — 48px, не 32
    (в макете Modal / Auth - Code Verify itemSpacing=48 у всех блоков) */
 #authModalCode .auth-modal__header { margin-bottom: 48px; }
@@ -3126,7 +3127,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   line-height: 1.4;
   color: var(--text-gray-light);
 }
-.auth-modal__code-row { display: flex; gap: 8px; margin-bottom: 48px; }
+.auth-modal__code-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 48px; }
 .auth-modal__code-cell {
   width: 50px;
   height: 48px;
@@ -5652,20 +5653,13 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    (нижний не трогаю, наследуется из базового правила). Десктоп не трогаю.
    ========================================================= */
 @media (max-width: 767px) {
-  .notify-popover,
-  .auth-modal {
+  .notify-popover {
     padding-top: 40px;
     padding-left: 40px;
     padding-right: 40px;
   }
-  .auth-modal__header {
-    text-align: center;
-  }
-  .auth-modal__disclaimer {
-    text-align: left;
-  }
-  .auth-modal__code-row {
-    justify-content: center;
+  .auth-modal {
+    padding: 40px 38px;
   }
 }
 
