@@ -1935,6 +1935,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   width: 100%;
   text-align: center;
 }
+.cart-drawer__submit-label--mobile { display: none; }
 
 /* =========================================================
    СТРАНИЦА «ЛИЧНЫЙ КАБИНЕТ» (account.html)
@@ -5720,6 +5721,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .cart-drawer__total-label { font-size: 14px; }
   .cart-drawer__total-amount { font-size: 20px; }
   .cart-drawer__submit { height: 44px; font-size: 12px; }
+  /* Текст кнопки превью корзины на мобильном — "перейти к оформлению"
+     вместо "оформить заказ" (её прямая правка); десктоп не трогаю */
+  .cart-drawer__submit-label--desktop { display: none; }
+  .cart-drawer__submit-label--mobile { display: inline; }
 }
 
 /* =========================================================
