@@ -3843,7 +3843,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .account-input[hidden],
 .address-input-row[hidden] { display: none; }
 .order-summary__dynamic-text { margin: 0; font-family: var(--font-body); font-size: 16px; color: var(--text-black); }
-.order-summary__legal { margin: 0; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
+.order-summary__legal { margin: 0; font-family: var(--font-body); font-size: 12px; line-height: 1.4; color: var(--text-gray-light); }
 
 /* В Figma-компоненте этой страницы у строк суммы свой размер шрифта
    (24px у "3 товара", 28px у "Итого") — крупнее, чем на cart.html (20px
