@@ -5328,6 +5328,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     border: none;
     padding: 0;
   }
+  /* Иконка (i) — отступ от текста 4px, как в "Ваш заказ" (.order-summary__delivery-label-group),
+     было 12px (десктопное значение уже поправлено раньше, мобильное — нет) */
+  .radio-option--payment .radio-option__text { gap: 4px; }
   .checkout-store { flex-direction: column; }
   /* Кнопка "выбрать на карте" — под инпутом "выбрать пункт выдачи",
      не рядом с ним (Figma: Address Field → AddressInputRow, кнопка
@@ -5936,6 +5939,14 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    Только десктоп — на мобильном пока старый цвет, следующим шагом отдельно.
    ========================================================= */
 @media (min-width: 1024px) {
+  input::placeholder,
+  textarea::placeholder { color: var(--text-gray3); }
+  .search-bar__input::placeholder,
+  .auth-modal__phone-input::placeholder,
+  .promo-code__input::placeholder { color: var(--text-gray3); }
+}
+/* То же самое — теперь и мобильная версия, по отдельной просьбе */
+@media (max-width: 767px) {
   input::placeholder,
   textarea::placeholder { color: var(--text-gray3); }
   .search-bar__input::placeholder,
