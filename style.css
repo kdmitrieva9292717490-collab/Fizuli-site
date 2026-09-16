@@ -18,6 +18,7 @@
   --bg-white-70: #FFFFFFB2;   /* BG/White 70% — фон cookie-баннера */
   --bg-gray1: #F6F6F6;        /* BG/Grey1 */
   --bg-gray2: #EEEEEE;        /* BG/Gray2 */
+  --bg-gray3: var(--gray3);   /* BG/Gray3 */
   --bg-gray4: var(--gray4);   /* BG/Gray4 */
   --bg-error: #C805001A;      /* BG/Error */
 
@@ -1108,12 +1109,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
 .scrollbar {
   height: 3px;
-  background: var(--bg-gray2);
+  background: var(--bg-gray1); /* было Gray2 — единственное отклонение от компонента Scrollbar в Figma (трек BG/Grey1), остальные 3 места в проекте уже на нём */
 }
 .scrollbar__thumb {
   width: 20%;
   height: 100%;
-  background: var(--bg-gray4);
+  background: var(--bg-gray3);
 }
 
 .is-hidden { display: none !important; }
@@ -2221,18 +2222,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   background: var(--bg-white);
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--bg-gray4) var(--bg-gray1);
+  scrollbar-color: var(--bg-gray3) var(--bg-gray1);
   transform: translateX(100%);
   transition: transform 0.25s ease;
 }
 .order-drawer-overlay.is-open .order-drawer {
   transform: translateX(0);
 }
-/* Свой скроллбар (компонент Scrollbar в Figma: трек BG/Grey1, бегунок BG/Gray4,
-   3px, без скруглений) вместо системного */
+/* Свой скроллбар (по её решению бегунок переведён на Gray3, трек остаётся
+   BG/Grey1, 3px, без скруглений) вместо системного */
 .order-drawer::-webkit-scrollbar { width: 3px; }
 .order-drawer::-webkit-scrollbar-track { background: var(--bg-gray1); }
-.order-drawer::-webkit-scrollbar-thumb { background: var(--bg-gray4); border-radius: 0; }
+.order-drawer::-webkit-scrollbar-thumb { background: var(--bg-gray3); border-radius: 0; }
 
 .order-drawer__header {
   flex-shrink: 0;
@@ -2706,11 +2707,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   flex-direction: column;
   gap: 24px;
   scrollbar-width: thin;
-  scrollbar-color: var(--bg-gray4) var(--bg-gray1);
+  scrollbar-color: var(--bg-gray3) var(--bg-gray1);
 }
 .filter-drawer__body::-webkit-scrollbar { width: 3px; }
 .filter-drawer__body::-webkit-scrollbar-track { background: var(--bg-gray1); }
-.filter-drawer__body::-webkit-scrollbar-thumb { background: var(--bg-gray4); border-radius: 0; }
+.filter-drawer__body::-webkit-scrollbar-thumb { background: var(--bg-gray3); border-radius: 0; }
 
 .filter-group__title {
   margin: 0 0 16px;
@@ -5195,7 +5196,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     position: absolute;
     top: 0; left: 0;
     height: 100%;
-    background: var(--bg-gray4);
+    background: var(--bg-gray3);
   }
 
   /* --- Карточка покупки: не sticky, все внутренние отступы 32px вместо 40 --- */
