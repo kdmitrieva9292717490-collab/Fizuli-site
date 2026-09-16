@@ -3433,7 +3433,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--icon-white);
+  color: var(--icon-black);
 }
 .lightbox__close:hover { opacity: 0.6; }
 
@@ -5350,6 +5350,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .checkout-store__label { font-size: 14px; }
   .checkout-store__address { font-size: 14px; }
   .checkout-store__hours p { font-size: 14px; }
+  .checkout-store__hours { gap: 4px; }
   .checkout-store__photo { width: 100%; height: auto; aspect-ratio: 351 / 176; }
   .checkout-pickup-notice { font-size: 14px; }
   /* .checkout-tab-panel даёт всем прямым детям gap:24 (title→store уже верно),
