@@ -3802,7 +3802,17 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .radio-option__title { font-family: var(--font-body); color: var(--text-black); }
 .radio-option__sub { font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
 
-.checkout-radio-row { display: flex; justify-content: space-between; gap: 24px; }
+.checkout-radio-row { display: flex; gap: 24px; }
+/* Такой же контейнер, как у .checkout-tab (способы получения): граница,
+   боковой паддинг 24px — но прозрачный (без заливки, как и .checkout-tab
+   на самом деле) и без верхнего/нижнего паддинга, только по бокам */
+.checkout-radio-row .radio-option {
+  flex: 1;
+  align-items: flex-start;
+  padding: 0 24px;
+  border: 1px solid var(--stroke-black-10);
+  background: transparent;
+}
 .checkout-radio-row .radio-option__title { font-size: 14px; }
 
 .checkout-country-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 24px; }
