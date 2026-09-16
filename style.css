@@ -3770,7 +3770,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    24 между полями и 0 перед первым). Мобильный отступ (24, без верхнего
    паддинга) не трогаю, поэтому отдельным desktop-only правилом */
 @media (min-width: 1024px) {
-  .checkout-tab-panel { gap: 32px; padding-top: 32px; }
+  /* Табы→панель было 56px (24 gap родителя .checkout-section + 32
+     padding-top панели, складывались) — margin-top:-24 гасит вклад
+     родительского gap для этой пары, остаётся только один источник
+     отступа (padding-top:32) */
+  .checkout-tab-panel { gap: 32px; padding-top: 32px; margin-top: -24px; }
 }
 
 /* Радио-кнопка — тот же приём, что и .filter-checkbox: настоящий input
