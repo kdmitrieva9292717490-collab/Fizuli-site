@@ -3692,7 +3692,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    .account-input, кнопки — .btn/.btn--secondary, подписи разделов —
    .account-section-title, всё уже было в проекте.
    ========================================================= */
-.checkout-page-heading { padding-bottom: 32px; }
+/* На этой странице шапки сайта нет вообще (её прямое решение) — обычный
+   .page-heading{padding-top} рассчитан на отступ ОТ ХЕДЕРА
+   (--header-height+40px), здесь считаю прямо от верха страницы */
+.checkout-page-heading { padding-top: 40px; padding-bottom: 32px; }
 .checkout-page-heading__title { font-size: 24px; margin: 0; }
 
 .checkout-layout-outer { padding-bottom: 120px; }
@@ -5124,7 +5127,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    Источник в Figma: Mob/Page / Checkout / Russia - Yandex (id 1552:16793).
    ========================================================= */
 @media (max-width: 767px) {
-  .checkout-page-heading { padding-bottom: 20px; }
+  .checkout-page-heading { padding-top: 24px; padding-bottom: 20px; }
   .checkout-page-heading__title { font-size: 18px; }
 
   .checkout-layout-outer { padding-bottom: 60px; }
