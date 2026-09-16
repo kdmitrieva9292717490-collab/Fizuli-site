@@ -5672,11 +5672,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .search-popular__grid .product-card__gallery { width: 100%; height: auto; aspect-ratio: 164 / 240; }
   .search-popular__grid .product-card__info { width: 100%; }
   /* Кнопка корзины была на top:200px — рассчитан под фиксированную высоту
-     фото 240px (200/240 соотношение из остальных карточек сайта), при
-     гибкой высоте через aspect-ratio она уезжает от нижнего края фото.
-     Позиционирую от низа (как и остальные карточки держат ~40px отступ
-     от низа фото до кнопки), не привязываясь к точной высоте */
-  .search-popular__grid .product-card__quick-add { top: auto; bottom: 40px; }
+     фото 240px, при гибкой высоте через aspect-ratio она уезжает от
+     нижнего края. Во всех остальных карточках сайта (catalog-grid-row,
+     product-list) кнопка стоит ВПЛОТНУЮ к низу фото (0-4px, не 40 —
+     ошиблась в прошлый раз, не вычла высоту самой кнопки 40px из отступа
+     200px) — тут тоже bottom:0 */
+  .search-popular__grid .product-card__quick-add { top: auto; bottom: 0; }
 }
 
 /* =========================================================
