@@ -3709,7 +3709,8 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    у активной обводка темнее, у остальных — совсем светлая (10% чёрного) */
 .checkout-tabs { display: flex; }
 .checkout-tab {
-  flex: 1;
+  flex: 0 0 254px;
+  width: 254px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -3721,7 +3722,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .checkout-tab:first-child { margin-left: 0; }
 .checkout-tab.is-active { border-color: var(--stroke-black); position: relative; z-index: 1; }
 .checkout-tab__label { font-family: var(--font-body); font-size: 14px; text-transform: uppercase; color: var(--text-black); }
-.checkout-tab__desc { margin-top: 8px; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
+/* margin-top:8 тут раньше дублировал gap:8 родителя (flex-column) —
+   реальный отступ был 16px вместо нужных 8, убрала */
+.checkout-tab__desc { font-family: var(--font-body); font-size: 12px; line-height: 1.4; color: var(--text-gray-light); }
 
 .checkout-field { display: flex; flex-direction: column; gap: 16px; }
 
