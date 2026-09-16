@@ -3696,6 +3696,23 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    .page-heading{padding-top} рассчитан на отступ ОТ ХЕДЕРА
    (--header-height+40px), здесь считаю прямо от верха страницы */
 .checkout-page-heading { padding-top: 40px; padding-bottom: 32px; }
+@media (min-width: 1024px) {
+  /* Кнопка "корзина" + заголовок "оформление заказа" зафиксированы сверху
+     при скролле — хедера на странице больше нет, top:0 приходится прямо
+     на верх окна. background нужен, иначе контент формы просвечивает под
+     ней при скролле */
+  .checkout-page-heading {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-white);
+  }
+  /* "Ваш заказ" — та же логика, что у .order-summary на cart.html, но там
+     top учитывал высоту хедера (--header-height+24), здесь хедера нет */
+  .order-summary--checkout {
+    top: 24px;
+  }
+}
 .checkout-page-heading__title { font-size: 24px; margin: 0; }
 
 .checkout-layout-outer { padding-bottom: 120px; }
@@ -3749,6 +3766,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    Возвращаю [hidden] приоритет явным правилом */
 .checkout-tab-panel { display: flex; flex-direction: column; gap: 24px; }
 .checkout-tab-panel[hidden] { display: none; }
+/* Десктоп: 32px и до первого поля, и между полями (её уточнение — было
+   24 между полями и 0 перед первым). Мобильный отступ (24, без верхнего
+   паддинга) не трогаю, поэтому отдельным desktop-only правилом */
+@media (min-width: 1024px) {
+  .checkout-tab-panel { gap: 32px; padding-top: 32px; }
+}
 
 /* Радио-кнопка — тот же приём, что и .filter-checkbox: настоящий input
    спрятан, кастомный кружок и точка внутри рисуются через :checked ~ */
