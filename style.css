@@ -289,12 +289,63 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   opacity: 0.5;
 }
 
+/* Тот же паттерн, что у .category-card (плитки категорий на главной) —
+   фон-фото + затемнение 20% по ховеру + текст "перейти в каталог",
+   появляющийся вместе с ним. .megamenu__preview-image даёт тот же
+   fallback-фон BG/Grey1, что у .category-card__image */
 .megamenu__preview {
+  position: relative;
   flex: 0 0 368px;
   width: 368px;
-  height: 540px;
-  background: var(--bg-gray1); /* TODO: картинка-превью после экспорта из Figma */
+  height: 500px;
+  overflow: hidden;
+  color: var(--text-white);
 }
+.megamenu__preview-image {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-gray1);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.megamenu__preview-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.megamenu__preview:hover .megamenu__preview-dim { opacity: 1; }
+.megamenu__preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+.megamenu__preview-label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-white);
+}
+.megamenu__preview-btn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--text-white);
+  border-bottom: 1px solid var(--stroke-white);
+  padding-bottom: 4px;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.megamenu__preview:hover .megamenu__preview-btn { opacity: 1; }
 
 /* Аккордеон внутри "Каталог" — список категорий раскрывается/сворачивается по клику.
    По умолчанию открыт (как показано в самом компоненте Figma) */
@@ -4459,6 +4510,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .mob-gender-tabs .nav__link { font-size: 12px; padding: 2px 0; }
 
   .mob-menu-section { display: flex; flex-direction: column; gap: 8px; }
+  /* Раньше был инлайн-стиль style="margin-top:24px" прямо в разметке —
+     вынесен в класс (на планшете этому же классу нужно другое значение,
+     инлайн-стиль нельзя было переопределить по media) */
+  .mob-menu-section--spaced { margin-top: 24px; }
   .mob-menu-section__label { margin: 0; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
   /* Ссылки категорий в аккордеоне — Mob/NavLink из Figma: строка целиком 40px
      (не 14px текст + 8px gap, как было от десктопной .megamenu-accordion__list) */
@@ -4581,20 +4636,33 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
   /* Разбивка на 2 колонки (Figma "Frame 12343786"/"Title Group", id
      I4164:35616;4164:33885/33867): Коллекции+Каталог — левая колонка,
-     Покупателям — правая, стартует с той же верхней линии */
-  [data-mob-gender-panel] {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 32px;
-    row-gap: 24px;
-    align-content: start;
-  }
+     Покупателям — правая. Раньше это была CSS Grid (2 строки/2 колонки) —
+     в реальности же в Figma колонки НЕЗАВИСИМЫ по высоте: "Покупателям"
+     всего 150px и не тянется вниз вслед за левой колонкой (её там 1052px).
+     Grid связывает высоту строки между колонками (row-gap считался бы от
+     самого высокого элемента строки) — переключаю на flex с двумя
+     самостоятельными колонками-обёртками (.mob-menu-col), тогда правая
+     колонка просто встаёт по верхнему краю и не растягивается. */
+  [data-mob-gender-panel] { display: flex; align-items: flex-start; gap: 32px; }
   [data-mob-gender-panel][hidden] { display: none; }
-  .mob-menu-section:nth-child(1) { grid-column: 1; grid-row: 1; }
-  .mob-menu-section:nth-child(2) { grid-column: 1; grid-row: 2; }
-  .mob-menu-section:nth-child(3) { grid-column: 2; grid-row: 1 / span 2; }
+  /* На мобильном оболочки прозрачны (display:contents) — секции идут
+     единым потоком в 1 колонку, как и было до разбивки на .mob-menu-col */
+  .mob-menu-col { display: contents; }
+  .mob-menu-col--left,
+  .mob-menu-col--right {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Инлайновый margin-top:24 (мобильное значение, не трогаю) у Каталог/
+     Покупателям заменён на класс — на планшете он должен быть другим:
+     8px между Коллекции→Каталог внутри левой колонки (Frame 12343786
+     itemSpacing:8), 0 у Покупателям (это единственный элемент в своей
+     колонке, верхний край сам по себе, без отступа) */
+  .mob-menu-col--left .mob-menu-section--spaced { margin-top: 8px; }
+  .mob-menu-col--right .mob-menu-section--spaced { margin-top: 0; }
 
   .mob-menu-section { display: flex; flex-direction: column; gap: 8px; }
+  .mob-menu-section--spaced { margin-top: 24px; }
   .mob-menu-section__label { margin: 0; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
   .mob-menu .megamenu__link,
   .mob-menu .megamenu-accordion__trigger { font-size: 12px; }
@@ -4613,7 +4681,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding: 24px;
+    padding: 32px 24px;
     background: var(--bg-black);
     color: var(--text-white);
   }
@@ -4622,6 +4690,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     background-color: currentColor;
     -webkit-mask: url('assets/icons/logo.svg') no-repeat center / contain;
     mask: url('assets/icons/logo.svg') no-repeat center / contain;
+    /* В Figma (Tablet/Footer) логотип и адреса — одна группа "Store Addresses"
+       со своим internal gap:16, а не 32 общего уровня */
+    margin-bottom: -16px;
   }
   .mob-footer__addresses { display: flex; flex-direction: column; gap: 16px; }
   .mob-footer__addresses .footer-address { font-size: 14px; }
@@ -4630,8 +4701,37 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .mob-footer__col .footer-col__title { font-size: 12px; }
   .mob-footer__col .nav__link,
   .mob-footer__col .footer-link--text { font-size: 12px; }
-  .mob-footer__bottom { display: flex; flex-direction: column; gap: 16px; padding-top: 16px; border-top: 1px solid var(--stroke-white-10); }
+  .mob-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 32px;
+    border-top: 1px solid var(--stroke-white-10);
+    /* Верх/низ "Footer Content"→"Footer Bottom" в Figma — 24, не общий 32 */
+    margin-top: -8px;
+  }
   .mob-footer__legal { display: flex; flex-direction: column; gap: 8px; }
+}
+
+/* =========================================================
+   ПЛАНШЕТ — СВОЯ СИСТЕМА ОТСТУПОВ ДЛЯ СТРАНИЦ (её прямая спецификация,
+   не десктопная и не мобильная): между блоками 80, крошки→заголовок 0
+   (у крошек своя безопасная зона по высоте), заголовок→контент/фильтры 28,
+   фильтры(табы)→контент 12, между рядами карточек 32, между карточками 12.
+   Начато с простых страниц (about/partners/journal) — каталожные страницы
+   и их сетка карточек (карточки должны быть взяты как на мобильной версии,
+   не отдельным планшетным размером — см. TODO в блоке ниже) следующим шагом. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .breadcrumbs { margin-bottom: 0; }
+  .page-title { margin: 0 0 28px; }
+  .about-content { gap: 80px; }
+  /* Тот же margin-collapse у .info-tabs внутри sticky-обёртки, что уже
+     починен для десктопа (см. комментарий выше по файлу) — там фикс был
+     scoped только на min-width:1024px, на планшет не распространялся:
+     .info-tabs margin-bottom:20 (базовое) складывалось с этим padding-bottom */
+  .info-tabs { margin-bottom: 0; }
+  .journal-tabs-wrap { padding-bottom: 12px; }
 }
 
 /* =========================================================
@@ -4640,14 +4740,17 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    тронут — заголовок 52px, отступы, размер точек пагинации у планшета
    СОВПАДАЮТ с десктопом день-в-день (проверила по реальным координатам
    узла Tablet/Hero Slider), меняется только левый отступ через уже
-   заведённую переменную --edge-inline. Каталог-плитки (.catalog-grid) тоже
-   не тронуты — десктопная сетка 2 колонки + aspect-ratio:1/1 уже даёт
-   почти точный квадрат 354×354 на этой ширине сама, без переопределений.
+   заведённую переменную --edge-inline. Каталог-плитки (.catalog-grid) —
+   по её прямой правке зафиксированы 354×354 (было: десктопная фluid-сетка
+   2 колонки давала точный квадрат только у нижней границы 768px, а к 1023px
+   расползалась заметно шире 354, т.к. колонки были 1fr, не фикс-ширина).
    Реально другая только карусель «Новинки» — на планшете переиспользуется
    компонент Mob/Card (171×327: фото 258 + инфоблок), а не Mob/CardS/Novelties
    (168×265), которым пользуется мобильная версия */
 @media (min-width: 768px) and (max-width: 1023px) {
   .cookie-banner { padding: 24px; gap: 42px; }
+
+  .catalog-grid { grid-template-columns: repeat(2, 354px); }
 
   .product-list { gap: 12px; margin-bottom: 20px; }
   .product-list .product-card { flex: 0 0 171px; width: 171px; }

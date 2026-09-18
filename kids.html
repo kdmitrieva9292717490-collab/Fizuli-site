@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=202609289">
+  <link rel="stylesheet" href="style.css?v=202609290">
 </head>
 <body>
 
@@ -81,8 +81,22 @@
         <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
         <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
       </div>
-      <div class="megamenu__preview" aria-hidden="true"></div>
-      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true">
+        <div class="megamenu__preview-image" style="background-image:url('assets/images/megamenu-men-shirts.png')"></div>
+        <div class="megamenu__preview-dim"></div>
+        <div class="megamenu__preview-overlay">
+          <p class="megamenu__preview-label">рубашки</p>
+          <span class="megamenu__preview-btn">перейти в каталог</span>
+        </div>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true">
+        <div class="megamenu__preview-image" style="background-image:url('assets/images/megamenu-men-tshirts.png')"></div>
+        <div class="megamenu__preview-dim"></div>
+        <div class="megamenu__preview-overlay">
+          <p class="megamenu__preview-label">футболки</p>
+          <span class="megamenu__preview-btn">перейти в каталог</span>
+        </div>
+      </div>
     </div>
 
     <div class="megamenu is-hidden" id="megamenu-woman" data-megamenu="woman">
@@ -136,8 +150,22 @@
         <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
         <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
       </div>
-      <div class="megamenu__preview" aria-hidden="true"></div>
-      <div class="megamenu__preview" aria-hidden="true"></div>
+      <div class="megamenu__preview" aria-hidden="true">
+        <div class="megamenu__preview-image" style="background-image:url('assets/images/megamenu-women-anoraki.png')"></div>
+        <div class="megamenu__preview-dim"></div>
+        <div class="megamenu__preview-overlay">
+          <p class="megamenu__preview-label">анораки</p>
+          <span class="megamenu__preview-btn">перейти в каталог</span>
+        </div>
+      </div>
+      <div class="megamenu__preview" aria-hidden="true">
+        <div class="megamenu__preview-image" style="background-image:url('assets/images/megamenu-women-shirts.png')"></div>
+        <div class="megamenu__preview-dim"></div>
+        <div class="megamenu__preview-overlay">
+          <p class="megamenu__preview-label">рубашки</p>
+          <span class="megamenu__preview-btn">перейти в каталог</span>
+        </div>
+      </div>
     </div>
 
     <div class="site-header__right">
@@ -217,12 +245,13 @@
       </div>
 
       <div data-mob-gender-panel="man">
+        <div class="mob-menu-col mob-menu-col--left">
         <div class="mob-menu-section">
           <p class="mob-menu-section__label">Коллекции</p>
           <a href="men.html?collection=huracan" class="megamenu__link">huracan</a>
           <a href="men.html?collection=patchi" class="megamenu__link">patchi</a>
         </div>
-        <div class="mob-menu-section" style="margin-top:24px">
+        <div class="mob-menu-section mob-menu-section--spaced">
           <p class="mob-menu-section__label">Каталог</p>
           <a href="new-arrivals.html" class="megamenu__link">новинки</a>
           <div class="megamenu-accordion">
@@ -264,21 +293,25 @@
           <a href="kids.html" class="megamenu__link">детям</a>
           <a href="accessories.html" class="megamenu__link">аксессуары</a>
         </div>
-        <div class="mob-menu-section" style="margin-top:24px">
+        </div>
+        <div class="mob-menu-col mob-menu-col--right">
+        <div class="mob-menu-section mob-menu-section--spaced">
           <p class="mob-menu-section__label">Покупателям</p>
           <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
           <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
           <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
         </div>
+        </div>
       </div>
 
       <div data-mob-gender-panel="woman" hidden>
+        <div class="mob-menu-col mob-menu-col--left">
         <div class="mob-menu-section">
           <p class="mob-menu-section__label">Коллекции</p>
           <a href="women.html?collection=huracan" class="megamenu__link">huracan</a>
           <a href="women.html?collection=patchi" class="megamenu__link">patchi</a>
         </div>
-        <div class="mob-menu-section" style="margin-top:24px">
+        <div class="mob-menu-section mob-menu-section--spaced">
           <p class="mob-menu-section__label">Каталог</p>
           <a href="new-arrivals-women.html" class="megamenu__link">новинки</a>
           <div class="megamenu-accordion">
@@ -312,11 +345,14 @@
           <a href="kids.html" class="megamenu__link">детям</a>
           <a href="accessories.html" class="megamenu__link">аксессуары</a>
         </div>
-        <div class="mob-menu-section" style="margin-top:24px">
+        </div>
+        <div class="mob-menu-col mob-menu-col--right">
+        <div class="mob-menu-section mob-menu-section--spaced">
           <p class="mob-menu-section__label">Покупателям</p>
           <a href="buyers.html" class="megamenu__link">доставка и самовывоз</a>
           <a href="buyers.html?tab=payment" class="megamenu__link">оплата</a>
           <a href="buyers.html?tab=returns" class="megamenu__link">возврат и обмен</a>
+        </div>
         </div>
       </div>
 
