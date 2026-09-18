@@ -4753,6 +4753,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
      десктопа), кнопки фиксированной ширины 140px вместо разной по контенту
      ("принять" 134px / "подробнее" 153px) */
   .cookie-banner__actions .btn { flex: 0 0 140px; width: 140px; }
+  .cookie-banner__text { font-size: 12px; }
 
   .catalog-grid { grid-template-columns: repeat(2, 354px); }
 
