@@ -748,7 +748,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   font-size: 16px;
   font-weight: 600; /* было Bold(700) — ты поменяла стиль в Figma на SemiBold(600) */
   text-transform: uppercase;
-  color: var(--text-gray3);
+  color: var(--text-white-60);
 }
 
 .hero__meta-divider {
