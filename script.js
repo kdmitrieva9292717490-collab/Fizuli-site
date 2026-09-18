@@ -21,7 +21,7 @@
   if (!match) return;
 
   cards.forEach((c) => { if (c !== match) c.hidden = true; });
-  // Карточки коллекций (data-collection, напр. Huracan/Patchi) — не категория,
+  // Карточки коллекций (data-collection, напр. Hybrid Athletic Club/Patchi/Sensei) — не категория,
   // при фильтре по категории тоже скрываем, иначе остаются висеть поверх
   scope.querySelectorAll('.catalog-section .product-card[data-collection], .recently-viewed .product-card[data-collection]').forEach((c) => { c.hidden = true; });
 
@@ -46,7 +46,7 @@
   }
 })();
 
-// Страница коллекции (?collection=huracan/patchi, переход из мегаменю) —
+// Страница коллекции (?collection=patchi/sensei/hybrid%20athletic%20club, переход из мегаменю) —
 // показывает только карточки с data-collection, остальные (включая видео)
 // скрывает. Клонов и 5-плиточной сетки тут не нужно — коллекция уже
 // представлена собственным набором разных товаров, а не одним демо-фото.
@@ -949,8 +949,8 @@ document.querySelectorAll('.video-card__media').forEach((v) => {
   document.getElementById('filterDrawerApply').addEventListener('click', closeDrawer);
 
   // Переход из мегаменю по конкретной категории («повседневная линия» →
-  // ссылка вида casual-men.html?category=костюмы) или коллекции («huracan»/
-  // «patchi» → new-arrivals.html?collection=huracan) — отмечаем нужный пункт
+  // ссылка вида casual-men.html?category=костюмы) или коллекции («hybrid-athletic-club»/
+  // «patchi»/«sensei» → new-arrivals.html?collection=patchi) — отмечаем нужный пункт
   // фильтра галочкой сразу при загрузке страницы, без открытия панели
   const requestParams = new URLSearchParams(location.search);
   [requestParams.get('category'), requestParams.get('collection')].forEach((requested) => {
