@@ -4724,7 +4724,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    не отдельным планшетным размером — см. TODO в блоке ниже) следующим шагом. */
 @media (min-width: 768px) and (max-width: 1023px) {
   .breadcrumbs { margin-bottom: 0; }
-  .page-title { margin: 0 0 28px; font-size: 16px; }
+  .page-title { margin: 0 0 28px; font-size: 20px; font-weight: 400; }
   .about-content { gap: 80px; }
   /* Тот же margin-collapse у .info-tabs внутри sticky-обёртки, что уже
      починен для десктопа (см. комментарий выше по файлу) — там фикс был
@@ -4750,7 +4750,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    (168×265), которым пользуется мобильная версия */
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero__title { font-size: 32px; }
-  .section-header__title { font-size: 16px; }
+  .section-header__title { font-size: 20px; font-weight: 400; }
   .category-card__title { font-size: 18px; }
   /* "спортивные / костюмы" — на 2 строки, как на мобильном (на десктопе
      тоже переносится на узких по факту ширинах, тут переношу явно) */
