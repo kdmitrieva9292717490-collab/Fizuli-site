@@ -4749,6 +4749,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    (168×265), которым пользуется мобильная версия */
 @media (min-width: 768px) and (max-width: 1023px) {
   .cookie-banner { padding: 24px; gap: 42px; }
+  /* Текст + кнопки — горизонтальный автолейаут (уже так, наследуется с
+     десктопа), кнопки фиксированной ширины 140px вместо разной по контенту
+     ("принять" 134px / "подробнее" 153px) */
+  .cookie-banner__actions .btn { flex: 0 0 140px; width: 140px; }
 
   .catalog-grid { grid-template-columns: repeat(2, 354px); }
 
