@@ -4751,6 +4751,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero__title { font-size: 32px; }
   .category-card__title { font-size: 12px; }
+  /* Тач-устройство — ховер убран (залипает после тапа), вместо него лёгкое
+     затемнение по :active (сам переход по тапу уже работает — это ссылка).
+     Подпись "перейти в каталог" на тапе не показываем, только дим */
+  .category-card:hover .category-card__dim,
+  .category-card:hover .category-card__btn { opacity: 0; }
+  .category-card:active .category-card__dim { opacity: 1; }
 
   .cookie-banner { padding: 24px; gap: 42px; }
   /* Текст + кнопки — горизонтальный автолейаут (уже так, наследуется с
