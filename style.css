@@ -4825,13 +4825,45 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
   .catalog-grid { grid-template-columns: repeat(2, 354px); }
 
-  .product-list { gap: 12px; margin-bottom: 20px; }
-  .product-list .product-card { flex: 0 0 171px; width: 171px; }
-  .product-list .product-card__gallery { width: 171px; height: 258px; margin-bottom: 12px; }
-  .product-list .product-card__info { width: 171px; }
-  .product-list .product-card__content { gap: 4px; }
+  /* Карусель "Новинки" — по её прямой правке карточка как на мобильном
+     (Mob/CardS/Novelties, 168×265), а не отдельный планшетный размер
+     (было Mob/Card 171×327 — ни один из размеров реального сайта) */
+  .product-list { gap: 8px; margin-bottom: 20px; }
+  .product-list .product-card { flex: 0 0 168px; width: 168px; }
+  .product-list .product-card__gallery { width: 168px; height: 265px; margin-bottom: 12px; }
+  .product-list .product-card__info { width: 168px; }
+  .product-list .product-card__content { gap: 2px; }
   .product-list .product-card__title { font-size: 12px; }
   .product-list .product-card__price { font-size: 14px; }
+  .product-list .product-card .badge--tag { font-size: 8px; padding: 4px; }
+  /* Иконки избранное/корзина — тач-экран, всегда видимые (не по :hover),
+     40×40, S-размер векторов — тот же приём, что на мобильном */
+  .product-list .product-card__favorite,
+  .product-list .product-card__quick-add {
+    width: 40px; height: 40px;
+    right: 0; top: 0; bottom: auto;
+    opacity: 1; pointer-events: auto;
+  }
+  .product-list .product-card__quick-add { top: 221px; }
+  .product-list .product-card__gallery--sizes-open .product-card__quick-add {
+    opacity: 0; pointer-events: none;
+  }
+  .product-list .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-s.svg');
+    mask-image: url('assets/icons/cart-s.svg');
+  }
+  .product-list .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-s.svg');
+    mask-image: url('assets/icons/favorite-s.svg');
+  }
+  .product-list .product-card__quick-add.is-active .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-fill-s.svg');
+    mask-image: url('assets/icons/cart-fill-s.svg');
+  }
+  .product-list .product-card__favorite.is-active .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-fill-s.svg');
+    mask-image: url('assets/icons/favorite-fill-s.svg');
+  }
 
   /* Готовые образы — источник Tablet/Page/Home → LookbookSection (id
      4125:18212). Как и на мобильном, фото и кнопка идут колонкой на всю
