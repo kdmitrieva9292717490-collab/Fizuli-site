@@ -4750,6 +4750,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    (168×265), которым пользуется мобильная версия */
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero__title { font-size: 32px; }
+  .category-card__title { font-size: 12px; }
 
   .cookie-banner { padding: 24px; gap: 42px; }
   /* Текст + кнопки — горизонтальный автолейаут (уже так, наследуется с
