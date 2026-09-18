@@ -4730,8 +4730,62 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
      починен для десктопа (см. комментарий выше по файлу) — там фикс был
      scoped только на min-width:1024px, на планшет не распространялся:
      .info-tabs margin-bottom:20 (базовое) складывалось с этим padding-bottom */
-  .info-tabs { margin-bottom: 0; }
+  .info-tabs { width: 100%; gap: 0; margin-bottom: 0; }
   .journal-tabs-wrap { padding-bottom: 12px; }
+  /* Компонент вкладок — как на мобильном (Mob/NavLinkHeder), не десктопная
+     версия: растянуты на всю ширину поровну, шрифт 12px, подчёркивание —
+     на внутреннем span, а не на всей flex:1-кнопке */
+  .info-tab { flex: 1; text-align: center; font-size: 12px; }
+  .journal-page .info-tab {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    border-bottom: none;
+  }
+  .info-tab__label {
+    display: inline-block;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+  }
+  .info-tab.is-active .info-tab__label { border-bottom-color: var(--stroke-black); }
+  .journal-page .info-tab.is-active { opacity: 1; }
+  /* buyers.html — свой вариант: вкладки по ширине текста (не растянуты),
+     невидимая зона клика 32px псевдоэлементом, подчёркивание прямо на кнопке */
+  .buyers-content .info-tab {
+    position: relative;
+    flex: none;
+    text-align: left;
+    padding: 4px 0;
+  }
+  .buyers-content .info-tab::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-16px);
+    height: 32px;
+  }
+  .buyers-content .info-tab.is-active { opacity: 1; }
+
+  /* Личный кабинет — сайдбар (370px колонка) превращается в горизонтальные
+     вкладки на всю ширину, как на мобильном, а не сжатая десктопная колонка */
+  .account__layout { flex-direction: column; gap: 20px; }
+  .account-nav {
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+  .account-nav__link {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 9px 0;
+    font-size: 12px;
+  }
+  .account-nav__link-text { padding: 4px 0; }
 }
 
 /* =========================================================
