@@ -6521,3 +6521,89 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — «Готовые образы»: как на мобильной.
+   1) Карточка вещи стоит рядом со своим хотспотом с зазором 8px: брюки
+      (хотспот 109/445) — справа от точки, анорак (хотспот 407/322) — слева
+      от точки; по вертикали — как на мобильной (top 126).
+   2) Модалка «купить образ» — полноэкранная, как на мобильной; 4 карточки
+      одним рядом по ширине планшета (было бы 2×2 по 350px), боковые поля 24 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hotspot-card--1 { left: 133px; top: 126px; }
+  .hotspot-card--2 { left: 211px; top: 126px; }
+
+  #lookModal.modal-overlay { padding: 0; }
+  .modal-look {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    padding: 40px 24px 24px;
+  }
+  .modal-look__close { right: 24px; top: 4px; width: 40px; height: 40px; }
+  .modal-look__title { font-size: 16px; margin-bottom: 20px; }
+  .modal-look__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    overflow-x: visible;
+    margin-bottom: 24px;
+  }
+  .look-item { width: auto; flex: none; }
+  .look-item__image { width: 100%; height: 240px; margin-bottom: 0; }
+  .look-item__badge { left: 8px; top: 8px; font-size: 8px; padding: 4px; }
+  .look-item__favorite { right: 0; top: 0; width: 40px; height: 40px; }
+  .look-item__favorite .icon { width: 24px; height: 24px; }
+  .look-item__sizes { padding: 4px; gap: 4px; justify-content: center; }
+  .look-item__size-btn { flex: 0 0 auto; padding: 2px 4px; font-size: 8px; }
+  .look-item__size-btn:disabled { color: var(--gray3); }
+  .look-item__one-size-bar { padding: 4px; }
+  .look-item__one-size { padding: 2px 4px; font-size: 8px; }
+  .look-item__checkbox { padding: 8px 0; gap: 8px; }
+  .look-item__checkbox-box { width: 16px; height: 16px; }
+  .look-item__checkbox-box .icon--check { width: 12px; height: 12px; }
+  .look-item__name { font-size: 12px; }
+  .look-item__error { margin: 0; padding: 4px 8px; background: var(--bg-error); font-size: 10px; }
+  .modal-look__submit { width: 100%; }
+}
+
+/* ПЛАНШЕТ — карточка вещи внутри попапа хотспота: размер S как на мобильной
+   (164×240, иконки всегда видны, S-векторы, мелкий бейдж/свотчи) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hotspot-card .product-card--s { width: 164px; }
+  .hotspot-card .product-card__gallery--s { width: 164px; height: 240px; margin-bottom: 12px; }
+  .hotspot-card .product-card__info { width: 164px; }
+  .hotspot-card .product-card__content { gap: 2px; }
+  .hotspot-card .product-card__title { font-size: 12px; }
+  .hotspot-card .product-card__price { font-size: 14px; }
+  .hotspot-card .product-card .badge--tag { font-size: 8px; padding: 4px; }
+  .hotspot-card .product-card__favorite,
+  .hotspot-card .product-card__quick-add {
+    width: 40px; height: 40px;
+    right: 0; top: 0; bottom: auto;
+    opacity: 1; pointer-events: auto;
+  }
+  .hotspot-card .product-card__quick-add { top: 200px; }
+  .hotspot-card .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-s.svg');
+    mask-image: url('assets/icons/cart-s.svg');
+  }
+  .hotspot-card .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-s.svg');
+    mask-image: url('assets/icons/favorite-s.svg');
+  }
+  .hotspot-card .product-card__quick-add.is-active .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-fill-s.svg');
+    mask-image: url('assets/icons/cart-fill-s.svg');
+  }
+  .hotspot-card .product-card__favorite.is-active .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-fill-s.svg');
+    mask-image: url('assets/icons/favorite-fill-s.svg');
+  }
+  .hotspot-card .product-card .color-list { gap: 4px; margin-bottom: 12px; }
+  .hotspot-card .product-card .color-swatch { width: 12px; height: 12px; }
+  .hotspot-card .product-card .color-list__more { font-size: 10px; }
+  .hotspot-card .product-card__sizes { justify-content: center; gap: 4px; overflow: visible; padding: 4px; }
+  .hotspot-card .product-card__size-btn { flex: 0 0 auto; padding: 2px 4px; font-size: 10px; }
+}
+
