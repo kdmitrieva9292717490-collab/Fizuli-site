@@ -1531,3 +1531,32 @@ document.querySelectorAll('.product-accordion__trigger').forEach((trigger) => {
     });
   });
 })();
+
+// Галерея на странице товара (планшет/мобильная): листание мышью перетаскиванием —
+// на тач-экране работает нативно, на мышке (эмуляция планшета) без этого фото
+// не пролистать. После перетаскивания клик по фото (лайтбокс) подавляется
+(function () {
+  const gallery = document.querySelector('.product-gallery');
+  if (!gallery) return;
+  let down = false, moved = false, startX = 0, startScroll = 0;
+  gallery.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || window.innerWidth >= 1024) return;
+    down = true; moved = false; startX = e.clientX; startScroll = gallery.scrollLeft;
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 5) { moved = true; gallery.style.scrollSnapType = 'none'; }
+    if (moved) gallery.scrollLeft = startScroll - dx;
+  });
+  window.addEventListener('pointerup', () => {
+    if (!down) return;
+    down = false;
+    gallery.style.scrollSnapType = '';
+    if (moved) gallery.dataset.dragged = '1';
+  });
+  gallery.addEventListener('click', (e) => {
+    if (gallery.dataset.dragged) { e.preventDefault(); e.stopPropagation(); delete gallery.dataset.dragged; }
+  }, true);
+})();
+

@@ -6955,3 +6955,30 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .payment-popover { padding: 20px 16px; }
   .payment-popover__tabs { gap: 4px; }
 }
+
+/* ПЛАНШЕТ — страница товара: рядом с двумя фото выглядывает третье (видно,
+   что галерея листается), полоса прокрутки — в 16px от фото; свотчи цвета
+   у карточек «Дополнить образ» / «Вы недавно смотрели» / поиск / попап
+   хотспота — та же тонкая обводка выбранного цвета, что и у мобильной
+   карточки (1.2px, а не базовые 2px, которые на 12px-свотче слишком толстые) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .product-gallery__image {
+    flex: 0 0 calc((100% - 48px) / 2);
+    width: calc((100% - 48px) / 2);
+  }
+  .product-gallery-scrollbar { margin-top: -8px; }
+
+  .complete-look__row .product-card .color-swatch.is-selected,
+  .recently-viewed__row .product-card .color-swatch.is-selected,
+  .search-popular__grid .product-card .color-swatch.is-selected,
+  .hotspot-card .product-card .color-swatch.is-selected {
+    box-shadow: inset 0 0 0 1.2px var(--bg-white);
+  }
+  .complete-look__row .product-card .color-swatch--white.is-selected,
+  .recently-viewed__row .product-card .color-swatch--white.is-selected,
+  .search-popular__grid .product-card .color-swatch--white.is-selected,
+  .hotspot-card .product-card .color-swatch--white.is-selected {
+    box-shadow: inset 0 0 0 1.2px var(--bg-white), inset 0 0 0 1.9px var(--stroke-black-30);
+  }
+}
+
