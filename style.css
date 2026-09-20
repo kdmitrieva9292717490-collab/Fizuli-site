@@ -6668,3 +6668,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .look-item__sizes:has(.look-item__size-btn:nth-child(5)) .look-item__size-btn { flex: 1 1 0; }
 }
 
+/* ПЛАНШЕТ — плашки размеров: промежутков между кнопками нет нигде (и у hug —
+   где размеров мало, и у fill — где много) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .product-card__sizes.product-card__sizes,
+  .look-item__sizes.look-item__sizes { gap: 0; }
+}
+
