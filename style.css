@@ -4917,12 +4917,53 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .catalog-grid-rows { gap: 36px; }
   .catalog-grid-row { display: flex; gap: 12px; align-items: stretch; }
   .catalog-grid-row .product-card { flex: 0 0 171px; width: 171px; }
-  .catalog-grid-row .product-card__gallery { width: 171px; height: 258px; margin-bottom: 12px; }
+  .catalog-grid-row .product-card__gallery { width: 171px; height: 265px; margin-bottom: 12px; }
   .catalog-grid-row .product-card__info { width: 171px; }
-  .catalog-grid-row .product-card__content { gap: 4px; }
+  .catalog-grid-row .product-card__content { gap: 2px; }
   .catalog-grid-row .product-card__title { font-size: 12px; }
   .catalog-grid-row .product-card__price { font-size: 14px; }
   .catalog-grid-row .video-card { width: 171px; }
+
+  /* Карточка каталога = обычная мобильная карточка (не S), как в мобильном
+     блоке выше: иконки всегда видны (тач), S-векторы, мелкий бейдж/свотчи/размеры */
+  .catalog-grid-row .product-card .badge--tag { font-size: 8px; padding: 4px; }
+  .catalog-grid-row .product-card__favorite,
+  .catalog-grid-row .product-card__quick-add {
+    width: 40px; height: 40px;
+    right: 0; top: 0; bottom: auto;
+    opacity: 1; pointer-events: auto;
+  }
+  .catalog-grid-row .product-card__quick-add { top: 223px; }
+  .catalog-grid-row .product-card__gallery--sizes-open .product-card__quick-add {
+    opacity: 0; pointer-events: none;
+  }
+  .catalog-grid-row .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-s.svg');
+    mask-image: url('assets/icons/cart-s.svg');
+  }
+  .catalog-grid-row .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-s.svg');
+    mask-image: url('assets/icons/favorite-s.svg');
+  }
+  .catalog-grid-row .product-card__quick-add.is-active .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-fill-s.svg');
+    mask-image: url('assets/icons/cart-fill-s.svg');
+  }
+  .catalog-grid-row .product-card__favorite.is-active .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-fill-s.svg');
+    mask-image: url('assets/icons/favorite-fill-s.svg');
+  }
+  .catalog-grid-row .product-card .color-list { gap: 4px; margin-bottom: 12px; }
+  .catalog-grid-row .product-card .color-swatch { width: 12px; height: 12px; }
+  .catalog-grid-row .product-card .color-list__more { font-size: 10px; }
+  .catalog-grid-row .product-card .color-swatch.is-selected {
+    box-shadow: inset 0 0 0 1.2px var(--bg-white);
+  }
+  .catalog-grid-row .product-card .color-swatch--white.is-selected {
+    box-shadow: inset 0 0 0 1.2px var(--bg-white), inset 0 0 0 1.9px var(--stroke-black-30);
+  }
+  .catalog-grid-row .product-card__sizes { justify-content: center; gap: 4px; overflow: visible; padding: 4px; }
+  .catalog-grid-row .product-card__size-btn { flex: 0 0 auto; padding: 2px 4px; font-size: 10px; }
 
   /* «Вы недавно смотрели» — тот же ряд из 4 карточек 171px, что и каталог
      выше (Tablet/Page/Catalog → Recently Viewed Section, id 4164:36221).
@@ -4931,11 +4972,43 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
      ужимается, скролла нет вообще */
   .recently-viewed__row { gap: 12px; }
   .recently-viewed__row .product-card { flex: 0 0 171px; width: 171px; }
-  .recently-viewed__row .product-card__gallery { width: 171px; height: 258px; margin-bottom: 12px; }
+  .recently-viewed__row .product-card__gallery { width: 171px; height: 265px; margin-bottom: 12px; }
   .recently-viewed__row .product-card__info { width: 171px; }
-  .recently-viewed__row .product-card__content { gap: 4px; }
+  .recently-viewed__row .product-card__content { gap: 2px; }
   .recently-viewed__row .product-card__title { font-size: 12px; }
   .recently-viewed__row .product-card__price { font-size: 14px; }
+  .recently-viewed__row .product-card .badge--tag { font-size: 8px; padding: 4px; }
+  .recently-viewed__row .product-card__favorite,
+  .recently-viewed__row .product-card__quick-add {
+    width: 40px; height: 40px;
+    right: 0; top: 0; bottom: auto;
+    opacity: 1; pointer-events: auto;
+  }
+  .recently-viewed__row .product-card__quick-add { top: 223px; }
+  .recently-viewed__row .product-card__gallery--sizes-open .product-card__quick-add {
+    opacity: 0; pointer-events: none;
+  }
+  .recently-viewed__row .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-s.svg');
+    mask-image: url('assets/icons/cart-s.svg');
+  }
+  .recently-viewed__row .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-s.svg');
+    mask-image: url('assets/icons/favorite-s.svg');
+  }
+  .recently-viewed__row .product-card__quick-add.is-active .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-fill-s.svg');
+    mask-image: url('assets/icons/cart-fill-s.svg');
+  }
+  .recently-viewed__row .product-card__favorite.is-active .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-fill-s.svg');
+    mask-image: url('assets/icons/favorite-fill-s.svg');
+  }
+  .recently-viewed__row .product-card .color-list { gap: 4px; margin-bottom: 12px; }
+  .recently-viewed__row .product-card .color-swatch { width: 12px; height: 12px; }
+  .recently-viewed__row .product-card .color-list__more { font-size: 10px; }
+  .recently-viewed__row .product-card__sizes { justify-content: center; gap: 4px; overflow: visible; padding: 4px; }
+  .recently-viewed__row .product-card__size-btn { flex: 0 0 auto; padding: 2px 4px; font-size: 10px; }
 }
 
 /* =========================================================
