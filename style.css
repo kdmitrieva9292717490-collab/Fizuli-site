@@ -6826,3 +6826,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .events-list .link-btn { align-self: center; padding: 4px 0; font-size: 12px; }
 }
 
+/* ПЛАНШЕТ — «Журнал», вкладка «События»: между карточками и по горизонтали,
+   и по вертикали — 8px (её правка) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .events-list { gap: 8px; }
+  .events-group { gap: 8px; }
+}
+
