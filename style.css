@@ -6712,3 +6712,30 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .about-content { gap: 24px; }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — «Покупателям» как на мобильной: вкладки столбиком по левому
+   краю, ниже фото на всю ширину → плашка → текст в одну колонку, мобильные
+   кегли (заголовки 16, текст 14, плашка 12). Отступы — по системе планшета:
+   вкладки→контент 16, фото→плашка/текст 24. Вкладки в столбике с шагом 40
+   (зоны клика по 40px не накладываются друг на друга) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .buyers-content .info-tabs { flex-direction: column; align-items: flex-start; width: auto; gap: 16px; margin-bottom: 0; }
+  .buyers-content { padding-bottom: 16px; }
+
+  .info-layout { flex-direction: column; gap: 0; }
+  .info-layout__row { display: contents; }
+  .info-photo { width: 100%; height: auto; aspect-ratio: 351 / 359; order: 1; margin-bottom: 24px; }
+  .info-banner--full { order: 2; margin-bottom: 16px; justify-content: flex-start; }
+  .info-content { width: 100%; gap: 32px; order: 3; margin-top: 0; }
+  [data-info-panel="delivery"] .info-content,
+  [data-info-panel="payment"] .info-content { margin-top: 0; }
+  .info-section__title { font-size: 16px; }
+  .info-section p { font-size: 14px; }
+  .info-subsection__title { font-size: 16px; }
+  .info-list li { font-size: 14px; }
+  .info-banner { padding: 4px 8px; font-size: 12px; }
+  .info-table .info-table__cell { font-size: 14px; }
+  .info-section__body { gap: 4px; }
+  [data-info-panel="delivery"] .info-section__body { gap: 12px; }
+}
+
