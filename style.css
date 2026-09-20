@@ -6748,3 +6748,19 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .mob-line-break { display: inline; }
 }
 
+/* ПЛАНШЕТ — «Партнёрам» как на мобильной: форма на всю ширину, ниже (в потоке)
+   фото с мобильной пропорцией 351×517, абзацы 14px. Форма→фото — 24 (как
+   текст↔фото на «О бренде»), а не мобильные 16 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .partners-form { width: 100%; margin-left: 0; }
+  .partners-intro p { font-size: 14px; }
+  .partners-photo {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 351 / 517;
+    margin-top: 24px;
+  }
+}
+
