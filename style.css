@@ -6607,3 +6607,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .hotspot-card .product-card__size-btn { flex: 0 0 auto; padding: 2px 4px; font-size: 10px; }
 }
 
+/* ПЛАНШЕТ — миниатюры под «купить образ» выровнены по центральной
+   горизонтальной линии (было по нижнему краю) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lookbook-thumbs { align-items: center; }
+}
+
