@@ -6398,3 +6398,61 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .breadcrumbs { margin-bottom: 0; }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — ПОИСК: такой же, как на мобильной (колонка «часто ищут» над
+   «популярные», те же размеры заголовков/строки поиска), но боковые поля 24
+   (как у страниц планшета), а карточки «популярные» — та же обычная
+   мобильная карточка 171×265, что в каталоге планшета, 4 в ряд */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-panel { padding: 12px 0 24px; gap: 24px; }
+  .search-bar { gap: 0; padding-inline: 24px; }
+  .search-bar__close { width: 44px; height: 44px; }
+  .search-content { flex-direction: column; gap: 24px; padding-inline: 24px; }
+  .search-heading { font-size: 14px; margin-bottom: 8px; }
+  .search-popular .search-heading { margin-bottom: 16px; }
+  .search-frequent { width: 100%; padding-inline: 0; }
+  .search-frequent__list { gap: 0; }
+  .search-suggestion { min-height: 32px; }
+  .search-empty { padding-inline: 24px; }
+  .search-bar__field { border-bottom-color: var(--stroke-black-30); }
+  .search-bar__input::placeholder { color: var(--text-gray3); }
+
+  .search-popular__grid { flex-wrap: wrap; gap: 12px; row-gap: 32px; }
+  .search-popular__grid .product-card { flex: 0 0 171px; width: 171px; }
+  .search-popular__grid .product-card__gallery { width: 171px; height: 265px; margin-bottom: 12px; }
+  .search-popular__grid .product-card__info { width: 171px; }
+  .search-popular__grid .product-card__content { gap: 2px; }
+  .search-popular__grid .product-card__title { font-size: 12px; }
+  .search-popular__grid .product-card__price { font-size: 14px; }
+  .search-popular__grid .product-card .badge--tag { font-size: 8px; padding: 4px; }
+  .search-popular__grid .product-card__favorite,
+  .search-popular__grid .product-card__quick-add {
+    width: 40px; height: 40px;
+    right: 0; top: 0; bottom: auto;
+    opacity: 1; pointer-events: auto;
+  }
+  .search-popular__grid .product-card__quick-add { top: 223px; }
+  .search-popular__grid .product-card__gallery--sizes-open .product-card__quick-add { opacity: 0; pointer-events: none; }
+  .search-popular__grid .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-s.svg');
+    mask-image: url('assets/icons/cart-s.svg');
+  }
+  .search-popular__grid .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-s.svg');
+    mask-image: url('assets/icons/favorite-s.svg');
+  }
+  .search-popular__grid .product-card__quick-add.is-active .icon--cart {
+    -webkit-mask-image: url('assets/icons/cart-fill-s.svg');
+    mask-image: url('assets/icons/cart-fill-s.svg');
+  }
+  .search-popular__grid .product-card__favorite.is-active .icon--favorite {
+    -webkit-mask-image: url('assets/icons/favorite-fill-s.svg');
+    mask-image: url('assets/icons/favorite-fill-s.svg');
+  }
+  .search-popular__grid .product-card .color-list { gap: 4px; margin-bottom: 12px; }
+  .search-popular__grid .product-card .color-swatch { width: 12px; height: 12px; }
+  .search-popular__grid .product-card .color-list__more { font-size: 10px; }
+  .search-popular__grid .product-card__sizes { justify-content: center; gap: 4px; overflow: visible; padding: 4px; }
+  .search-popular__grid .product-card__size-btn { flex: 0 0 auto; padding: 2px 4px; font-size: 10px; }
+}
+
