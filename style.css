@@ -6360,10 +6360,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .mob-gender-tabs .nav__link { padding: 2px 0; }
 }
 
-/* Мобильный футер: безопасная зона ссылок 40px — реальная высота в раскладке
+/* Мобильный и планшетный футер: безопасная зона ссылок 40px — реальная высота в раскладке
    (невидимые ::before при шаге ~31px накладывались друг на друга, и настоящая
    зона клика получалась ~31px), поэтому зону из ::before убираю, gap → 0 */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .mob-footer__col .nav__link,
   .mob-footer__col .footer-link--text,
   .mob-footer__legal .footer-link,
@@ -6380,6 +6380,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .mob-footer-dropdown__trigger::before { content: none; }
   .mob-footer__col,
   .mob-footer__legal { gap: 0; }
+  .mob-footer__col .footer-col__title { margin: 0 0 8px; }
 }
 
 /* ПЛАНШЕТ — меню: «Покупателям» уходит вниз, всё в одну колонку;
