@@ -4790,6 +4790,35 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .account-nav__link-text { padding: 4px 0; }
 }
 
+/* ПЛАНШЕТ — безопасные зоны клика (её правило): хлебные крошки и все табы
+   32px по высоте, навигационные ссылки футера 40px. Крошки/табы — реальная
+   высота в раскладке; футер — невидимая зона ::before, чтобы не сдвигать
+   уже сверенную с Figma раскладку футера */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .breadcrumbs__link,
+  .breadcrumbs__current { display: flex; align-items: center; min-height: 32px; }
+  .journal-page .info-tab { min-height: 32px; align-items: center; }
+  .account-nav__link { padding: 0; min-height: 32px; align-items: center; }
+  .mob-gender-tabs .nav__link { display: flex; align-items: center; min-height: 32px; padding: 0; }
+
+  .mob-footer__col .nav__link,
+  .mob-footer__col .footer-link--text,
+  .mob-footer__legal .footer-link,
+  .mob-footer-dropdown__trigger { position: relative; }
+  .mob-footer__col .nav__link::before,
+  .mob-footer__col .footer-link--text::before,
+  .mob-footer__legal .footer-link::before,
+  .mob-footer-dropdown__trigger::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 40px;
+    transform: translateY(-50%);
+  }
+}
+
 /* =========================================================
    ГЛАВНАЯ (index.html) — ПЛАНШЕТНАЯ АДАПТАЦИЯ КОНТЕНТА.
    Источник в Figma: Tablet/Page/Home (id 4125:18176, 768px). Отступы и
