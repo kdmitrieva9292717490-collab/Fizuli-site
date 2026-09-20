@@ -6274,7 +6274,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .journal-page .info-tab { min-height: 40px; align-items: center; }
   .buyers-content .info-tab::before { height: 40px; transform: translateY(-20px); }
   .account-nav__link { padding: 0; min-height: 40px; align-items: center; }
-  .mob-gender-tabs .nav__link { display: flex; align-items: center; min-height: 40px; padding: 0; }
+  /* Табы «Мужчинам / Женщинам»: паддинги 4px сверху/снизу (подчёркивание в 4px
+     от текста), зона клика 40px — невидимая ::before */
+  .mob-gender-tabs .nav__link { position: relative; padding: 4px 0; }
+  .mob-gender-tabs .nav__link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 40px;
+    transform: translateY(-50%);
+  }
 
   .mob-menu-section { gap: 0; }
   .mob-menu-section__label { margin: 0 0 8px; }
@@ -6317,4 +6328,34 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .promo-code__apply { height: 40px; min-height: 40px; box-sizing: border-box; }
   .filter-btn,
   .btn-see-more { min-height: 40px; align-items: center; }
+}
+
+/* =========================================================
+   ПЛАНШЕТ — СИСТЕМА ОТСТУПОВ СТРАНИЦ (её спецификация от 2026-09-20):
+   хедер→крошки 40 (через .page-heading), крошки→заголовок 0, заголовок→
+   фильтры/табы/контент 24, фильтры→контент 16, между карточками 12, между
+   рядами 32, между блоками и до футера 80. Последний в файле — перебивает
+   более ранние планшетные значения (28/12/36/120) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page-title { margin: 0 0 24px; }
+  .journal-tabs-wrap { padding-bottom: 16px; }
+  .catalog-top-sticky { padding-bottom: 16px; }
+  .account__layout { gap: 16px; }
+  .catalog-grid-rows { gap: 32px; margin-bottom: 0; }
+  .catalog-section { padding-bottom: 80px; }
+  .wishlist-grid-section { padding-bottom: 80px; }
+  .recently-viewed { padding-bottom: 80px; }
+  .account { padding-bottom: 80px; }
+  /* У этих страниц нижний отступ 120 зашит инлайном в HTML — перебиваю только на планшете */
+  .container[style*="padding-bottom:120px"] { padding-bottom: 80px !important; }
+  .product-section-outer,
+  .complete-look,
+  .cart-layout-outer,
+  .checkout-layout-outer { padding-bottom: 80px; }
+}
+
+/* Мобильная: паддинги у «Мужчинам / Женщинам» — 2px сверху/снизу (не 4, как на
+   планшете), подчёркивание в 2px от текста */
+@media (max-width: 767px) {
+  .mob-gender-tabs .nav__link { padding: 2px 0; }
 }
