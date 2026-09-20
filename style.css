@@ -6456,3 +6456,35 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .search-popular__grid .product-card__size-btn { flex: 0 0 auto; padding: 2px 4px; font-size: 10px; }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — ПРЕВЬЮ КОРЗИНЫ: как на мобильной (полноэкранная шторка, те же
+   размеры шрифтов и карточки товара, подпись кнопки «перейти к оформлению»),
+   боковые поля 24 — как у страниц планшета (на мобильной 12) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cart-drawer {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    padding: 32px 24px 24px;
+    gap: 24px;
+  }
+  .cart-drawer__title { font-size: 18px; }
+  .cart-drawer__close { width: 40px; height: 40px; }
+  .cart-item { gap: 8px; padding: 12px 0; }
+  .cart-item__image { width: 100px; height: 158px; }
+  .cart-item__name { font-size: 12px; }
+  .cart-item__price { font-size: 14px; white-space: nowrap; }
+  .cart-item:last-child { padding-bottom: 0; }
+  .cart-item__spec { font-size: 10px; }
+  .cart-item__details { gap: 0; }
+  .cart-item__row { margin-bottom: 8px; }
+  .cart-item__specs { gap: 4px; margin-bottom: 32px; }
+  .cart-drawer__total-label { font-size: 14px; }
+  .cart-drawer__total-amount { font-size: 20px; }
+  .cart-drawer__submit { font-size: 12px; }
+  .cart-drawer__submit-label--desktop { display: none; }
+  .cart-drawer__submit-label--mobile { display: inline; }
+}
+
