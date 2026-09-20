@@ -6488,3 +6488,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .cart-drawer__submit-label--mobile { display: inline; }
 }
 
+/* ПЛАНШЕТ — карусель «Новинки» на главной: без стрелок, только скролл
+   (как на мобильной) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carousel-controls__arrows { display: none; }
+}
+
