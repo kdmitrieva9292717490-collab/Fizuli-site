@@ -6997,3 +6997,60 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .legal-content .info-section__body { gap: 4px; }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — корзина как на мобильной: список товаров и «ваш заказ» друг под
+   другом на всю ширину, карточка товара и сводка заказа — мобильные размеры
+   и внутренние отступы. По системе планшета: хедер→«назад» 40, «назад»→
+   контент 24, между списком и «ваш заказ» 80, до футера 80. Кнопки и поля
+   промокода — 40px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cart-back-link { font-size: 12px; min-height: 40px; margin-bottom: 0; }
+  .cart-page-heading { padding-bottom: 0; }
+  .cart-layout { flex-direction: column; align-items: stretch; gap: 80px; }
+
+  .cart-page-item { gap: 8px; padding: 16px 0; }
+  .cart-page-item:first-child { padding-top: 16px; }
+  .cart-page-item__image { width: 116px; height: 180px; }
+  .cart-page-item__name { font-size: 12px; }
+  .cart-page-item__spec { font-size: 12px; }
+  .cart-page-item__price { font-size: 14px; }
+  .cart-page-item__details { gap: 8px; }
+  .cart-page-item__row { flex-wrap: wrap; row-gap: 0; column-gap: 44px; align-content: space-between; }
+  .cart-page-item__details { flex: 1 1 0; min-width: 0; order: 1; }
+  .cart-page-item__price { flex: 0 0 auto; order: 2; width: auto; margin: 0; }
+  .cart-page-item__row::after { content: ''; flex-basis: 100%; order: 2; }
+  .cart-item__counter { order: 3; flex: 0 0 auto; }
+
+  .cart-page-item__favorite {
+    width: auto;
+    height: auto;
+    margin-left: 0;
+    padding: 4px 0;
+    border-bottom: 0.6px solid var(--text-black);
+  }
+  .cart-page-item__favorite .icon--favorite { display: none; }
+  .cart-page-item__favorite-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 8px;
+    text-transform: uppercase;
+    color: var(--text-gray-light);
+  }
+
+  .order-summary:not(.order-summary--checkout) { width: 100%; flex: 1 1 auto; position: static; gap: 0; }
+  .order-summary:not(.order-summary--checkout) > .order-summary__title { margin-bottom: 24px; }
+  .order-summary:not(.order-summary--checkout) > .order-summary__row { margin-bottom: 16px; }
+  .order-summary:not(.order-summary--checkout) > .promo-code { margin-bottom: 40px; }
+  .order-summary:not(.order-summary--checkout) > .shipping-progress { margin-bottom: 24px; }
+  .order-summary:not(.order-summary--checkout) > .order-summary__total { margin-bottom: 24px; }
+  .order-summary__title { font-size: 14px; }
+  .order-summary__row-label { font-size: 12px; }
+  .order-summary__row-amount { font-size: 16px; }
+  .order-summary__total .order-summary__row-label { font-size: 12px; font-weight: 600; }
+  .order-summary__total .order-summary__row-amount { font-size: 20px; }
+  .order-summary__checkout { font-size: 12px; }
+  .promo-code { gap: 4px; }
+  .promo-code__input { height: 40px; }
+  .promo-code__apply { flex: 0 0 113px; }
+}
+
