@@ -4658,21 +4658,23 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
      8px между Коллекции→Каталог внутри левой колонки (Frame 12343786
      itemSpacing:8), 0 у Покупателям (это единственный элемент в своей
      колонке, верхний край сам по себе, без отступа) */
-  .mob-menu-col--left .mob-menu-section--spaced { margin-top: 8px; }
+  .mob-menu-col--left .mob-menu-section--spaced { margin-top: 20px; }
   .mob-menu-col--right .mob-menu-section--spaced { margin-top: 0; }
 
-  .mob-menu-section { display: flex; flex-direction: column; gap: 8px; }
+  .mob-menu-section { display: flex; flex-direction: column; gap: 0; }
   .mob-menu-section--spaced { margin-top: 24px; }
-  .mob-menu-section__label { margin: 0; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
+  .mob-menu-section__label { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; color: var(--text-gray-light); }
   .mob-menu .megamenu__link,
   .mob-menu .megamenu-accordion__trigger { font-size: 12px; }
-  .mob-menu .megamenu-accordion__list { gap: 0; }
-  .mob-menu .megamenu-accordion__list .megamenu__link {
+  .mob-menu .megamenu-accordion { display: flex; flex-direction: column; align-items: flex-start; }
+  .mob-menu .megamenu__link,
+  .mob-menu .megamenu-accordion__trigger {
     display: flex;
     align-items: center;
-    min-height: 40px;
+    min-height: 32px;
     padding: 0;
   }
+  .mob-menu .megamenu-accordion__list { gap: 0; align-self: stretch; }
 
   .mob-menu__login { display: flex; align-items: center; gap: 8px; }
   .mob-menu__login .nav__link { font-size: 12px; }
