@@ -6620,3 +6620,24 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .modal-look { height: auto; max-height: calc(100vh - 48px); }
 }
 
+/* ПЛАНШЕТ — кнопка «смотреть ещё»: вертикальные паддинги 4px (подчёркивание
+   в 4px от текста), зона клика 40px — невидимая ::before; от сетки карточек —
+   32px (как между рядами; rows margin-bottom обнулён системой отступов) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .btn-see-more {
+    position: relative;
+    min-height: 0;
+    margin: 32px auto 0;
+    padding: 4px 0;
+  }
+  .btn-see-more::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 40px;
+    transform: translateY(-50%);
+  }
+}
+
