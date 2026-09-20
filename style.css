@@ -6393,3 +6393,8 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .mob-menu-col--right .mob-menu-section--spaced { margin-top: 24px; }
 }
 
+/* Мобильная: хлебные крошки → заголовок = 0 (крошки уже с зоной клика 40px) */
+@media (max-width: 767px) {
+  .breadcrumbs { margin-bottom: 0; }
+}
+
