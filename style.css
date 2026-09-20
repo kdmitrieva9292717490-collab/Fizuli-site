@@ -6833,3 +6833,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .events-group { gap: 8px; }
 }
 
+/* ПЛАНШЕТ — «Журнал»/События: высота фотографий в карточках 300px (у карточки-
+   матрицы 3×3 — вся сетка 300, ячейки по 100) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .event-card__media { height: 300px; aspect-ratio: auto; }
+  .event-card__grid { height: 300px; grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  .event-card__grid img { height: 100%; min-height: 0; aspect-ratio: auto; }
+}
+
