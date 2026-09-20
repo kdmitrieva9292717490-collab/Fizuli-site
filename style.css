@@ -6382,3 +6382,13 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .mob-footer__legal { gap: 0; }
 }
 
+/* ПЛАНШЕТ — меню: «Покупателям» уходит вниз, всё в одну колонку;
+   между блоками «Коллекции» / «Каталог» / «Покупателям» — 24px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  [data-mob-gender-panel] { flex-direction: column; align-items: stretch; gap: 0; }
+  .mob-menu-col--left,
+  .mob-menu-col--right { display: contents; }
+  .mob-menu-col--left .mob-menu-section--spaced,
+  .mob-menu-col--right .mob-menu-section--spaced { margin-top: 24px; }
+}
+
