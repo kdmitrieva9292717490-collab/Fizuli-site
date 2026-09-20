@@ -6675,3 +6675,16 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .look-item__sizes.look-item__sizes { gap: 0; }
 }
 
+/* ПЛАНШЕТ — попап «Уведомить о поступлении» как на мобильной: паддинги сверху
+   и по бокам 40 (снизу базовые 48), подсказка в поле — Gray3, нижняя линия
+   поля — Black 30%; кнопка 40px уже задана общим правилом */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .notify-popover {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .notify-popover input::placeholder { color: var(--text-gray3); }
+  .notify-popover .account-input { border-bottom-color: var(--stroke-black-30); }
+}
+
