@@ -6613,3 +6613,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .lookbook-thumbs { align-items: center; }
 }
 
+/* ПЛАНШЕТ — модалка «Выберите размеры»: не на весь экран, а окно с высотой
+   по контенту (hug), по центру поверх затемнённого сайта; по бокам поле 24 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #lookModal.modal-overlay { padding: 24px; }
+  .modal-look { height: auto; max-height: calc(100vh - 48px); }
+}
+
