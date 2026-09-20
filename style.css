@@ -6982,3 +6982,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — оферта и политика как на мобильной: одна колонка (не 2), те же
+   кегли (заголовки пунктов 16, текст 14), между пунктами 32. Отступы по
+   системе планшета: хедер→крошки 40, крошки→заголовок 0, заголовок→текст 24,
+   до футера 80 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .legal-content { column-count: 1; }
+  .legal-content .info-section { margin-bottom: 32px; }
+  .legal-content .info-section:last-child { margin-bottom: 0; }
+  .legal-content .info-section__title { font-size: 16px; }
+  .legal-content .info-section p { font-size: 14px; }
+  .legal-content .info-list li { font-size: 14px; }
+  .legal-content .info-section__body { gap: 4px; }
+}
+
