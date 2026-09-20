@@ -6359,3 +6359,26 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 @media (max-width: 767px) {
   .mob-gender-tabs .nav__link { padding: 2px 0; }
 }
+
+/* Мобильный футер: безопасная зона ссылок 40px — реальная высота в раскладке
+   (невидимые ::before при шаге ~31px накладывались друг на друга, и настоящая
+   зона клика получалась ~31px), поэтому зону из ::before убираю, gap → 0 */
+@media (max-width: 767px) {
+  .mob-footer__col .nav__link,
+  .mob-footer__col .footer-link--text,
+  .mob-footer__legal .footer-link,
+  .mob-footer-dropdown__trigger,
+  .mob-footer-dropdown__item {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    padding-block: 0;
+  }
+  .mob-footer__col .nav__link::before,
+  .mob-footer__col .footer-link--text::before,
+  .mob-footer__legal .footer-link::before,
+  .mob-footer-dropdown__trigger::before { content: none; }
+  .mob-footer__col,
+  .mob-footer__legal { gap: 0; }
+}
+
