@@ -6764,3 +6764,65 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — «Журнал» как на мобильной, но: «События» — 2 колонки, «Люди» —
+   4 колонки, «Коллекция» — большое фото 690×900 (следующее выглядывает справа,
+   как на мобильной), миниатюры как на мобильной (148×200 активная, 105×140
+   вторая). Отступы по системе планшета: табы→контент 16 (через
+   .journal-tabs-wrap), между карточками событий 12, между рядами 32,
+   до футера 80 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* --- Коллекция --- */
+  .journal-collection { flex-direction: column; gap: 20px; align-items: center; }
+  .journal-collection__content { display: contents; }
+  .journal-collection__card { display: contents; }
+  .journal-collection__label { order: 1; font-size: 14px; }
+  .journal-collection__title { order: 1; font-size: 18px; }
+  .journal-collection__desc { order: 2; font-size: 14px; }
+  .journal-collection__photos {
+    display: flex;
+    order: 3;
+    width: 100%;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .journal-collection__photos::-webkit-scrollbar { display: none; }
+  .journal-collection__photo {
+    flex: 0 0 690px;
+    width: 690px;
+    max-width: none;
+    height: 900px;
+    margin: 0;
+  }
+  .journal-collection__photo--peek { display: block; }
+  .journal-collection__card .btn { order: 4; }
+  .journal-collection__thumbs { order: 5; width: 100%; }
+  .journal-collection__thumbs img:first-child { width: 148px; height: 200px; }
+  .journal-collection__thumbs img:last-child { width: 105px; height: 140px; }
+  .journal-pagination { display: none; }
+
+  /* --- Люди: 4 колонки --- */
+  .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .people-grid__row { display: contents; }
+  .people-grid img { width: 100%; aspect-ratio: 173.5 / 300; height: auto; }
+
+  /* --- События: 2 колонки --- */
+  .events-list { gap: 32px; }
+  .events-group { flex-direction: row; gap: 12px; }
+  .event-card { border-bottom: 1px solid var(--stroke-black-10); padding-bottom: 16px; }
+  .event-card__media { height: auto; aspect-ratio: 351 / 350; }
+  .event-card__grid { height: auto; }
+  .event-card__grid img { aspect-ratio: 1 / 1; height: auto; }
+  .event-card__content { gap: 16px; }
+  .event-card__title { font-size: 12px; text-transform: uppercase; }
+  .event-card__date { font-size: 10px; }
+  .event-card__text { font-size: 14px; line-height: 1.4; -webkit-line-clamp: 6; }
+  .event-card__text:hover {
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+  .events-list .link-btn { align-self: center; padding: 4px 0; font-size: 12px; }
+}
+
