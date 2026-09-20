@@ -6642,11 +6642,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 
 /* =========================================================
-   ПЛАНШЕТ — фильтры (панель на весь экран) как на мобильной: те же кегли
+   ПЛАНШЕТ — фильтры (боковая колонка, ширина по контенту / hug) с мобильными кеглями: те же кегли
    (заголовок группы 14, пункты 12), подвал с кнопками поровну; боковые поля
    24 — как у страниц планшета (на мобильной 12) */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .filter-drawer { width: 100%; max-width: 100vw; }
+  .filter-drawer { width: fit-content; max-width: 100vw; }
   .filter-drawer__header { padding: 16px 24px; }
   .filter-drawer__body { padding: 24px 24px; }
   .filter-drawer__footer { padding: 16px 24px; }
