@@ -6501,3 +6501,23 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .category-card__btn { display: none; }
 }
 
+/* ПЛАНШЕТ — главная: отступы по системе планшета (2026-09-20) —
+   карточки в карусели «Новинки» через 12, «Готовые образы»: заголовок→
+   контент 24, до футера 80; табы «Мужчинам/Женщинам» в лукбуке — зона 40px
+   (невидимая, чтобы подчёркивание оставалось рядом с текстом) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .product-list { gap: 12px; }
+  .lookbook-header { margin-bottom: 24px; }
+  .lookbook-content { margin-bottom: 80px; }
+  .lookbook-nav .nav__link { position: relative; }
+  .lookbook-nav .nav__link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 40px;
+    transform: translateY(-50%);
+  }
+}
+
