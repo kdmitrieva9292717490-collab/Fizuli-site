@@ -7059,3 +7059,143 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .promo-code__apply { height: 44px; min-height: 44px; }
 }
 
+/* =========================================================
+   ПЛАНШЕТ — оформление заказа как на мобильной: форма и «Ваш заказ» друг под
+   другом на всю ширину, те же размеры и внутренние отступы блоков. По системе
+   планшета: «назад»→заголовок 0, заголовок→контент 24, между формой и «Ваш
+   заказ» 80, до футера 80 (низ секции 80 задан выше), кнопки 40px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .checkout-page-heading { padding-top: 40px; padding-bottom: 0; }
+  .checkout-page-heading__title { font-size: 20px; margin: 0 0 24px; }
+
+  .checkout-layout { flex-direction: column; align-items: stretch; gap: 80px; }
+  /* Между блоками "способы получения"/"данные получателя"/"способы оплаты" — 32px */
+  .checkout-form { gap: 32px; }
+  .checkout-subtitle { font-size: 14px; }
+  /* .account-section-title общий с account.html (там 12px, margin-bottom:24) —
+     на оформлении заказа в Figma (Section Title) всегда 14 SemiBold, а отступ
+     до контента задаёт сам .checkout-section (gap), поэтому margin обнуляю,
+     иначе получалось 24(margin)+24(gap) = 48 вместо нужных 20–24 */
+  .checkout-page .account-section-title { font-size: 14px; margin-bottom: 0; }
+  /* "Способы получения" → табы = 24 (общий .checkout-section gap подходит),
+     а вот "данные получателя"/"способы оплаты" → их поля/способы — 16,
+     переопределяю точечно для 2-й и 3-й секций */
+  .checkout-form > .checkout-section:nth-child(2),
+  .checkout-form > .checkout-section:nth-child(3) {
+    gap: 16px;
+  }
+  /* Между полями внутри "способы получения" (город/варианты/адрес) — 24px,
+     этого блока не было вообще, поля стояли впритык друг к другу.
+     ВАЖНО: display:flex у класса перебивал [hidden] (одинаковая
+     специфичность, авторский стиль грузится после дефолтного [hidden]:
+     display:none) — из-за этого неактивные вкладки ("Самовывоз", "СНГ")
+     оставались видимыми поверх "По России". Возвращаю [hidden] в силу явно */
+  .checkout-tab-panel { display: flex; flex-direction: column; gap: 24px; }
+  .checkout-tab-panel[hidden] { display: none; }
+
+  /* Вкладки способов получения — на мобильном без подписи "Яндекс, СДЭК"
+     под заголовком, три вкладки ровно по 117px = 351/3 */
+  .checkout-tabs { width: 100%; }
+  .checkout-tab { flex: 1; text-align: center; }
+  .checkout-tab__label { font-size: 12px; }
+  .checkout-tab__desc { display: none; }
+
+  /* Варианты доставки/способы оплаты — на мобильном варианты идут
+     столбцом, не строкой (в Figma "Method Cards" — вертикальный список) */
+  .checkout-radio-row,
+  .checkout-payment-methods {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  /* Без рамки и без бокового паддинга — радиокнопка встаёт вплотную к левому
+     краю, на одной вертикальной линии с заголовком "Варианты доставки" */
+  .checkout-radio-row .radio-option {
+    border: none;
+    padding: 0;
+  }
+  /* Иконка (i) — отступ от текста 4px, как в "Ваш заказ" (.order-summary__delivery-label-group),
+     было 12px (десктопное значение уже поправлено раньше, мобильное — нет) */
+  .radio-option--payment .radio-option__text { gap: 4px; }
+  .checkout-store { flex-direction: column; }
+  /* Кнопка "выбрать на карте" — под инпутом "выбрать пункт выдачи",
+     не рядом с ним (Figma: Address Field → AddressInputRow, кнопка
+     Mob/Button идёт второй строкой; itemSpacing реально 4px, не 16 —
+     старое значение было ошибкой) */
+  .address-input-row { flex-direction: column; align-items: stretch; gap: 8px; }
+  .address-input-row__submit { width: 100%; }
+  /* Баг: .address-input-row__field { flex:1 } в column-направлении задаёт
+     flex-basis:0 по вертикали — это отменяет height:44px у вложенного
+     .account-input, текст садится прямо на линию (высота ~17px вместо 44px) */
+  .address-input-row__field { flex: none; }
+
+  /* Самовывоз: фото было десктопных 252px (узкая колонка рядом с текстом) —
+     на мобильном на всю ширину контента (Figma: Photo 351×176) */
+  .checkout-pickup-title { font-size: 14px; }
+  .checkout-store { flex-direction: column; gap: 16px; }
+  .checkout-store__label { font-size: 14px; }
+  .checkout-store__address { font-size: 14px; }
+  .checkout-store__hours p { font-size: 14px; }
+  .checkout-store__hours { gap: 4px; }
+  .checkout-store__photo { width: 100%; height: auto; aspect-ratio: 351 / 176; }
+  .checkout-pickup-notice { font-size: 14px; }
+  /* .checkout-tab-panel даёт всем прямым детям gap:24 (title→store уже верно),
+     но по Figma (Store Info itemSpacing:16) от фото до "Менеджер свяжется"
+     нужно именно 16 — тянем блок с уведомлением на 8px вверх поверх gap:24 */
+  .checkout-store + .checkout-pickup-notice-group { margin-top: -8px; }
+  .checkout-pickup-notice-group { gap: 8px; }
+  /* "ТЦ Мозаика" / адрес — в Figma это два отдельных текстовых узла с
+     itemSpacing:4 (не просто line-height одного абзаца) */
+  .checkout-store__address-group { gap: 4px; }
+
+  /* Способы оплаты — на десктопе заголовки радиокнопок 16px, компонент
+     Mob/Radio Button в Figma заметно компактнее (строки 17px высотой) */
+  .checkout-payment-methods .radio-option__title { font-size: 14px; }
+
+  /* СНГ — реальный баг: сетка стран была 2 колонки на мобильном (в Figma,
+     Method Cards id 1589:15869, это ОДИН столбец, gap 16px), и у каждой
+     страны не хватало строки с ценой/сроком (.radio-option__sub, 12px) —
+     она была только в панели «По России», в СНГ её не было вообще.
+     Заодно список стран в макете короче — только 4 (без Армении/Кыргызстана,
+     у них нет доставки), поправила в HTML */
+  .checkout-cis-text { font-size: 14px; }
+  .checkout-cis-notice-group { gap: 4px; }
+  .checkout-country-grid { grid-template-columns: 1fr; gap: 16px; }
+  .checkout-country-grid .radio-option__title { font-size: 14px; }
+
+  .order-summary--checkout { width: 100%; flex: 1 1 auto; }
+  .order-summary__images { gap: 4px; }
+  .order-summary__image { width: 114px; height: 160px; flex: none; }
+  /* На мобильном order-summary--checkout gap:0 (ниже) — border-top у
+     .order-summary__details вплотную к низу фото читается как лишняя
+     полоска под фотографиями, убираем именно верхнюю границу */
+  .order-summary--checkout .order-summary__details { border-top: none; }
+  /* "3 товара" и "Доставка" — оба 12 Caps по её прямому решению (расходится
+     с Figma, где у "Доставка" было 14 без капса, — сознательное отступление).
+     Скоуп через .order-summary__details, а не весь .order-summary--checkout —
+     иначе тем же селектором случайно перебивался капс у "ИТОГО" ниже */
+  .order-summary--checkout .order-summary__details .order-summary__row-label { font-size: 12px; text-transform: uppercase; }
+  .order-summary--checkout .order-summary__row-amount { font-size: 16px; font-family: var(--font-display); font-weight: 600; }
+  /* Иконка (i) — в уголке над буквой "а" в конце слова "Доставка": прижата
+     близко (небольшой gap) и выровнена по верху текста, а не по центру */
+  .order-summary__delivery-label-group { display: flex; align-items: flex-start; gap: 4px; }
+  /* "Бесплатно или" 14 Regular, "500 ₽" — акцентный (дисплейный) шрифт, Db (600) */
+  .order-summary__delivery-value { font-size: 14px; }
+  .order-summary__delivery-price { font-family: var(--font-display); font-size: 16px; font-weight: 600; }
+  .order-summary--checkout .order-summary__total .order-summary__row-label { font-size: 14px; }
+  .order-summary--checkout .order-summary__total .order-summary__row-amount { font-size: 20px; }
+  .order-summary__checkout { font-size: 12px; }
+
+  /* Отступы блока "Ваш заказ": уникальные по факту (не единый gap) —
+     фото/детали/итого визуально разделены ещё и рамками+паддингом самого
+     .order-summary__details (24px сверху/снизу уже даёт нужный интервал
+     к фото и к итого), поэтому общий gap на .order-summary--checkout
+     обнуляю и расставляю остальные интервалы точечными margin */
+  .order-summary--checkout { gap: 0; }
+  .order-summary--checkout .order-summary__title { margin-bottom: 24px; }
+  .order-summary--checkout .order-summary__details { gap: 24px; }
+  .order-summary--checkout .order-summary__total { margin-top: 24px; margin-bottom: 24px; }
+  .order-summary__dynamic-text { font-size: 14px; line-height: 1.4; }
+  .order-summary--checkout .order-summary__dynamic-text { margin-bottom: 24px; }
+  .order-summary--checkout .order-summary__checkout { margin-bottom: 8px; }
+}
