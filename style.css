@@ -6745,7 +6745,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .info-table__cell--price { width: 80px; }
   .info-section__body { gap: 4px; }
   [data-info-panel="delivery"] .info-section__body { gap: 12px; }
-  .mob-line-break { display: inline; }
+  .buyers-page .mob-line-break { display: inline; }
 }
 
 /* ПЛАНШЕТ — «Партнёрам» как на мобильной: форма на всю ширину, ниже (в потоке)
