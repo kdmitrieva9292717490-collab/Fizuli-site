@@ -6706,3 +6706,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .about-video { height: auto; aspect-ratio: 351 / 316; }
 }
 
+/* ПЛАНШЕТ — «О бренде»: между фото/видео и текстом 24px (её правка; все
+   промежутки на странице — текст↔фото или текст↔видео) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-content { gap: 24px; }
+}
+
