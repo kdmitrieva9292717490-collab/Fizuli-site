@@ -6688,3 +6688,21 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .notify-popover .account-input { border-bottom-color: var(--stroke-black-30); }
 }
 
+/* ПЛАНШЕТ — «О бренде» как на мобильной: секции на всю ширину (не колонка
+   760px справа), те же кегли и внутренние отступы, фото в шапке и видео
+   сохраняют мобильные пропорции. Отступы между блоками — по системе планшета
+   (80), не мобильные 24 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-section { width: 100%; margin-left: 0; }
+  .about-section--gap40 { gap: 16px; }
+  .about-section__title { font-size: 18px; }
+  .about-section p { font-size: 14px; }
+  .about-hero-row { aspect-ratio: 351 / 250; }
+  .about-hero-row img { height: 100%; }
+  .about-values { gap: 16px; }
+  .about-value { gap: 8px; }
+  .about-value__title { font-size: 14px; }
+  .about-value p { font-size: 14px; }
+  .about-video { height: auto; aspect-ratio: 351 / 316; }
+}
+
