@@ -2985,8 +2985,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   text-transform: uppercase;
   color: var(--text-black);
   border: 1px solid var(--stroke-black);
+  transition: background-color .15s ease, color .15s ease;
 }
-.filter-drawer__reset:hover { background: var(--bg-gray1); }
+/* Ховер как у остальных контурных кнопок сайта (.btn--secondary): чёрная заливка, белый текст */
+.filter-drawer__reset:hover { background: var(--bg-black); color: var(--text-white); }
 
 /* =========================================================
    ПОПАП «УВЕДОМИТЬ О ПОСТУПЛЕНИИ» (компонент Popover / Notify Me) —
