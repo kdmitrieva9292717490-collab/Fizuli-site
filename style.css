@@ -7359,3 +7359,21 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .look-item__one-size { font-size: 10px; }
 }
 
+/* ПОИСК — кегль подсказок рядом с лупами («куртки», «рубашки»…), заглавные:
+   десктоп 12px, планшет и мобильная 10px */
+.search-suggestion { text-transform: uppercase; }
+@media (min-width: 1024px) {
+  .search-suggestion { font-size: 12px; }
+}
+@media (max-width: 1023px) {
+  .search-suggestion { font-size: 10px; }
+}
+
+/* ПЛАНШЕТ — поиск, блок «Популярные»: фото в пропорции мобильного поиска
+   (164:240, при ширине карточки 171px — высота ≈250px), кнопка корзины у
+   нижнего края фото, как на мобильной */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-popular__grid .product-card__gallery { width: 171px; height: auto; aspect-ratio: 164 / 240; }
+  .search-popular__grid .product-card__quick-add { top: auto; bottom: 0; }
+}
+
