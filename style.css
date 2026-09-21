@@ -7283,3 +7283,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .cart-page-item__favorite:hover .icon { opacity: 0.6; }
 }
 
+/* ДЕСКТОП — корзина: поле промокода при клике (фокус) — обводка чёрная 30%
+   (Stroke/Black 30), стандартная рамка браузера убрана */
+@media (min-width: 1024px) {
+  .promo-code__input:focus { outline: none; border-color: var(--stroke-black-30); }
+}
+
