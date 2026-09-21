@@ -7254,3 +7254,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .filter-size-row:has(.filter-size-btn:nth-child(5)) .filter-size-btn { flex: 1 1 0; }
 }
 
+/* ДЕСКТОП — попап «Уведомить о поступлении»: введённый email 14px, чёрный
+   (Text/Black из переменных цвета); подсказка остаётся серой Gray3 */
+@media (min-width: 1024px) {
+  .notify-popover .account-input input { font-size: 14px; color: var(--text-black); }
+}
+
