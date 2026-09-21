@@ -7246,3 +7246,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .catalog-grid-row .video-card { width: 100%; }
 }
 
+/* ДЕСКТОП — фильтры: где размеров много (5 и больше), контейнер с плашками
+   тянется на всю ширину панели, плашки делят её поровну и без промежутков;
+   где размеров мало — остаются по содержимому, как были */
+@media (min-width: 1024px) {
+  .filter-size-row:has(.filter-size-btn:nth-child(5)) { width: 100%; box-sizing: border-box; gap: 0; }
+  .filter-size-row:has(.filter-size-btn:nth-child(5)) .filter-size-btn { flex: 1 1 0; }
+}
+
