@@ -7346,3 +7346,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .event-card__grid img { height: 100%; min-height: 0; aspect-ratio: auto; }
 }
 
+/* МОБИЛЬНАЯ — окно «Выберите размеры»: плашка с размерами на всю ширину
+   карточки (без боковых полей и промежутков, кнопки делят ширину поровну),
+   кегль такой же, как у плашки размеров в карточке товара (10px) */
+@media (max-width: 767px) {
+  .look-item__sizes.look-item__sizes { padding: 4px 0; gap: 0; }
+  .look-item__sizes .look-item__size-btn { flex: 1 1 0; padding: 2px 0; font-size: 10px; }
+}
+
