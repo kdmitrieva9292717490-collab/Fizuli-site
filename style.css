@@ -7377,3 +7377,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .search-popular__grid .product-card__quick-add { top: auto; bottom: 0; }
 }
 
+/* МОБИЛЬНАЯ — до футера 60px (система мобильной). У «Магазины», «О бренде»,
+   «Партнёрам», «Журнал», «Покупателям», «Оферта», «Политика» нижний отступ
+   120 зашит инлайном в HTML — перебиваю только на мобильной; у оферты и
+   политики убираю ещё и нижний отступ последнего пункта (32) */
+@media (max-width: 767px) {
+  .container[style*="padding-bottom:120px"] { padding-bottom: 60px !important; }
+  .legal-content .info-section:last-child { margin-bottom: 0; }
+}
+
