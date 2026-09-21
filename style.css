@@ -7272,3 +7272,8 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
    иконок в шапке и на карточках товара (иконка тускнеет до 60%) */
 .product-info__favorite:hover .icon { opacity: 0.6; }
 
+/* ДЕСКТОП — страница товара: хлебные крошки → фотографии 32px (было 40) */
+@media (min-width: 1024px) {
+  .product-page-heading { padding-bottom: 32px; }
+}
+
