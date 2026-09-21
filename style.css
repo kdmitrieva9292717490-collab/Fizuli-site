@@ -7298,3 +7298,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .shipping-progress__bar::after { background: #E7E7E7; }
 }
 
+/* ВСЕ ВЕРСИИ — прогресс-бар бесплатной доставки без наложения прозрачностей
+   (непрозрачный серый #E7E7E7 вместо Black 10%) и поле промокода при клике:
+   обводка чёрная 30% без стандартной рамки браузера */
+.shipping-progress__bar { background: #E7E7E7; }
+.shipping-progress__bar::after { background: #E7E7E7; }
+.promo-code__input:focus { outline: none; border-color: var(--stroke-black-30); }
+
