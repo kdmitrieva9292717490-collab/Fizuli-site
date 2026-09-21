@@ -1560,3 +1560,36 @@ document.querySelectorAll('.product-accordion__trigger').forEach((trigger) => {
   }, true);
 })();
 
+// Десктоп: карточка с видео в каталоге — на 8-м месте, если товарных карточек
+// 7 и больше; если меньше — убирается из каталога совсем. Считаются только
+// видимые карточки (фильтры по категории/коллекции прячут остальные). На
+// планшете/мобильной правило не действует — видео возвращается на исходное
+// место в разметке и в исходное состояние (скрыто/показано)
+(function () {
+  const video = document.querySelector('.catalog-section .video-card');
+  if (!video) return;
+  const rows = video.closest('.catalog-grid-rows');
+  if (!rows) return;
+  const marker = document.createComment('video-origin');
+  video.before(marker);
+  const originalHidden = video.hidden;
+  const desktop = window.matchMedia('(min-width: 1024px)');
+
+  function apply() {
+    if (!desktop.matches) {
+      marker.after(video);
+      video.hidden = originalHidden;
+      return;
+    }
+    const cards = Array.from(rows.querySelectorAll('.product-card')).filter((c) => !c.hidden);
+    if (cards.length >= 7) {
+      cards[6].after(video);
+      video.hidden = false;
+    } else {
+      video.hidden = true;
+    }
+  }
+  apply();
+  desktop.addEventListener('change', apply);
+})();
+
