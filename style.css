@@ -7331,3 +7331,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .info-top-sticky:not(:has(.info-tabs)) .page-title { margin-bottom: 0; }
 }
 
+/* ПЛАНШЕТ — «Журнал», вкладка «Коллекция»: большое фото → кнопка 8px,
+   кнопка → миниатюры 16px (общий gap колонки 20 — подтягиваю отрицательными
+   margin кнопки: 20 − 12 = 8 сверху, 20 − 4 = 16 снизу) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .journal-collection__card .btn { margin: -12px 0 -4px; }
+}
+
