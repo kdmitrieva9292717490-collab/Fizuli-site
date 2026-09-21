@@ -7305,19 +7305,6 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 .shipping-progress__bar::after { background: #E7E7E7; }
 .promo-code__input:focus { outline: none; border-color: var(--stroke-black-30); }
 
-/* ДЕСКТОП — оформление заказа, самовывоз: «ТЦ Мозаика» и адрес — в одну
-   строку (через запятую), а не двумя абзацами друг под другом */
-@media (min-width: 1024px) {
-  .checkout-store__address-group { flex-direction: row; flex-wrap: wrap; column-gap: 4px; }
-  .checkout-store__address:first-child::after { content: ','; }
-}
-
-/* ДЕСКТОП — фото магазина уже (228 вместо 252), чтобы «ТЦ Мозаика, адрес…»
-   (505px) помещались в текстовой колонке в одну строку */
-@media (min-width: 1024px) {
-  .checkout-store__photo { width: 228px; }
-}
-
 /* ДЕСКТОП — фото самовывоза по ширине таба «Самовывоз» (266px, ширина одного
    таба способов получения) */
 @media (min-width: 1024px) {
