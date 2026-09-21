@@ -7354,3 +7354,8 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .look-item__sizes .look-item__size-btn { flex: 1 1 0; padding: 2px 0; font-size: 10px; }
 }
 
+/* МОБИЛЬНАЯ — «Выберите размеры»: у метки «OS» (один размер) кегль тоже 10px */
+@media (max-width: 767px) {
+  .look-item__one-size { font-size: 10px; }
+}
+
