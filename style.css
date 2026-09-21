@@ -7318,3 +7318,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .checkout-store__photo { width: 228px; }
 }
 
+/* ДЕСКТОП — фото самовывоза по ширине таба «Самовывоз» (266px, ширина одного
+   таба способов получения) */
+@media (min-width: 1024px) {
+  .checkout-store__photo { width: 266px; }
+}
+
