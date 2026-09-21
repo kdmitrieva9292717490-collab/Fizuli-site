@@ -7277,3 +7277,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .product-page-heading { padding-bottom: 32px; }
 }
 
+/* ДЕСКТОП — корзина: «в избранное» у товара — тот же ховер, что у иконок в
+   шапке, на карточках и на странице товара (иконка тускнеет до 60%) */
+@media (min-width: 1024px) {
+  .cart-page-item__favorite:hover .icon { opacity: 0.6; }
+}
+
