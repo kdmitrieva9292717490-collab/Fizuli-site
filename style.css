@@ -7338,3 +7338,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .journal-collection__card .btn { margin: -12px 0 -4px; }
 }
 
+/* ПЛАНШЕТ — «Журнал»/События: высота фотографий равна их ширине (квадрат);
+   у карточки-матрицы 3×3 квадратом становится вся сетка */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .event-card__media { height: auto; aspect-ratio: 1 / 1; }
+  .event-card__grid { height: auto; aspect-ratio: 1 / 1; grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  .event-card__grid img { height: 100%; min-height: 0; aspect-ratio: auto; }
+}
+
