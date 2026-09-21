@@ -7199,3 +7199,14 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .order-summary--checkout .order-summary__dynamic-text { margin-bottom: 24px; }
   .order-summary--checkout .order-summary__checkout { margin-bottom: 8px; }
 }
+
+/* ДЕСКТОП — мегаменю: вместо фото в превью серые заглушки (фото слишком
+   перетягивали внимание). Подпись и «перейти в каталог» — чёрные, иначе на
+   светло-сером фоне белый текст не виден */
+@media (min-width: 1024px) {
+  .megamenu__preview-image { background-image: none !important; }
+  .megamenu__preview { color: var(--text-black); }
+  .megamenu__preview-label { color: var(--text-black); }
+  .megamenu__preview-btn { color: var(--text-black); border-bottom-color: var(--stroke-black); }
+}
+
