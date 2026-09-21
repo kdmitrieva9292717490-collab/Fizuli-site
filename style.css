@@ -7321,3 +7321,13 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .info-section__title { line-height: 1.4; }
 }
 
+/* ПЛАНШЕТ — прилипающая шапка страниц без вкладок («Партнёрам», «О бренде»,
+   «Магазины»): отступ 24px под заголовком был margin-bottom и «схлопывался»
+   наружу, поэтому не входил в закреплённый блок — при прокрутке контент
+   подъезжал вплотную под заголовок. Переношу отступ в padding-bottom блока
+   заголовка: теперь он закреплён вместе с заголовком */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .info-top-sticky:not(:has(.info-tabs)) .page-heading { padding-bottom: 24px; }
+  .info-top-sticky:not(:has(.info-tabs)) .page-title { margin-bottom: 0; }
+}
+
