@@ -7210,3 +7210,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .megamenu__preview-btn { color: var(--text-black); border-bottom-color: var(--stroke-black); }
 }
 
+/* Все версии — ряд каталога, в котором скрыты все карточки (фильтр по
+   коллекции/категории прячет их через [hidden]), пустой, но flex-gap
+   родителя всё равно отдавал ему 40px — от фильтров до первой видимой
+   карточки было 60 вместо 20. Убираю такой ряд из раскладки совсем */
+.catalog-grid-row:not(:has(> :not([hidden]))) { display: none; }
+
