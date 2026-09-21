@@ -7289,3 +7289,12 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .promo-code__input:focus { outline: none; border-color: var(--stroke-black-30); }
 }
 
+/* ДЕСКТОП — прогресс-бар бесплатной доставки: серый цвет пустой части и правой
+   точки — не полупрозрачный (Black 10%), а непрозрачный эквивалент на белом
+   (#E7E7E7): иначе в месте, где точка налезает на линию, прозрачности
+   складываются и видна тёмная полоса-наложение */
+@media (min-width: 1024px) {
+  .shipping-progress__bar { background: #E7E7E7; }
+  .shipping-progress__bar::after { background: #E7E7E7; }
+}
+
