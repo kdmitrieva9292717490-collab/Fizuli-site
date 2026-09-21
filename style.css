@@ -7260,3 +7260,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .notify-popover .account-input input { font-size: 14px; color: var(--text-black); }
 }
 
+/* ДЕСКТОП — попап «Уведомить о поступлении», экран «Готово»: текст на всю
+   ширину окна (без ручных переносов), а не узкими строками */
+@media (min-width: 1024px) {
+  .notify-break { display: none; }
+}
+
