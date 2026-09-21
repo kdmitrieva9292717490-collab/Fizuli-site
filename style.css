@@ -7324,3 +7324,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .checkout-store__photo { width: 266px; }
 }
 
+/* ДЕСКТОП — межстрочный интервал 140% у всех многострочных текстов (у ряда
+   текстов стоял «normal», ≈120%, а у текста журнала 138%): названия товаров,
+   название в корзине, пояснение под «Ваш заказ», способы оплаты, заголовки
+   пунктов оферты/политики, тексты событий и абзацы без класса */
+@media (min-width: 1024px) {
+  .product-card__title,
+  .cart-page-item__name,
+  .radio-option__title,
+  .order-summary__delivery-value,
+  .order-summary__dynamic-text,
+  .event-card__text,
+  .info-section__title,
+  main p:not([class]) { line-height: 1.4; }
+}
+
