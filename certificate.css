@@ -1,0 +1,141 @@
+/* Страница подарочного сертификата (certificate.html, фрейм «Page / Gift Certificate»).
+   Отдельным файлом, чтобы не менять общий style.css. Всё, что совпадает со
+   страницей товара (шапка, кнопки, аккордеон), берётся оттуда. */
+
+.certificate-section { gap: 32px; }
+
+/* Левая колонка: подложка фиксированной высоты прилипает под шапкой,
+   пока прокручивается правая колонка */
+.certificate-preview {
+  flex: 1;
+  min-width: 0;
+  height: 672px;
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 42px;
+  box-sizing: border-box;
+  background: var(--bg-gray1);
+}
+.certificate-preview__image {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
+
+/* Правая колонка: обычный поток страницы, без залипания и боковых паддингов товара */
+.product-info.certificate-info {
+  position: static;
+  padding: 0;
+}
+
+.certificate-info__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.certificate-info .product-info__description { color: var(--text-gray-light); }
+
+.certificate-info__group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.certificate-info__group--field { gap: 8px; }
+.certificate-info .product-info__section-title { margin: 0; }
+.certificate-info .product-info__model-caption { margin: 0; }
+
+/* Выбор номинала и формата: кнопка размера с текстом произвольной длины */
+.certificate-chips .product-info__size-btn {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 4px 8px;
+}
+
+.certificate-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  border-bottom: 1px solid var(--stroke-black-10);
+}
+.certificate-field:focus-within { border-bottom-color: var(--stroke-black); }
+.certificate-field.is-invalid { border-bottom-color: var(--stroke-error); }
+.certificate-field__input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-black);
+}
+.certificate-field__input::placeholder { color: var(--text-gray-light); opacity: 1; }
+
+/* Системный значок календаря растянут прозрачным поверх нашего: клик по полю
+   открывает выбор даты, а видно значок проекта */
+.certificate-field__input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.certificate-field__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--icon-black);
+  pointer-events: none;
+}
+
+.certificate-info .product-accordion__text ul,
+.certificate-info .product-accordion__text ol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.certificate-info .product-accordion__text ol { counter-reset: certificate-step; }
+.certificate-info .product-accordion__text ol li {
+  counter-increment: certificate-step;
+  padding-left: 20px;
+}
+.certificate-info .product-accordion__text ol li::before {
+  content: counter(certificate-step) '.';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  background: none;
+  border-radius: 0;
+}
+
+.certificate-faq { padding-bottom: 120px; }
+.certificate-faq__title { margin: 0 0 40px; }
+
+@media (max-width: 1023px) {
+  .certificate-section { gap: 24px; }
+  .certificate-preview {
+    flex: none;
+    position: static;
+    height: auto;
+    padding: 24px;
+  }
+  .certificate-faq { padding-bottom: 80px; }
+  .certificate-faq__title { margin-bottom: 24px; }
+}
+
+@media (max-width: 767px) {
+  .certificate-preview { padding: 12px; }
+  .certificate-faq { padding-bottom: 60px; }
+}
