@@ -134,6 +134,10 @@
   .certificate-preview { top: 146px; }
 }
 
+/* Последний пункт каждого списка без нижней линии */
+.certificate-info .product-accordion__item:last-child,
+.certificate-faq .product-accordion__item:last-child { border-bottom: none; }
+
 .certificate-faq { padding-bottom: 120px; }
 .certificate-faq__title { margin: 0 0 40px; }
 
