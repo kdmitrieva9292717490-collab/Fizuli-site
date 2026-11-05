@@ -142,6 +142,9 @@
 .certificate-faq__title { margin: 0 0 40px; }
 
 @media (max-width: 1023px) {
+  /* На странице товара здесь вместо крошек ссылка «назад», на этой странице крошки остаются */
+  .certificate-heading.product-page-heading .breadcrumbs { display: flex; }
+  .certificate-heading.product-page-heading .product-back-link { display: none; }
   .certificate-section { gap: 24px; }
   .certificate-preview {
     flex: none;
