@@ -120,6 +120,20 @@
   border-radius: 0;
 }
 
+/* Десктоп: хлебные крошки и подложка не двигаются, пока прокручивается правая
+   колонка. Высота шапки блока задана явно, чтобы подложка стояла вплотную под ней */
+@media (min-width: 1024px) {
+  .certificate-heading {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 146px;
+    box-sizing: border-box;
+    background: var(--bg-white);
+  }
+  .certificate-preview { top: 146px; }
+}
+
 .certificate-faq { padding-bottom: 120px; }
 .certificate-faq__title { margin: 0 0 40px; }
 
